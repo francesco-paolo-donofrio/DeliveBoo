@@ -12,13 +12,7 @@ class OrderProduct extends Pivot
 {
     use HasFactory;
 
-    protected $fillable = [
-        'order_id',
-        'product_id',
-        'quantity',
-        'product_name',
-        'unit_price'
-    ];
+    protected $guarded = [];
 
     public function product()
     {

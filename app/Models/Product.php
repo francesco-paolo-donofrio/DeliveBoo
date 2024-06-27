@@ -11,6 +11,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function orders() //$product->orders->quantity
     {
         return $this->belongsToMany(Order::class)->using(OrderProduct::class)->withPivot('quantity', 'unit_price', 'product_name');
