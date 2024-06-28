@@ -11,14 +11,6 @@ use App\Models\Restaurant;
 class RestaurantController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the form for creating a new resource.
      */
     public function create()
@@ -37,27 +29,17 @@ class RestaurantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Restaurant $restaurant)
+    public function show()
     {
-        //
-    }
+        $user = Auth::user();
+        $restaurant = $user->restaurant;
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Restaurant $restaurant)
-    {
-        //
-    }
+        if (!$restaurant) {
+            abort(404, 'Restaurant not found');
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Restaurant $restaurant)
-    {
-        //
+        return view('restaurant.show', compact('restaurant'));
     }
-
     /**
      * Remove the specified resource from storage.
      */
