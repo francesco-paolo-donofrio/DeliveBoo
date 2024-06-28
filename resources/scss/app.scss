@@ -9,6 +9,119 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
-    color: $text-color;
+
+// classi francesco
+
+.f-d-header {
+    background: linear-gradient(to right, $primary-color-backend, $third-color-backend);
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 200px;
+    width: calc(100% - 200px);
+    z-index: 3000;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+
+    a {
+        color: $primary-color-backend;
+        font-size: 20px;
+    }
+
+    a:hover {
+        color: $green;
+    }
 }
+
+.f-d-li-unique {
+    color: $primary-color-backend;
+    font-size: 20px;
+}
+
+.f-d-edit-height {
+    height: 100vh;
+}
+
+
+
+.f-d-main {
+    /* flex-grow: 1; soluzione2: collegata al flex-schrink di #sidebar */
+    width: calc(100% - 200px);
+    height: 100vh;
+    padding-top: 80px;
+    overflow-y: auto;
+    color: white;
+}
+
+.padding {
+    padding-top: 80px;
+}
+
+.f-d-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.f-d-sidebar {
+    width: 200px;
+    height: 100vh;
+    background: linear-gradient(to bottom, $primary-color-backend, $third-color-backend);
+    overflow: hidden;
+    padding: 20px;
+    /* flex-shrink: 0; soluzione2: collegata al flex grow del main */
+}
+
+
+
+.f-d-nav-vertical {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        color: $green;
+        padding: 10px;
+
+        &:hover {
+            color: $primary-color-backend;
+        }
+    }
+    i {
+        color: $primary-color-backend;
+        cursor: pointer;
+        padding-right: 10px;
+    }
+}
+
+.f-d-end-sidebar {
+    padding: 10px;
+    height: 80px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.f-d-page-title {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, $third-color-backend, $fourth-color-backend);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient 3s ease-in-out infinite, move 2s ease-in-out infinite;
+}
+// Animazione titolo
+
+.bounce-title {
+    display: inline-block; /* Necessario per usare transform */
+    animation: bounce 2s infinite;
+}
+
+

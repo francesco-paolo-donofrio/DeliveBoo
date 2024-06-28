@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Restaurant;
+
 
 use Illuminate\Http\Request;
 
@@ -13,7 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $user = auth()->user();
+        $products=Product::all();
+        $restaurants=Restaurant::all()->first();
+        return view('admin.products.index', compact('products', 'restaurants'));
     }
 
     /**
@@ -37,7 +42,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('admin.products.show', compact('product'));
     }
 
     /**
