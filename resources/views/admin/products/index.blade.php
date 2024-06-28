@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Tutti i prodotti di {{$restaurants->name}}</h1> 
+<h1>Tutti i prodotti di {{$user->restaurant->name}}</h1> 
 
 <table class="table">
     <thead>
@@ -18,7 +18,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach ($products as $product)
+    @foreach ($user->restaurant->products as $product)
         <tr>
             <td>{{$product->image}}</td>
             <td>{{$product->id}}</td>

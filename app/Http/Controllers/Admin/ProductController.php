@@ -7,6 +7,7 @@ use App\Models\Restaurant;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -15,10 +16,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $user = auth()->user();
-        $products=Product::all();
-        $restaurants=Restaurant::all()->first();
-        return view('admin.products.index', compact('products', 'restaurants'));
+        $user = Auth::user();
+        if($user->restaurant->products){
+            $products=Product::all();
+            $restaurants=Restaurant::all()->first();
+            return view('admin.products.index', compact('user'));
+        }
+        
     }
 
     /**

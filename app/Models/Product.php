@@ -17,4 +17,5 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class)->using(OrderProduct::class)->withPivot('quantity', 'unit_price', 'product_name');
     }
+    
 }
