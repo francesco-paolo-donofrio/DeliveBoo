@@ -36,10 +36,6 @@
                         <i class="fa-solid fa-magnifying-glass f-d-li-unique" id="search-icon"></i>
                         <input type="text" id="search-bar" placeholder="Search...">
                     </li>
-                    <li class="nav-item text-center">
-                        <a class="nav-link" href="{{url('/') }}"><i class="fa-solid fa-house"></i>
-                        </a>
-                    </li>
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item text-center">
@@ -78,7 +74,7 @@
             <div class="f-d-sidebar">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div class="f-d-page-title">
-                        Projects
+                        DeliveBoo
                     </div>
                     {{-- config('app.name', 'Laravel') --}}
                 </a>
