@@ -24,7 +24,17 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        // if($request->hasFile('image')){
+        //     $name = $request->image->getClientOriginalName();
+        //     $path = Storage::putFileAs('updatedimages', $request->image, $name);
+        //     $form_data['image'] = $path;
+        // };
+        // dd($form_data);
+        $user = Auth::user();
+        $form_data['user_id']= $user->id;
+        $new_restaurant = Restaurant::create($form_data);
+        return redirect()->route('admin.restaurants.index')->with('created', $new_restaurant->name . ' è stato aggiunto');
     }
 
     /**
@@ -34,13 +44,13 @@ class RestaurantController extends Controller
     {
         $user = Auth::user();
         $user_restaurant = $user->restaurant;
-        $user_products = $user_restaurant->products[0];
+        
         // dd($user_products);
         
         if (!$user_restaurant) {
-            abort(404, 'Restaurant not found');
+            return view('admin.restaurants.index', compact('user_restaurant'));
         }
-
+        $user_products = $user->restaurant->products->all();
         return view('admin.restaurants.index', compact('user_restaurant', 'user_products'));
     }
     /**

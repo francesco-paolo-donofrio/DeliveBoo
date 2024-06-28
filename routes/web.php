@@ -25,7 +25,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
     // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class)->parameters('id');
-    // Route::resource('restaurants', RestaurantController::class)->only(['create','show','destroy'])->parameters(['restaurant'=>'name']);
+    Route::resource('restaurants', RestaurantController::class)->only(['create','index','store','destroy']);
     //route to show restaurant of auth user
     Route::get('/', [RestaurantController::class, 'index'])->name('my-restaurant')->middleware('auth');
 });
