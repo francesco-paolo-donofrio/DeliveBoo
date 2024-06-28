@@ -45,8 +45,6 @@ $fa-font-path: "../fonts/webfonts" !default;
     height: 100vh;
 }
 
-
-
 .f-d-main {
     /* flex-grow: 1; soluzione2: collegata al flex-schrink di #sidebar */
     width: calc(100% - 200px);
@@ -74,8 +72,6 @@ $fa-font-path: "../fonts/webfonts" !default;
     padding: 20px;
     /* flex-shrink: 0; soluzione2: collegata al flex grow del main */
 }
-
-
 
 .f-d-nav-vertical {
     width: 100%;
@@ -123,11 +119,6 @@ $fa-font-path: "../fonts/webfonts" !default;
     display: inline-block; /* Necessario per usare transform */
     animation: bounce 2s infinite;
 }
-
-
-
-
-
 
 .f-d-form-control {
     background-color: #1C2226;
@@ -187,18 +178,6 @@ tr:hover {
 td:first-child {
     font-weight: bold;
 }
-
-// card
-
-// .f-d-card {
-//     width: 500px;
-//     height: 300px;
-//     background-color: $primary-color-frontend;
-//     border-radius: 10px;
-//     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-//     overflow: hidden;
-//     padding: ;
-// }
 
 .f-d-firstFavProject {
     width: 200px;
