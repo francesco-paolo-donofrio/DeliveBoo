@@ -23,11 +23,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    // Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class)->parameters('id');
-    //Route::resource('restaurants', RestaurantController::class)->only(['create','show','destroy']);
+    // Route::resource('restaurants', RestaurantController::class)->only(['create','show','destroy'])->parameters(['restaurant'=>'name']);
     //route to show restaurant of auth user
-    Route::get('/my-restaurant', [RestaurantController::class, 'show'])->name('my-restaurant')->middleware('auth');
+    Route::get('/', [RestaurantController::class, 'index'])->name('my-restaurant')->middleware('auth');
 });
 
 
