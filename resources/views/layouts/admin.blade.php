@@ -26,9 +26,9 @@
         <div class="f-d-content">
             <div class="f-d-header">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto text-center">
-                    @yield('title')
-                </ul>
+                <div class="f-d-logo-container">
+                    <img src="{{asset('images/logo_deliveboo.png')}}" class="img-fluid" alt="Logo">
+                </div>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav d-flex flex-row gap-3">

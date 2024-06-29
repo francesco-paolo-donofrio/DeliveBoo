@@ -26,11 +26,12 @@
         <div class="f-d-content">
             <div class="f-d-header">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto text-center">
-                    @yield('title')
-                </ul>
+                <div class="f-d-logo-container">
+                    <img src="{{asset('images/logo_deliveboo.png')}}" class="img-fluid" alt="Logo">
+                </div>
 
                 <!-- Right Side Of Navbar -->
+
                 <ul class="navbar-nav d-flex flex-row gap-3">
                     <li class="nav-item text-center search-container d-flex justify-content-center align-items-center">
                         <i class="fa-solid fa-magnifying-glass f-d-li-unique" id="search-icon"></i>
@@ -63,7 +64,7 @@
                                 <a class="dropdown-item" href="{{ url('admin') }}">{{__('Admin')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                 document.getElementById('logout-form').submit();">
+                                                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -91,6 +92,7 @@
                 <div>
                     @yield('sidebarContent')
                 </div>
+                
             </div>
             <main class="f-d-main">
                 @yield('content') 

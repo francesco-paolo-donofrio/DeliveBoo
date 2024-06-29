@@ -31,6 +31,13 @@ $fa-font-path: "../fonts/webfonts" !default;
         font-weight: bold;
         background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
         -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
         color: transparent;
         padding: 10px;
 
@@ -42,6 +49,13 @@ $fa-font-path: "../fonts/webfonts" !default;
     i {
         background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
         -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
         color: transparent;
         cursor: pointer;
         padding-right: 10px;
@@ -52,6 +66,13 @@ $fa-font-path: "../fonts/webfonts" !default;
     }
 
 
+}
+
+.f-d-logo-container {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
 }
 
 .f-d-li-unique {
@@ -97,9 +118,16 @@ $fa-font-path: "../fonts/webfonts" !default;
     overflow: auto;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
     background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
     -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
     color: transparent;
 
 
@@ -108,6 +136,13 @@ $fa-font-path: "../fonts/webfonts" !default;
         font-weight: bold;
         background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
         -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
         color: transparent;
         padding: 10px;
 
@@ -119,10 +154,27 @@ $fa-font-path: "../fonts/webfonts" !default;
     i {
         background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
         -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        /* Opera */
         color: transparent;
         cursor: pointer;
         padding-right: 10px;
     }
+}
+
+.f-d-bg-image-carrots {
+    width: 100%;
+    height: 50px;
+    background-image: url(../images/carote-backend.jpg);
+    align-self: flex-end;
+
+
 }
 
 .f-d-end-sidebar {
@@ -137,11 +189,25 @@ $fa-font-path: "../fonts/webfonts" !default;
     font-weight: bold;
     background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
     -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
     color: transparent;
 
     &:hover {
         background: linear-gradient(90deg, $fifth-color-frontend, $third-color-backend);
         -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
     }
 }
 
@@ -166,6 +232,13 @@ $fa-font-path: "../fonts/webfonts" !default;
 .gradientColor {
     background: linear-gradient(90deg, $fourth-color-frontend, $green, $primary-color-frontend);
     -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
     color: transparent;
 }
 
