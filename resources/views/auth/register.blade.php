@@ -75,3 +75,6 @@
     </div>
 </div>
 @endsection
+@section('sidebarContent')
+@include('partials.sidebar');
+@endsection

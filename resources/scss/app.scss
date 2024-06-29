@@ -27,13 +27,31 @@ $fa-font-path: "../fonts/webfonts" !default;
     padding: 10px;
 
     a {
-        color: $primary-color-backend;
-        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        color: transparent;
+        padding: 10px;
+
+        &:hover {
+            color: $primary-color-backend;
+        }
     }
 
-    a:hover {
-        color: $green;
+    i {
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        color: transparent;
+        cursor: pointer;
+        padding-right: 10px;
+
+        &:hover {
+            color: $primary-color-backend;
+        }
     }
+
+
 }
 
 .f-d-li-unique {
@@ -81,8 +99,8 @@ $fa-font-path: "../fonts/webfonts" !default;
     flex-direction: column;
     gap: 10px;
     background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
-        -webkit-background-clip: text;
-        color: transparent;
+    -webkit-background-clip: text;
+    color: transparent;
 
 
     a {
@@ -97,6 +115,7 @@ $fa-font-path: "../fonts/webfonts" !default;
             color: $primary-color-backend;
         }
     }
+
     i {
         background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
         -webkit-background-clip: text;
@@ -116,15 +135,21 @@ $fa-font-path: "../fonts/webfonts" !default;
 .f-d-page-title {
     font-size: 2rem;
     font-weight: bold;
-    background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-backend);
+    background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
     -webkit-background-clip: text;
     color: transparent;
-    animation: gradient 3s ease-in-out infinite, move 2s ease-in-out infinite;
+
+    &:hover {
+        background: linear-gradient(90deg, $fifth-color-frontend, $third-color-backend);
+        -webkit-background-clip: text;
+    }
 }
+
 // Animazione titolo
 
 .bounce-title {
-    display: inline-block; /* Necessario per usare transform */
+    display: inline-block;
+    /* Necessario per usare transform */
     animation: bounce 2s infinite;
 }
 
@@ -155,11 +180,12 @@ $fa-font-path: "../fonts/webfonts" !default;
     font-size: 1em;
     font-family: Arial, sans-serif;
     background-color: #1C2226;
-    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Stile per le celle della tabella */
-th, td {
+th,
+td {
     padding: 5px 5px;
     border: 1px solid $fourth-color-frontend;
     text-align: left;
@@ -243,8 +269,8 @@ td:first-child {
 }
 
 .f-d-card-register {
-    width: 500px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(to left, $primary-color-backend, $third-color-backend);
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -259,7 +285,6 @@ td:first-child {
     background-color: $fourth-color-frontend;
     border: none;
     color: black;
-    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -355,9 +380,11 @@ td:first-child {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(1);
     }
@@ -415,12 +442,13 @@ td:first-child {
     font-weight: bold;
     border-radius: 3px;
     outline: none;
+    margin-right: 20px;
 }
 
 .f-d-bg-form {
     padding: 5px;
     border: 2px solid $fourth-color-frontend;
-    background-color:$primary-color-backend;
+    background-color: $primary-color-backend;
     color: $green;
     font-weight: bold;
     border-radius: 3px;
@@ -434,20 +462,25 @@ td:first-child {
 // Scrollbar
 
 ::-webkit-scrollbar {
-    width: 12px; /* Larghezza della scrollbar */
+    width: 12px;
+    /* Larghezza della scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-    background: $third-color-backend; /* Colore dello sfondo della scrollbar */
+    background: $third-color-backend;
+    /* Colore dello sfondo della scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: $secondary-color-backend; /* Colore del pollice della scrollbar */
-    border-radius: 4px; /* Arrotondamento degli angoli */
+    background: $secondary-color-backend;
+    /* Colore del pollice della scrollbar */
+    border-radius: 4px;
+    /* Arrotondamento degli angoli */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: $primary-color-backend; /* Colore del pollice della scrollbar quando si passa sopra con il mouse */
+    background: $primary-color-backend;
+    /* Colore del pollice della scrollbar quando si passa sopra con il mouse */
 }
 
 
