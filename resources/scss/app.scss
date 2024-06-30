@@ -96,6 +96,7 @@ $fa-font-path: "../fonts/webfonts" !default;
     padding-top: 80px;
     overflow-y: auto;
     color: white;
+    background: linear-gradient(to top, $third-color-backend, $fifth-color-frontend);
 }
 
 .padding {
@@ -178,6 +179,21 @@ $fa-font-path: "../fonts/webfonts" !default;
     }
 }
 
+.f-d-bg-login-register {
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-image: url(../images/sfondo_login_register.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.f-d-bg-dashboard {
+    width: 100%;
+    height: calc(100vh - 80px);
+    
+}
+
 .f-d-page-title {
     font-size: 2rem;
     font-weight: bold;
@@ -242,12 +258,12 @@ $fa-font-path: "../fonts/webfonts" !default;
     width: calc(100% - 20px);
     padding: 10px;
     margin: 10px;
+    color: black;
 
     border-collapse: collapse;
     font-size: 1em;
     font-family: Arial, sans-serif;
-    background-color: #1C2226;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to left, $fifth-color-frontend, $third-color-backend);
 }
 
 /* Stile per le celle della tabella */
@@ -266,7 +282,7 @@ th {
 
 /* Stile per le righe della tabella */
 tr:nth-child(even) {
-    background-color: $black;
+    background-color: $primary-color-backend;
 }
 
 /* Stile per l'effetto hover sulle righe */

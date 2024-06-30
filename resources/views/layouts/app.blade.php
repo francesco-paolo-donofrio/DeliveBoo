@@ -39,10 +39,7 @@
                         <i class="fa-solid fa-magnifying-glass f-d-li-unique fs-4" id="search-icon"></i>
                         <input type="text" id="search-bar" placeholder="Search...">
                     </li>
-                    <li class="nav-item text-center">
-                        <a class="nav-link" href="{{url('/') }}"><i class="fa-solid fa-house fs-4"></i>
-                        </a>
-                    </li>
+
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item text-center">
@@ -66,7 +63,7 @@
                                 <a class="dropdown-item" href="{{ url('admin') }}">{{__('Admin')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                                                 document.getElementById('logout-form').submit();">
+                                                                                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 

@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h1>Tutti i prodotti di {{$user->restaurant->name}}</h1> 
+<h1 class="gradientColor text-center">Tutti i prodotti di {{$user->restaurant->name}}</h1> 
 
-<table class="table">
+<table class="f-d-table">
     <thead>
         <tr>
             <th scope="col">Immagine</th>
@@ -45,4 +45,7 @@
 </table>
 {{-- {{ $projects->links('vendor.pagination.bootstrap-5') }} --}}
 </section>
+@endsection
+@section('sidebarContent')
+@include('partials.sidebar')
 @endsection

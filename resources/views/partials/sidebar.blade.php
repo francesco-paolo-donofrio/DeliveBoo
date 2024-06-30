@@ -13,11 +13,11 @@
                     <i class="fs-4 fa-solid fa-table-columns"></i>
                     Dashboard
                 </a>
-                <a href="#" class="d-flex justify-content-start align-items-center">
+                <a href="{{ route('admin.products.index') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-utensils"></i>
                     Dishes
                 </a>
-                <a href="#" class="d-flex justify-content-start align-items-center">
+                <a href="{{ route('admin.products.create') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-plus"></i>
                     Add Dish
                 </a>
