@@ -26,8 +26,11 @@
         <div class="f-d-content">
             <div class="f-d-header">
                 <!-- Left Side Of Navbar -->
-                <div class="f-d-logo-container">
-                    <img src="{{asset('images/logo_deliveboo.png')}}" class="img-fluid" alt="Logo">
+                <div class="d-flex align-items-center justify-content-start">
+                    <button class="f-d-back-button" onclick="goBack()"><i class="fa-solid fa-arrow-left fs-4"
+                            style="color: #edd6b6;"></i></button>
+                    <button class="f-d-back-button" onclick="goForward()"><i
+                            class="fa-solid fa-arrow-left fa-rotate-180 fs-4" style="color: #edd6b6;"></i></button>
                 </div>
 
                 <!-- Right Side Of Navbar -->
@@ -71,23 +74,9 @@
                     @endguest
                 </ul>
             </div>
-            <div class="f-d-sidebar">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <div class="f-d-page-title">
-                        DeliveBoo
-                    </div>
-                    {{-- config('app.name', 'Laravel') --}}
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div>
                     @yield('sidebarContent')
                 </div>
-            </div>
             <main class="f-d-main">
                 @yield('content') 
             </main>

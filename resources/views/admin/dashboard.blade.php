@@ -25,6 +25,6 @@
 </div>
 @endsection
 @section('sidebarContent')
-@include('partials.sidebar');
+@include('partials.sidebar')
 @endsection
 

@@ -69,10 +69,15 @@ $fa-font-path: "../fonts/webfonts" !default;
 }
 
 .f-d-logo-container {
-    width: 70px;
-    height: 70px;
+    width: 100%;
+    height: 150px;
     display: flex;
     align-items: center;
+}
+
+.f-d-image-logo {
+    width: 150px;
+    height: 150px;
 }
 
 .f-d-li-unique {
@@ -108,7 +113,6 @@ $fa-font-path: "../fonts/webfonts" !default;
     height: 100vh;
     background: linear-gradient(to bottom, $primary-color-backend, $third-color-backend);
     overflow: hidden;
-    padding: 20px;
     /* flex-shrink: 0; soluzione2: collegata al flex grow del main */
 }
 
@@ -116,10 +120,11 @@ $fa-font-path: "../fonts/webfonts" !default;
     width: 100%;
     height: 100vh;
     overflow: auto;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: start;
     gap: 30px;
-    background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
     -webkit-background-clip: text;
     /* Safari/Chrome */
     -moz-background-clip: text;
@@ -145,9 +150,10 @@ $fa-font-path: "../fonts/webfonts" !default;
         /* Standard */
         color: transparent;
         padding: 10px;
+        margin: 20px 0 60px 0;
 
         &:hover {
-            color: $primary-color-backend;
+            color: $fourth-color-frontend;
         }
     }
 
@@ -165,23 +171,11 @@ $fa-font-path: "../fonts/webfonts" !default;
         color: transparent;
         cursor: pointer;
         padding-right: 10px;
+
+        &:hover {
+            color: $fourth-color-frontend;
+        }
     }
-}
-
-.f-d-bg-image-carrots {
-    width: 100%;
-    height: 50px;
-    background-image: url(../images/carote-backend.jpg);
-    align-self: flex-end;
-
-
-}
-
-.f-d-end-sidebar {
-    padding: 10px;
-    height: 80px;
-    width: 100%;
-    margin-bottom: 10px;
 }
 
 .f-d-page-title {
@@ -329,9 +323,9 @@ td:first-child {
 }
 
 .f-d-card {
-    width: 500px;
+    width: 600px;
     height: 300px;
-    background: linear-gradient(to bottom, $primary-color-backend, $third-color-backend);
+    background: linear-gradient(to left, $primary-color-backend, $third-color-backend);
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -355,17 +349,45 @@ td:first-child {
 }
 
 .f-d-button {
+    width: 80px;
+    height: 30px;
     background-color: $fourth-color-frontend;
     border: none;
     color: black;
+    font-weight:500;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background-color: $third-color-backend;
+    }
+}
+
+.f-d-back-button {
+    background-color: $primary-color-backend;
+    width: 40px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background-color: $primary-color-backend;
+    }
 }
 
 .f-d-orange {

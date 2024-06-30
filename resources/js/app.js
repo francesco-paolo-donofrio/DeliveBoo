@@ -13,3 +13,4 @@ document.getElementById('search-icon').addEventListener('click', function() {
         searchBar.style.display = 'none';
     }
 });
+

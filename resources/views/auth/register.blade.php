@@ -62,10 +62,13 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 d-flex justify-content-between">
                                 <button type="submit" class="f-d-button">
                                     {{ __('Register') }}
                                 </button>
+                                <a href="{{ route('login') }}" class="f-d-button">
+                                {{ __('Cancel') }}
+                                </a>
                             </div>
                         </div>
                     </form>
