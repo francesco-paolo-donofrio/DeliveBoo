@@ -96,7 +96,7 @@ $fa-font-path: "../fonts/webfonts" !default;
     padding-top: 80px;
     overflow-y: auto;
     color: white;
-    background: linear-gradient(to top, $third-color-backend, $fifth-color-frontend);
+    background_color: $fifth-color-frontend;
 }
 
 .padding {
@@ -258,12 +258,12 @@ $fa-font-path: "../fonts/webfonts" !default;
     width: calc(100% - 20px);
     padding: 10px;
     margin: 10px;
-    color: black;
+    color: $fifth-color-backend;
 
     border-collapse: collapse;
     font-size: 1em;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to left, $fifth-color-frontend, $third-color-backend);
+    background-color: $primary-color-frontend;
 }
 
 /* Stile per le celle della tabella */
@@ -276,19 +276,13 @@ td {
 
 /* Stile per l'intestazione della tabella */
 th {
-    background-color: $primary-color-frontend;
-    color: $fourth-color-frontend;
+    background-color: $secondary-color-backend;
+    color: $fifth-color-backend;
 }
 
 /* Stile per le righe della tabella */
 tr:nth-child(even) {
     background-color: $primary-color-backend;
-}
-
-/* Stile per l'effetto hover sulle righe */
-tr:hover {
-    background-color: $primary-color-frontend;
-    cursor: pointer;
 }
 
 /* Stile per la prima colonna */
