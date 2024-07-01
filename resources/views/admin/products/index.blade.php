@@ -3,8 +3,8 @@
 @section('content')
 
 
-@if(session()->has('message'))
-    <div class="alert alert-success">{{session()->get('message')}}</div>
+@if(session()->has('deleted'))
+    <div class="alert alert-danger">{{session()->get('deleted')}}</div>
     @endif
 
 

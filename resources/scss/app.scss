@@ -630,3 +630,7 @@ td:first-child {
     height: calc(100vh - 80px);
     text-shadow: rgb(0, 0, 0) 1px 0 10px;
 }
+.showimage img{
+    aspect-ratio: 1/1;
+    width: 200px;
+}

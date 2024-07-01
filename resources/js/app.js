@@ -15,6 +15,10 @@ import.meta.glob(["../img/**", "../fonts/**"]);
 //     }
 // });
 
+//^ upload image-->preview
+//prendo la casella di input file
+const image = document.getElementById("uploadImage");
+//se esiste nella pagina
 if (image) {
     image.addEventListener('change', () => {
 

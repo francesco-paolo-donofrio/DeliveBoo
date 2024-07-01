@@ -46,18 +46,16 @@ class RestaurantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function index()
+    public function index(Restaurant $restaurant)
     {
+        
         $user = Auth::user();
-        $user_restaurant = $user->restaurant;
-        
-        // dd($user_products);
-        
+        $user_restaurant = $user->restaurant;        
         if (!$user_restaurant) {
             return view('admin.restaurants.index', compact('user_restaurant'));
         }
         $user_products = $user->restaurant->products->all();
-        return view('admin.restaurants.index', compact('user_restaurant', 'user_products'));
+        return view('admin.restaurants.index', compact('user_restaurant', 'user_products', 'restaurant'));
     }
     /**
      * Remove the specified resource from storage.

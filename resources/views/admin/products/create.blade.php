@@ -19,6 +19,12 @@
             </div>
 
             <!-- IMMAGINE -->
+            @if($product->image)
+                <img class="shadow" width="150" src="{{asset('storage/post_images/' . $product->image)}}" alt="{{$product->name}}" id="uploadPreview">
+            @else
+                <img class="shadow" width="150" src="" alt="{{$product->name}}" id="uploadPreview">
+            @endif
+
             <div class="mb-3 text-secondary">
                 <img id="uploadPreview" width="100" src="">
                 <label for="image" class="form-label">Immagine</label>

@@ -35,9 +35,9 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Product $product)
     {
-        return view('admin.products.create');
+        return view('admin.products.create', compact('product'));
     }
 
     /**
@@ -99,6 +99,6 @@ class ProductController extends Controller
         }
       
         $product->delete();
-        return redirect()->route('admin.products.index')->with('message', $product->name . ' è stato eliminato');
+        return redirect()->route('admin.products.index')->with('deleted', $product->name . ' è stato eliminato');
     }
 }
