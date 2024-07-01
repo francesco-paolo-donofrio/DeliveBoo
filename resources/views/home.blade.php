@@ -5,3 +5,6 @@
         <p>section content</p>
     </section>
 @endsection
+@section('sidebarContent')
+@include('partials.sidebar')
+@endsection

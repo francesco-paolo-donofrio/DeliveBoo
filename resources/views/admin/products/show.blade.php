@@ -5,14 +5,21 @@
 @if(session()->has('message'))
     <div class="alert alert-success">{{session()->get('message')}}</div>
     @endif
-    <div div class="py-4 ps-4 text-secondary">
+    <div class="py-4 ps-4 text-secondary">
         <h1>{{$product->name}}</h1>
         <img src="{{asset('storage/' . $product->image)}}" alt="{{$product->name}}">
         <p>{{$product->description}}</p>
+
         <small>Prezzo: {{$product->price}}</small>
     </div>
     <div class="ms-2 mt2">
         <!--  Qui va eventualmente la rotta di modifica con relativo bottone  -->
         <a href="{{route('admin.products.edit', $product->id)}}" title="Edit" class="text-black px-2"><button class="btn btn-success">Modifica</button></a>
     </div>
+
+        
+</section>
+@endsection
+@section('sidebarContent')
+@include('partials.sidebar')
 @endsection

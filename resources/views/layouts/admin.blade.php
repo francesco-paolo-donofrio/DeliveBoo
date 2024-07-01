@@ -26,20 +26,19 @@
         <div class="f-d-content">
             <div class="f-d-header">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav me-auto text-center">
-                    @yield('title')
-                </ul>
+                <div class="d-flex align-items-center justify-content-start">
+                    <button class="f-d-back-button" onclick="goBack()"><i class="fa-solid fa-arrow-left fs-4"
+                            style="color: #edd6b6;"></i></button>
+                    <button class="f-d-back-button" onclick="goForward()"><i
+                            class="fa-solid fa-arrow-left fa-rotate-180 fs-4" style="color: #edd6b6;"></i></button>
+                </div>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav d-flex flex-row gap-3">
-                    <li class="nav-item text-center search-container d-flex justify-content-center align-items-center">
+                    <!-- <li class="nav-item text-center search-container d-flex justify-content-center align-items-center">
                         <i class="fa-solid fa-magnifying-glass f-d-li-unique" id="search-icon"></i>
                         <input type="text" id="search-bar" placeholder="Search...">
-                    </li>
-                    <li class="nav-item text-center">
-                        <a class="nav-link" href="{{url('/') }}"><i class="fa-solid fa-house"></i>
-                        </a>
-                    </li>
+                    </li> -->
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item text-center">
@@ -59,7 +58,7 @@
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right bg-gray" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right bg-gray " aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ url('admin') }}">{{__('Admin')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -75,23 +74,9 @@
                     @endguest
                 </ul>
             </div>
-            <div class="f-d-sidebar">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <div class="f-d-page-title">
-                        Projects
-                    </div>
-                    {{-- config('app.name', 'Laravel') --}}
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div>
                     @yield('sidebarContent')
                 </div>
-            </div>
             <main class="f-d-main">
                 @yield('content') 
             </main>
@@ -103,3 +88,14 @@
 </body>
 
 </html>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+    function goForward() {
+        window.history.forward();
+    }
+
+</script>
