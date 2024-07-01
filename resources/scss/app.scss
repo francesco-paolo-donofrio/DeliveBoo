@@ -10,7 +10,7 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import '~bootstrap/scss/bootstrap';
 
 
-// classi francesco
+// classi Francesco
 
 .f-d-header {
     background: linear-gradient(to right, $primary-color-backend, $third-color-backend);
@@ -241,7 +241,7 @@ $fa-font-path: "../fonts/webfonts" !default;
 }
 
 .gradientColor {
-    background: linear-gradient(90deg, $fourth-color-frontend, $green, $primary-color-frontend);
+    background: linear-gradient(90deg, $primary-color-backend, $secondary-color-frontend, $secondary-color-backend, $fourth-color-frontend);
     -webkit-background-clip: text;
     /* Safari/Chrome */
     -moz-background-clip: text;
@@ -426,9 +426,9 @@ td:first-child {
 }
 
 .f-d-button-form {
-    background-color: $green;
+    background-color: $primary-color-backend;
     border: none;
-    color: #1C2226;
+    color: $white;
     font-weight: bold;
     text-transform: uppercase;
     padding: 10px 20px;
@@ -531,7 +531,7 @@ td:first-child {
 }
 
 .f-d-transparent-layer-edit {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #1f2d3ad8;
     width: 100%;
 }
 

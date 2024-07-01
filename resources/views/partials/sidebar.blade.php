@@ -7,7 +7,7 @@
             <div>
                 <a href="{{ route('home') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-home"></i>
-                    Home
+                    Homepage
                 </a>
                 <a href="{{ route('admin.dashboard') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-table-columns"></i>
@@ -15,19 +15,19 @@
                 </a>
                 <a href="{{ route('admin.products.index') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-utensils"></i>
-                    Dishes
+                    Piatti
                 </a>
                 <a href="{{ route('admin.products.create') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-plus"></i>
-                    Add Dish
+                    Aggiungi Piatto
                 </a>
                 <a href="#" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-clipboard-check"></i>
-                    Orders
+                    Ordini
                 </a>
                 <a href="#" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-chart-line"></i>
-                    Data
+                    Dati e grafici
                 </a>
             </div>
         </div>

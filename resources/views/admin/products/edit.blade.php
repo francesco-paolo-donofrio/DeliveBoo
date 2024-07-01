@@ -3,7 +3,7 @@
 @section('title', 'Modifica prodotto: ' . $product->name)
 
 @section('content')
-<section class="container">
+<section class="container f-d-editform-container f-d-transparent-layer-edit">
     <h2 class="text-secondary">Modifica prodotto {{$product->name}}</h2>
         <form class="text-secondary" action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -62,4 +62,7 @@
             </div>
         </form>
     </section>
+@endsection
+@section('sidebarContent')
+@include('partials.sidebar')
 @endsection

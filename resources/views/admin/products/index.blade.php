@@ -8,7 +8,7 @@
     @endif
 
 
-<h1 class="gradientColor text-center">Tutti i prodotti di {{$user->restaurant->name}}</h1> 
+<h1 class="gradientColor text-center"><em>Menù </em><strong>{{$user->restaurant->name}}</strong></h1> 
 
 
 <table class="f-d-table">
