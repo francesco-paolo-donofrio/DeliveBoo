@@ -65,7 +65,7 @@
     @endforeach
 
 </ul>
-
+<a href="{{route('admin.products.create')}}" title="Create" class="text-black px-2"><button class="btn btn-success">Aggiungi prodotto</button></a>
 @endif
 
 @endsection
