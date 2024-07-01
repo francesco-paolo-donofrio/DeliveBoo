@@ -33,9 +33,7 @@
             <!-- DESCRIZIONE -->
             <div class="mb-3">
                 <label class="text-secondary" for="description" class="form-label">Descrizione</label>
-                <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" required>
-                {{ old('description') }}
-              </textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" required>{{ old('description') }}</textarea>
               <!-- qui va il messaggio di errore della descrizione -->
               @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>

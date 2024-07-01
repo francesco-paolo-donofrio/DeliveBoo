@@ -152,7 +152,7 @@ $fa-font-path: "../fonts/webfonts" !default;
         /* Standard */
         color: transparent;
         padding: 10px;
-        margin: 20px 0 60px 0;
+        margin: 20px 0 20px 0;
 
         &:hover {
             color: $fourth-color-frontend;
@@ -401,6 +401,32 @@ td:first-child {
     }
 }
 
+.f-d-button-view {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, $primary-color-backend, $secondary-color-frontend, $secondary-color-backend, $fourth-color-frontend);
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background: linear-gradient(90deg, $fifth-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
+    }
+}
+
+.f-d-bg-green {
+    background: linear-gradient(to top, $primary-color-backend, $third-color-backend);
+    border-top: none;
+}
+
 .f-d-orange {
     border: $fourth-color-frontend;
 }
@@ -526,13 +552,9 @@ td:first-child {
 }
 
 .f-d-transparent-layer {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: #1f2d3a46;
     width: 100%;
-}
-
-.f-d-transparent-layer-edit {
-    background-color: #1f2d3ad8;
-    width: 100%;
+    height: calc(100vh - 80px);
 }
 
 // fontawesome searchbar
@@ -598,4 +620,13 @@ td:first-child {
 .f-d-img-small {
     width: 150px;
     height: 150px;
+}
+
+.home{
+    background-image: url(../images/food-delivery-bg.jpeg);
+    background-size: cover;
+    background-position: 0% 30%;
+    background-repeat: no-repeat;
+    height: calc(100vh - 80px);
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
 }

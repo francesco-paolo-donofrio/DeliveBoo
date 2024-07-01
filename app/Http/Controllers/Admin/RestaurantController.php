@@ -9,6 +9,8 @@ use App\Traits\HandlesFileUpload;
 
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreRestaurantRequest;
+
 
 
 class RestaurantController extends Controller
@@ -27,10 +29,10 @@ class RestaurantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRestaurantRequest $request)
     {
         $form_data = $request->all();
-
+        $form_data = $request->validated();
         if ($request->hasFile('image')) {
             //gestisco qui la rinomina del file in caso di file con stesso nome, tramite trait 
             $form_data['image'] = $this->uploadFile($request->file('image'), 'restaurant_images');

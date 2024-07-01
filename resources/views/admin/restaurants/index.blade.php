@@ -5,6 +5,7 @@
 @if (!$user_restaurant)
 <section>
   <div class="container">
+    <h1 class="text-center">Effettua la registrazione</h1>
     <form action="{{route('admin.restaurants.store')}}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="mb-3">
@@ -38,13 +39,13 @@
       <div class="alert alert-danger">{{ $message }}</div>
     @enderror
     <div class="mb-3">
-        <label for="vat" class="form-label">vat</label>
+        <label for="vat" class="form-label">VAT</label>
         <input type="text" class="form-control" id="vat" name="vat" placeholder="Insert vat">
       </div>
       @error('vat')
       <div class="alert alert-danger">{{ $message }}</div>
     @enderror
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-success">Submit</button>
     </form>
 
 
@@ -65,7 +66,7 @@
     @endforeach
 
 </ul>
-<a href="{{route('admin.products.create')}}" title="Create" class="text-black px-2"><button class="btn btn-success">Aggiungi prodotto</button></a>
+<a href="{{route('admin.products.create')}}" title="Create" class="text-black px-2"><button class="f-d-button-view">Aggiungi prodotto</button></a>
 @endif
 
 @endsection
