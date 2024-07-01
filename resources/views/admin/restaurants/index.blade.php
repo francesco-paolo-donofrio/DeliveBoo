@@ -39,7 +39,7 @@
       <div class="alert alert-danger">{{ $message }}</div>
     @enderror
     <div class="mb-3">
-        <label for="vat" class="form-label">vat</label>
+        <label for="vat" class="form-label">VAT</label>
         <input type="text" class="form-control" id="vat" name="vat" placeholder="Insert vat">
       </div>
       @error('vat')
