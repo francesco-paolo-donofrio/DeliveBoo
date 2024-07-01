@@ -5,6 +5,7 @@
 @if (!$user_restaurant)
 <section>
   <div class="container">
+    <h1 class="text-center">Effettua la registrazione</h1>
     <form action="{{route('admin.restaurants.store')}}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="mb-3">
@@ -44,7 +45,7 @@
       @error('vat')
       <div class="alert alert-danger">{{ $message }}</div>
     @enderror
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-success">Submit</button>
     </form>
 
 

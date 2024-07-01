@@ -25,7 +25,7 @@ class StoreRestaurantRequest extends FormRequest
             
             'name' => 'required|max:255',
             'address' => 'required|max:255',
-            'description' => 'nullable',
+            'description' => 'required',
             'image' => 'required|max:255',
             'vat' => 'required',
     
@@ -36,6 +36,7 @@ class StoreRestaurantRequest extends FormRequest
             'name.required' => 'Il campo nome è obbligatorio',
             'name.max' => 'Il nome non può avere piu di 255 caratteri',
             'address.required' => 'Il campo indirizzo è obbligatorio',
+            'description.required' => 'Il campo descrizione è obbligatorio',
             'image.required' => 'Il campo immagine è obbligatorio',
             'vat.required' => 'Il campo VAT è obbligatorio',
         ];
