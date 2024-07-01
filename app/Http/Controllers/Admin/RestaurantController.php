@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Traits\HandlesFileUpload;
+
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreRestaurantRequest;
@@ -13,6 +15,9 @@ use App\Http\Requests\StoreRestaurantRequest;
 
 class RestaurantController extends Controller
 {
+    // richiamo il Trait che userò in store
+    use HandlesFileUpload;
+
     /**
      * Show the form for creating a new resource.
      */
@@ -26,13 +31,12 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
+        $form_data = $request->all();
         $form_data = $request->validated();
-        // if($request->hasFile('image')){
-        //     $name = $request->image->getClientOriginalName();
-        //     $path = Storage::putFileAs('updatedimages', $request->image, $name);
-        //     $form_data['image'] = $path;
-        // };
-        // dd($form_data);
+        if ($request->hasFile('image')) {
+            //gestisco qui la rinomina del file in caso di file con stesso nome, tramite trait 
+            $form_data['image'] = $this->uploadFile($request->file('image'), 'restaurant_images');
+        }
         $user = Auth::user();
         $form_data['user_id']= $user->id;
         $new_restaurant = Restaurant::create($form_data);
