@@ -2,16 +2,17 @@
 @section('title', $product->name)
 @section('content')
 
-
-    <div div class="py-4 ps-4">
+@if(session()->has('message'))
+    <div class="alert alert-success">{{session()->get('message')}}</div>
+    @endif
+    <div div class="py-4 ps-4 text-secondary">
         <h1>{{$product->name}}</h1>
-        ciao
-        <!-- Qui va l'immagine con src in asset  -->
-        <!-- <img src="{{asset('storage/' . $product->image)}}" alt="{{$product->name}}" -->
+        <img src="{{asset('storage/' . $product->image)}}" alt="{{$product->name}}">
         <p>{{$product->description}}</p>
-        <div>
-           <!--  Qui va la rotta di modifica con relativo bottone  -->
-        </div>
-</div>
-
+        <small>Prezzo: {{$product->price}}</small>
+    </div>
+    <div class="ms-2 mt2">
+        <!--  Qui va eventualmente la rotta di modifica con relativo bottone  -->
+        <a href="{{route('admin.products.edit', $product->id)}}" title="Edit" class="text-black px-2"><button class="btn btn-success">Modifica</button></a>
+    </div>
 @endsection

@@ -2,6 +2,10 @@
 
 @section('content')
 
+@if(session()->has('message'))
+    <div class="alert alert-success">{{session()->get('message')}}</div>
+    @endif
+
 <h1>Tutti i prodotti di {{$user->restaurant->name}}</h1> 
 
 <table class="table">
