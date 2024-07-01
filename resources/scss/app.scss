@@ -10,7 +10,7 @@ $fa-font-path: "../fonts/webfonts" !default;
 @import '~bootstrap/scss/bootstrap';
 
 
-// classi francesco
+// classi Francesco
 
 .f-d-header {
     background: linear-gradient(to right, $primary-color-backend, $third-color-backend);
@@ -241,7 +241,7 @@ $fa-font-path: "../fonts/webfonts" !default;
 }
 
 .gradientColor {
-    background: linear-gradient(90deg, $fourth-color-frontend, $green, $primary-color-frontend);
+    background: linear-gradient(90deg, $primary-color-backend, $secondary-color-frontend, $secondary-color-backend, $fourth-color-frontend);
     -webkit-background-clip: text;
     /* Safari/Chrome */
     -moz-background-clip: text;
