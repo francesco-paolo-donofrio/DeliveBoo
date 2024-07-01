@@ -80,7 +80,12 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product) 
     {
         $form_data = $request->validated();
-        $form_data = $request->all();
+        $path = Storage::put('uploads', $form_data['image']);
+        if ($request->hasFile('image')) {
+            $name = $request->image->getClientOriginalName();
+            $path = Storage::putFileAs('product_images', $request->image, $name);
+            $form_data['image'] = $path;
+        }
         $product->update($form_data);
         return redirect()->route('admin.products.show', $product->id)->with('message', $product->name . ' è stato aggiornato con successo');
     }
