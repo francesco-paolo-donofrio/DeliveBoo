@@ -5,7 +5,7 @@
         </a>
         <div>
             <div>
-                @guest
+                @guest 
                 
                 @else
                 <a href="{{ route('home') }}" class="d-flex justify-content-start align-items-center">
