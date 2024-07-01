@@ -5,6 +5,9 @@
         </a>
         <div>
             <div>
+                @guest
+                
+                @else
                 <a href="{{ route('home') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-home"></i>
                     Home
@@ -29,6 +32,7 @@
                     <i class="fs-4 fa-solid fa-chart-line"></i>
                     Data
                 </a>
+                @endguest
             </div>
         </div>
     </div>

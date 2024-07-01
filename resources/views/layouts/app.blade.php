@@ -35,10 +35,10 @@
                 <!-- Right Side Of Navbar -->
 
                 <ul class="navbar-nav d-flex flex-row gap-3">
-                    <li class="nav-item text-center search-container d-flex justify-content-center align-items-center">
+                    <!-- <li class="nav-item text-center search-container d-flex justify-content-center align-items-center">
                         <i class="fa-solid fa-magnifying-glass f-d-li-unique fs-4" id="search-icon"></i>
                         <input type="text" id="search-bar" placeholder="Search...">
-                    </li>
+                    </li> -->
 
                     <!-- Authentication Links -->
                     @guest
