@@ -2,7 +2,14 @@
 
 @section('content')
 
+
+@if(session()->has('message'))
+    <div class="alert alert-success">{{session()->get('message')}}</div>
+    @endif
+
+
 <h1 class="gradientColor text-center">Tutti i prodotti di {{$user->restaurant->name}}</h1> 
+
 
 <table class="f-d-table">
     <thead>
