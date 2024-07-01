@@ -27,13 +27,57 @@ $fa-font-path: "../fonts/webfonts" !default;
     padding: 10px;
 
     a {
-        color: $primary-color-backend;
-        font-size: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        color: transparent;
+        padding: 10px;
+
+        &:hover {
+            color: $primary-color-backend;
+        }
     }
 
-    a:hover {
-        color: $green;
+    i {
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        color: transparent;
+        cursor: pointer;
+        padding-right: 10px;
+
+        &:hover {
+            color: $primary-color-backend;
+        }
     }
+
+
+}
+
+.f-d-logo-container {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.f-d-image-logo {
+    width: 150px;
+    height: 150px;
 }
 
 .f-d-li-unique {
@@ -45,15 +89,15 @@ $fa-font-path: "../fonts/webfonts" !default;
     height: 100vh;
 }
 
-
-
 .f-d-main {
     /* flex-grow: 1; soluzione2: collegata al flex-schrink di #sidebar */
     width: calc(100% - 200px);
     height: 100vh;
     padding-top: 80px;
     overflow-y: auto;
-    color: black;
+    color: white;
+    background-color: $fifth-color-frontend;
+
 }
 
 .padding {
@@ -71,57 +115,487 @@ $fa-font-path: "../fonts/webfonts" !default;
     height: 100vh;
     background: linear-gradient(to bottom, $primary-color-backend, $third-color-backend);
     overflow: hidden;
-    padding: 20px;
     /* flex-shrink: 0; soluzione2: collegata al flex grow del main */
 }
-
-
 
 .f-d-nav-vertical {
     width: 100%;
     height: 100vh;
     overflow: auto;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: start;
+    gap: 30px;
+    -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
+    color: transparent;
+
 
     a {
         text-decoration: none;
         font-weight: bold;
-        color: $green;
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        color: transparent;
         padding: 10px;
+        margin: 20px 0 60px 0;
 
         &:hover {
-            color: $primary-color-backend;
+            color: $fourth-color-frontend;
         }
     }
+
     i {
-        color: $primary-color-backend;
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        /* Opera */
+        color: transparent;
         cursor: pointer;
         padding-right: 10px;
+
+        &:hover {
+            color: $fourth-color-frontend;
+        }
     }
 }
 
-.f-d-end-sidebar {
-    padding: 10px;
-    height: 80px;
+.f-d-bg-login-register {
     width: 100%;
-    margin-bottom: 10px;
+    height: calc(100vh - 80px);
+    background-image: url(../images/sfondo_login_register.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.f-d-bg-dashboard {
+    width: 100%;
+    height: calc(100vh - 80px);
+    
 }
 
 .f-d-page-title {
     font-size: 2rem;
     font-weight: bold;
-    background: linear-gradient(90deg, $third-color-backend, $fourth-color-backend);
+    background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
     -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
     color: transparent;
-    animation: gradient 3s ease-in-out infinite, move 2s ease-in-out infinite;
+
+    &:hover {
+        background: linear-gradient(90deg, $fifth-color-frontend, $third-color-backend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+    }
 }
+
 // Animazione titolo
 
 .bounce-title {
-    display: inline-block; /* Necessario per usare transform */
+    display: inline-block;
+    /* Necessario per usare transform */
     animation: bounce 2s infinite;
 }
 
+.f-d-form-control {
+    background-color: #1C2226;
+    border: none;
+    background: linear-gradient(to left, $primary-color-backend, $third-color-backend);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
 
+.gradientColor {
+    background: linear-gradient(90deg, $fourth-color-frontend, $green, $primary-color-frontend);
+    -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
+    color: transparent;
+}
+
+// table
+
+.f-d-table {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px;
+    color: $fifth-color-backend;
+
+    border-collapse: collapse;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    background-color: $primary-color-frontend;
+}
+
+/* Stile per le celle della tabella */
+th,
+td {
+    padding: 5px 5px;
+    border: 1px solid $fourth-color-frontend;
+    text-align: left;
+}
+
+/* Stile per l'intestazione della tabella */
+th {
+    background-color: $secondary-color-backend;
+    color: $fifth-color-backend;
+}
+
+/* Stile per le righe della tabella */
+tr:nth-child(even) {
+    background-color: $primary-color-backend;
+}
+
+/* Stile per la prima colonna */
+td:first-child {
+    font-weight: bold;
+}
+
+.f-d-firstFavProject {
+    width: 200px;
+    height: 200px;
+    background-image: url(../images/firstimg.jpg);
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.f-d-secondFavProject {
+    width: 200px;
+    height: 200px;
+    background-image: url(../images/secondimg.jpg);
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.f-d-thirdFavProject {
+    width: 200px;
+    height: 200px;
+    background-image: url(../images/thirdimg.jpg);
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+}
+
+.f-d-card {
+    width: 600px;
+    height: 300px;
+    background: linear-gradient(to left, $primary-color-backend, $third-color-backend);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+    color: black;
+    font-weight: normal;
+    border: 2px solid $fourth-color-frontend;
+}
+
+.f-d-card-register {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, $primary-color-backend, $third-color-backend);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+    color: black;
+    font-weight: normal;
+    border: 2px solid $fourth-color-frontend;
+}
+
+.f-d-button {
+    width: 80px;
+    height: 30px;
+    background-color: $fourth-color-frontend;
+    border: none;
+    color: black;
+    font-weight:500;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background-color: $third-color-backend;
+    }
+}
+
+.f-d-back-button {
+    background-color: $primary-color-backend;
+    width: 40px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background-color: $primary-color-backend;
+    }
+}
+
+.f-d-orange {
+    border: $fourth-color-frontend;
+}
+
+.f-d-button-form-cancel-modal {
+    background-color: #1C2226;
+    border: none;
+    color: $green;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.f-d-button-form {
+    background-color: $green;
+    border: none;
+    color: #1C2226;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.f-d-button-form-cancel {
+    background-color: #1C2226;
+    border: none;
+    color: $green;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.f-d-button-form:hover {
+    background-color: $fourth-color-frontend;
+
+}
+
+.f-d-button-form:active {
+    animation: pulse 0.5s;
+}
+
+.f-d-button-form-cancel:hover {
+    background-color: $fourth-color-frontend;
+}
+
+.f-d-button-form-cancel:active {
+    animation: pulse 0.5s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.f-d-card-layer {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: lightgray;
+}
+
+.f-d-main-first-container {
+    width: calc(70% - 20px);
+    height: calc(100vh - 300px);
+    margin: 10px;
+    padding: 10px;
+}
+
+.f-d-main-second-container {
+    width: calc(30% - 20px);
+    height: calc(100vh - 300px);
+    margin: 10px;
+    padding: 10px;
+}
+
+.f-d-editform-container {
+    width: calc(100% - 20px);
+    padding: 20px;
+}
+
+.f-d-transparent-layer {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+}
+
+.f-d-transparent-layer-edit {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+}
+
+// fontawesome searchbar
+
+#search-bar {
+    display: none;
+    position: absolute;
+    right: 30px;
+    padding: 5px;
+    border: 2px solid $fourth-color-frontend;
+    background-color: $primary-color-backend;
+    color: $fourth-color-frontend;
+    font-weight: bold;
+    border-radius: 3px;
+    outline: none;
+    margin-right: 20px;
+}
+
+.f-d-bg-form {
+    padding: 5px;
+    border: 2px solid $fourth-color-frontend;
+    background-color: $primary-color-backend;
+    color: $green;
+    font-weight: bold;
+    border-radius: 3px;
+    outline: none;
+}
+
+.search-container {
+    position: relative;
+}
+
+// Scrollbar
+
+::-webkit-scrollbar {
+    width: 12px;
+    /* Larghezza della scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: $third-color-backend;
+    /* Colore dello sfondo della scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background: $secondary-color-backend;
+    /* Colore del pollice della scrollbar */
+    border-radius: 4px;
+    /* Arrotondamento degli angoli */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $primary-color-backend;
+    /* Colore del pollice della scrollbar quando si passa sopra con il mouse */
+}
+
+
+.f-d-img {
+    width: 100%;
+    height: 550px;
+}
+
+.f-d-img-small {
+    width: 150px;
+    height: 150px;
+}
