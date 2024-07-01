@@ -14,7 +14,7 @@
     </div>
     <div class="ms-2 mt2">
         <!--  Qui va eventualmente la rotta di modifica con relativo bottone  -->
-        <a href="{{route('admin.products.edit', $product->id)}}" title="Edit" class="text-black px-2"><button class="btn btn-success">Modifica</button></a>
+        <a href="{{route('admin.products.edit', $product->id)}}" title="Edit" class="text-black px-2"><button class="f-d-button-view">Modifica</button></a>
     </div>
 
         

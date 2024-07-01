@@ -5,17 +5,19 @@
         </a>
         <div>
             <div>
+                @guest
                 <a href="{{ route('home') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-home"></i>
                     Homepage
                 </a>
+                @else
                 <a href="{{ route('admin.dashboard') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-table-columns"></i>
                     Dashboard
                 </a>
                 <a href="{{ route('admin.products.index') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-utensils"></i>
-                    Piatti
+                    Piatti/Menù
                 </a>
                 <a href="{{ route('admin.products.create') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-plus"></i>
@@ -29,6 +31,7 @@
                     <i class="fs-4 fa-solid fa-chart-line"></i>
                     Dati e grafici
                 </a>
+                @endguest
             </div>
         </div>
     </div>
