@@ -56,13 +56,37 @@
             </div>
 
             <!-- BOTTONI -->
-            <div class="mb-3">
+           <div class="mb-3">
                 <button type="submit" class="btn btn-success">Modifica</button>
-                <button type="reset" class="btn btn-secondary">Annulla</button>
+                <button type="button" class="btn btn-secondary" onclick="resetForm()">Ripristina</button>
+                <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Torna indietro</a>
             </div>
         </form>
     </section>
+
+ 
+
 @endsection
 @section('sidebarContent')
 @include('partials.sidebar')
+
 @endsection
+
+<script>
+         document.addEventListener('DOMContentLoaded', function () {
+            // Definisce i valori originali dei campi
+            const originalName = "{{ old('name', $product->name) }}";
+            const originalImage = "{{ old('image', $product->image) }}";
+            const originalDescription = "{{ old('description', $product->description) }}";
+            const originalPrice = "{{ old('price', $product->price) }}";
+
+            // Funzione per ripristinare i campi del form
+            window.resetForm = function () {
+                document.getElementById('name').value = originalName;
+                document.getElementById('description').value = originalDescription;
+                document.getElementById('image').value = originalImage;
+                document.getElementById('price').value = originalPrice;
+        
+            };
+        })
+    </script>
