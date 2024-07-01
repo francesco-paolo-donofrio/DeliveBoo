@@ -7,10 +7,12 @@
     <div class="alert alert-success">{{session()->get('message')}}</div>
     @endif
 
+
 <div class="d-flex align-content-center align-items-center justify-content-between ms-2 mt-3">
-<h1 class="gradientColor text-center">Tutti i prodotti di {{$user->restaurant->name}}</h1> 
+<h1 class="gradientColor text-center"><em>Menù </em><strong>{{$user->restaurant->name}}</strong></h1>
 <a href="{{route('admin.products.create')}}" title="Create" class="text-black px-2"><button class="btn btn-success">Aggiungi prodotto</button></a>
 </div>
+
 
 <table class="f-d-table">
     <thead>
