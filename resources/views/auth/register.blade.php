@@ -6,7 +6,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8 d-flex justify-content-center">
                 <div class="f-d-card-register">
-                    <div class="card-header">{{ __('Registrati') }}</div>
+
+                    <div class="card-header">{{ __('Registrazione') }}</div>
+
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
@@ -30,7 +32,9 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo e-mail') }}</label>
+
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -116,10 +120,10 @@
                             <div class="mb-4 row">
                                 <div class="col-md-6 offset-md-4 d-flex justify-content-between">
                                     <button type="submit" class="f-d-button">
-                                        {{ __('Register') }}
+                                        {{ __('Registrati') }}
                                     </button>
                                     <a href="{{ route('login') }}" class="f-d-button">
-                                        {{ __('Cancel') }}
+                                        {{ __('Cancella') }}
                                     </a>
                                 </div>
                             </div>

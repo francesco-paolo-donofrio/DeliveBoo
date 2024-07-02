@@ -9,14 +9,14 @@
     <form action="{{route('admin.restaurants.store')}}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="mb-3">
-        <label for="name" class="form-label text-secondary">Nome</label>
+        <label for="name" class="form-label">Nome</label>
         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Inserisci il nome">
       </div>
       @error('name')
         <div class="alert alert-danger">{{ $message }}</div>
       @enderror
       <div class="mb-3">
-        <label for="address" class="form-label text-secondary">Indirizzo</label>
+        <label for="address" class="form-label">Indirizzo</label>
         <input type="text" class="form-control" id="address" name="address" placeholder="Inserisci l'indirizzo">
       </div>
       @error('address')
@@ -29,7 +29,7 @@
               <img class="shadow" width="150" src="{{asset('storage/restaurant_images/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}" id="uploadPreview">
         @endif --}}
             
-        <label for="image" class="form-label text-secondary">Immagine</label>
+        <label for="image" class="form-label">Immagine</label>
         <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" id="uploadImage"
           name="image" value="{{ old('image') }}" maxlength="5120">
         @error('image')
@@ -37,14 +37,14 @@
         @enderror
       </div>
       <div class="mb-3">
-        <label for="description" class="form-label text-secondary">Descrizione</label>
+        <label for="description" class="form-label">Descrizione</label>
         <input type="text" class="form-control" id="description" name="description" placeholder="Inserisci la descrizione">
       </div>
       @error('description')
         <div class="alert alert-danger">{{ $message }}</div>
       @enderror
       <div class="mb-3">
-        <label for="vat" class="form-label text-secondary">Partita IVA</label>
+        <label for="vat" class="form-label">Partita IVA</label>
         <input type="text" class="form-control" id="vat" name="vat" placeholder="Inserisci la Partita IVA">
       </div>
       @error('vat')
@@ -65,7 +65,7 @@
 {{-- Due sezioni: a sx img, a dx info ristorante --}}
 <div class="d-flex">
   <div class="f-d-main-first-container f-d-main-image">
-    <img src="{{asset('storage/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}">
+    <img src="{{asset('assets/images/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}">
   </div>
   <div class="f-d-main-second-container">
     <h2 class="f-d-primary-color fw-bold p-2" >{{$user_restaurant->name }}</h2>
