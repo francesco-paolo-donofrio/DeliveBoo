@@ -38,10 +38,13 @@ if (image) {
     });
 }
 
+// Questo evento 'submit' viene attivato quando l'utente preme il tasto 'invia' del form
 
-document.getElementById("priceForm").addEventListener("click", function (event) {
-    var price = document.getElementById("price").value;
-    var errorMessage = document.getElementById("error-message");
+document.getElementById("priceForm").addEventListener("submit", function (event) {
+    const priceButton = document.getElementById("priceButton");
+    const price = document.getElementById("price").value;
+    const errorMessage = document.getElementById("error-message");
+    
 
     if (price < 0) {
         errorMessage.style.display = "block";
@@ -50,5 +53,39 @@ document.getElementById("priceForm").addEventListener("click", function (event) 
         errorMessage.style.display = "none";
     }
 });
+
+
+// Questo evento 'input' viene attivato ogni volta che l'utente inserisce o modifica il valore nel campo di input
+
+document.getElementById("price").addEventListener("input", function () {
+    const price = document.getElementById("price").value;
+    const errorMessage = document.getElementById("error-message");
+
+    if (price < 0) {
+      errorMessage.style.display = "block";
+    } else {
+      errorMessage.style.display = "none";
+    }
+  });
+
+//   Script per ripristinare i campi del form a quelli di partenza
+
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     // Definisce i valori originali dei campi
+    //     const originalName = "{{ old('name', $product->name) }}";
+    //     const originalImage = "{{ old('image', $product->image) }}";
+    //     const originalDescription = "{{ old('description', $product->description) }}";
+    //     const originalPrice = "{{ old('price', $product->price) }}";
+
+    //     // Funzione per ripristinare i campi del form
+    //     window.resetForm = function () {
+    //         document.getElementById('name').value = originalName;
+    //         document.getElementById('description').value = originalDescription;
+    //         document.getElementById('image').value = originalImage;
+    //         document.getElementById('price').value = originalPrice;
+
+    //     };
+    // })
+
 
 
