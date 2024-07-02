@@ -422,6 +422,69 @@ td:first-child {
     }
 }
 
+.f-d-button-form-edit {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, $third-color-backend, $secondary-color-backend);
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background: linear-gradient(90deg, $fifth-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
+    }
+}
+
+.f-d-button-form-delete {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, $primary-color-backend, $fourth-color-backend);
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background: linear-gradient(90deg, $fifth-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
+    }
+}
+
+.f-d-button-form-reset {
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, $fourth-color-backend, $fourth-color-frontend);
+    padding: 10px 20px;
+    text-align: center;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        background: linear-gradient(90deg, $fifth-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
+    }
+}
+
 .f-d-bg-green {
     background: linear-gradient(to top, $primary-color-backend, $third-color-backend);
     border-top: none;
