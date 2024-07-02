@@ -75,6 +75,13 @@ $fa-font-path: "../fonts/webfonts" !default;
     align-items: center;
 }
 
+.f-d-primary-color {
+    color: $primary-color-backend;
+}
+
+.f-d-gradient-primary-color {
+    background: linear-gradient(to left, $primary-color-backend, $third-color-backend);
+}
 .f-d-image-logo {
     width: 150px;
     height: 150px;
@@ -598,14 +605,12 @@ td:first-child {
 
 .f-d-main-first-container {
     width: calc(70% - 20px);
-    height: calc(100vh - 300px);
     margin: 10px;
     padding: 10px;
 }
 
 .f-d-main-second-container {
     width: calc(30% - 20px);
-    height: calc(100vh - 300px);
     margin: 10px;
     padding: 10px;
 }

@@ -27,7 +27,7 @@ class StoreRestaurantRequest extends FormRequest
             'address' => 'required|max:255',
             'description' => 'required',
             'image' => 'required|max:255',
-            'vat' => 'required',
+            'vat' => 'required|unique:restaurants',
     
         ];
     }
@@ -39,6 +39,8 @@ class StoreRestaurantRequest extends FormRequest
             'description.required' => 'Il campo descrizione è obbligatorio',
             'image.required' => 'Il campo immagine è obbligatorio',
             'vat.required' => 'Il campo VAT è obbligatorio',
+            'vat.unique' => 'La P.IVA è già presente nel nostro database',
+
         ];
     }
 }
