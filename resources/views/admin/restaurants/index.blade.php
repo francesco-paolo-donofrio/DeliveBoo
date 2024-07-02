@@ -23,15 +23,15 @@
       <div class="alert alert-danger">{{ $message }}</div>
       @enderror
       <div class="mb-3">
-        @if(!$user_restaurant)
+        {{-- @if(!$user_restaurant)
               <img class="shadow" width="150" src="{{asset('images/placeholder.png')}}" alt="" id="uploadPreview">        
         @else
-              <img class="shadow" width="150" src="{{asset('storage/post_images/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}" id="uploadPreview">
-        @endif
+              <img class="shadow" width="150" src="{{asset('storage/restaurant_images/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}" id="uploadPreview">
+        @endif --}}
             
         <label for="image" class="form-label">Immagine</label>
         <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" id="uploadImage"
-          name="image" value="{{ old('image') }}" maxlength="255">
+          name="image" value="{{ old('image') }}" maxlength="5120">
         @error('image')
           <div class="alert alert-danger">{{ $message }}</div>
         @enderror
