@@ -26,7 +26,7 @@
             @endif
 
             <div class="mb-3 text-secondary">
-                <img id="uploadPreview" width="100" src="">
+                
                 <label for="image" class="form-label">Immagine</label>
                 <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror" id="uploadImage"
                     name="image" value="{{ old('image') }}" maxlength="255" required>
@@ -47,11 +47,12 @@
             </div>
 
             <!-- PREZZO -->
-            <div class="mb-3 text-secondary">
+            <div id="priceForm" class="mb-3 text-secondary">
                 <label for="price" class="form-label">Prezzo</label>
                 <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price"
-                    name="price" value="{{ old('price') }}" min="0" required>
+                    name="price" value="{{ old('price') }}" required>
                 <!-- qui va il messaggio di errore del prezzo -->
+                <span id="error-message" style="color: red; display: none;">Il prezzo non può essere negativo!</span>
                 @error('price')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -68,3 +69,4 @@
 @section('sidebarContent')
 @include('partials.sidebar')
 @endsection
+

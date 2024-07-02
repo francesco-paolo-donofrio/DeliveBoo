@@ -31,10 +31,24 @@ if (image) {
         // uso il metodo readAsDataURL per leggere il file dell'immagine
         oFReader.readAsDataURL(image.files[0]);
         // al termine della lettura del file
-        oFReader.onload = function(event){
+        oFReader.onload = function (event) {
             // metto nel src della preview l'immagine
             preview.src = event.target.result;
         }
     });
 }
+
+
+document.getElementById("priceForm").addEventListener("click", function (event) {
+    var price = document.getElementById("price").value;
+    var errorMessage = document.getElementById("error-message");
+
+    if (price < 0) {
+        errorMessage.style.display = "block";
+        event.preventDefault(); // Previene l'invio del form
+    } else {
+        errorMessage.style.display = "none";
+    }
+});
+
 
