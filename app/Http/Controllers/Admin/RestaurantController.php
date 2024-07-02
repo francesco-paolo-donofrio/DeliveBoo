@@ -31,7 +31,6 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        $form_data = $request->all();
         $form_data = $request->validated();
         if ($request->hasFile('image')) {
             //gestisco qui la rinomina del file in caso di file con stesso nome, tramite trait 
