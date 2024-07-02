@@ -6,14 +6,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8 d-flex justify-content-center">
                 <div class="f-d-card-register">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">{{ __('Registrati') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -30,7 +30,7 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -64,7 +64,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="f-d-form-control"
@@ -74,7 +74,7 @@
                             <div class="mb-3">
                                 <label for="restaurant_name" class="form-label text-secondary">Nome Ristorante</label>
                                 <input type="text" class="form-control @error('restaurant_name') is-invalid @enderror" id="restaurant_name"
-                                    name="restaurant_name" placeholder="Inserisci il nome">
+                                    name="restaurant_name" placeholder="Inserisci il nome" value="{{ old('restaurant_name') }}">
                             </div>
                             @error('restaurant_name')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -82,7 +82,7 @@
                             <div class="mb-3">
                                 <label for="address" class="form-label text-secondary">Indirizzo</label>
                                 <input type="text" class="form-control" id="address" name="address"
-                                    placeholder="Inserisci l'indirizzo">
+                                    placeholder="Inserisci l'indirizzo" value="{{ old('address') }}">
                             </div>
                             @error('address')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -91,7 +91,7 @@
                                 <label for="image" class="form-label text-secondary">Immagine</label>
                                 <input type="file" accept="image/*"
                                     class="form-control @error('image') is-invalid @enderror" id="uploadImage"
-                                    name="image" value="{{ old('image') }}" maxlength="255">
+                                    name="image" value="{{ old('image') }}">
                                 @error('image')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
@@ -99,7 +99,7 @@
                             <div class="mb-3">
                                 <label for="description" class="form-label text-secondary">Descrizione</label>
                                 <input type="text" class="form-control" id="description" name="description"
-                                    placeholder="Inserisci la descrizione">
+                                    placeholder="Inserisci la descrizione">{{ old('description') }}
                             </div>
                             @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -107,7 +107,7 @@
                             <div class="mb-3">
                                 <label for="vat" class="form-label text-secondary">Partita IVA</label>
                                 <input type="text" class="form-control" id="vat" name="vat"
-                                    placeholder="Inserisci la Partita IVA">
+                                    placeholder="Inserisci la Partita IVA" value="{{ old('vat') }}">
                             </div>
                             @error('vat')
                                 <div class="alert alert-danger">{{ $message }}</div>
