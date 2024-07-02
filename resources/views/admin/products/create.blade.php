@@ -59,9 +59,9 @@
 
             <!-- BOTTONI -->
             <div class="mb-3">
-                <button type="submit" class="btn btn-success">Crea</button>
-                <button type="reset" class="btn btn-secondary" onclick="resetForm()">Annulla</button>
-                <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Torna indietro</a>
+                <button type="submit" class="f-d-button-form-edit">Crea</button>
+                <button type="reset" class="f-d-button-form-reset" onclick="resetForm()">Annulla</button>
+                <button class="f-d-button-form-delete"><a class="text-decoration-none text-white" href="{{ route('admin.products.index') }}">Torna indietro</a></button>
             </div>
         </form>
     </section>
