@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8 d-flex justify-content-center">
                 <div class="f-d-card">
-                    <div class="card-header">{{ __('Accedi') }}</div>
+                    <h1 class="card-header mb-3">{{ __('Accedi') }}</h1>
 
                     <div class="f-d-card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -18,7 +18,7 @@
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
-                                        class="f-d-form-control @error('email') is-invalid @enderror" name="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
@@ -35,7 +35,7 @@
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="f-d-form-control  @error('password') is-invalid @enderror"
+                                        class="form-control  @error('password') is-invalid @enderror"
                                         name="password" required autocomplete="current-password">
 
                                     @error('password')
