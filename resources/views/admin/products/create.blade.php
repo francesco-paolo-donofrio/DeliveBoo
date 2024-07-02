@@ -50,7 +50,7 @@
             <div class="mb-3 text-secondary">
                 <label for="price" class="form-label">Prezzo</label>
                 <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price"
-                    name="price" value="{{ old('price') }}" required>
+                    name="price" value="{{ old('price') }}" min="0" required>
                 <!-- qui va il messaggio di errore del prezzo -->
                 @error('price')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -60,8 +60,7 @@
             <!-- BOTTONI -->
             <div class="mb-3">
                 <button type="submit" class="f-d-button-form-edit">Crea</button>
-                <button type="reset" class="f-d-button-form-reset" onclick="resetForm()">Annulla</button>
-                <a class="f-d-button-form-delete" href="{{ route('admin.products.index') }}">Torna indietro</a>
+                <a class="f-d-button-form-reset" href="{{ route('admin.products.index') }}">Torna indietro</a>
             </div>
         </form>
     </section>

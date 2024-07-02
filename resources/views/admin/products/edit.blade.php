@@ -61,9 +61,8 @@
 
                         <!-- BOTTONI -->
                         <div class="mb-3">
-                            <button type="submit" class="f-d-button-form-edit">Modifica</button>
-                            <button type="button" class="f-d-button-form-reset" onclick="resetForm()">Ripristina</button>
-                            <a class="f-d-button-form-delete" href="{{ route('admin.products.index') }}">Torna indietro</a>
+                            <button type="submit" class="f-d-button-form-edit">Modifica</button>   
+                            <a class="f-d-button-form-reset" href="{{ route('admin.products.index') }}">Torna indietro</a>
                         </div>
         </form>
     </section>
