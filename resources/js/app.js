@@ -4,7 +4,9 @@ import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
 import ValidationFunction from "./validation";
 
-// ValidationFunction();
+if(window.location.href.includes('register') || window.location.href.includes('edit') || window.location.href.includes('create')) {
+    ValidationFunction();
+}
 
 // Javascript dell'eventuale searchbar
 

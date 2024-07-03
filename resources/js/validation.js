@@ -15,7 +15,7 @@ function ValidationFunction() {
         const imageInput  = document.getElementById('uploadImage');
         const descriptionInput = document.getElementById('description');
         const vatInput = document.getElementById('vat');
-        const checkboxes = document.querySelectorAll('input[name="types[]"]');
+        const checkboxes = document.querySelectorAll('.tipologieClassJS');
         const priceInput = document.getElementById('price');
         
     
@@ -90,7 +90,7 @@ function ValidationFunction() {
                 event.preventDefault();
                 pswConfMessage.innerHTML = 'Campo obbligatorio';
             }
-            if (pswInput.value !== pswConfInput.value) {
+            if (pswInput && pswInput.value !== pswConfInput.value) {
                 event.preventDefault();
                 pswConfMessage.innerHTML = 'Le password non corrispondono';
             }
@@ -111,9 +111,17 @@ function ValidationFunction() {
                     imgMessage.innerHTML = 'Attenzione: il file selezionato eccede il limite di 5mb';
                 }
             }
-            if (descriptionInput && descriptionInput.value.trim() === '') {
-                event.preventDefault();
-                descriptionMessage.innerHTML = 'Campo obbligatorio';
+            if(!window.location.href.includes('register')){
+                if (imageInput && imageInput.files.length === 0) {
+                    event.preventDefault();
+                    imgMessage.innerHTML = 'Campo obbligatorio';
+                }
+            }
+            if(!window.location.href.includes('register')){
+                if (descriptionInput && descriptionInput.value.trim() === '') {
+                    event.preventDefault();
+                    descriptionMessage.innerHTML = 'Campo obbligatorio';
+                }
             }
             if (vatInput && vatInput.value.length > 20) {
                 event.preventDefault();
@@ -123,7 +131,7 @@ function ValidationFunction() {
                 event.preventDefault();
                 vatMessage.innerHTML = 'Campo obbligatorio';
             }
-            if (checkboxes) {
+            if (checkboxes.lenght > 0) {
                 let isChecked = false;
                 checkboxes.forEach(function (checkbox) {
                     if (checkbox.checked) {

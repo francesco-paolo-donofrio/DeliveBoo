@@ -8,9 +8,7 @@
     
     <section class="container f-d-editform-container">
         <h2 class="gradientColor">Modifica prodotto <em>{{$user_restaurant_products->name}}</em></h2>
-        <form class="text-secondary" action="{{ route('admin.products.update', $user_restaurant_products->id) }}" method="POST"
-
-            enctype="multipart/form-data">
+        <form class="text-secondary" action="{{ route('admin.products.update', $user_restaurant_products->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <!-- NOME -->
