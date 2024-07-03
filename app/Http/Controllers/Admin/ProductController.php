@@ -84,6 +84,10 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+
+        
+       
+
         //controllo: accesso solo ai prodotti del mio ristorante
         $user = Auth::user();
         $user_restaurant_products = $user->restaurant->products->find($product->id);

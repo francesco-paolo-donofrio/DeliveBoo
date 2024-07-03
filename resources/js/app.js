@@ -38,54 +38,133 @@ if (image) {
     });
 }
 
-// Questo evento 'submit' viene attivato quando l'utente preme il tasto 'invia' del form
 
-document.getElementById("priceForm").addEventListener("submit", function (event) {
-    const priceButton = document.getElementById("priceButton");
-    const price = document.getElementById("price").value;
-    const errorMessage = document.getElementById("error-message");
+
+//** */ Questo evento 'submit' viene attivato quando l'utente preme il tasto 'invia' del form
+    // document.getElementById("priceForm").addEventListener("submit", function (event) {
+    //     const priceButton = document.getElementById("priceButton");
+    //     const price = document.getElementById("price").value;
+    //     const errorMessage = document.getElementById("error-message");
+        
+
+    //     if (price < 0) {
+    //         errorMessage.style.display = "block";
+    //         event.preventDefault(); // Previene l'invio del form
+    //     } else {
+    //         errorMessage.style.display = "none";
+    //     }
+    // });
+
+
+//** */ Questo evento 'input' viene attivato ogni volta che l'utente inserisce o modifica il valore nel campo di input
+    // document.getElementById("price").addEventListener("input", function () {
+    //     const price = document.getElementById("price").value;
+    //     const errorMessage = document.getElementById("error-message");
+
+    //     if (price < 0) {
+    //       errorMessage.style.display = "block";
+    //     } else {
+    //       errorMessage.style.display = "none";
+    //     }
+    //   });
+
+
+
+//** funz per validazione prima di submit di un form */
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Prendo il bottone di invio form
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Prendo i campi input
+    // nome
+    const nameInput = document.getElementById('name');
+    // descrizione
+    const descriptionInput = document.getElementById('description');
+    // prezzo
+    const priceInput = document.getElementById('price');
     
 
-    if (price < 0) {
-        errorMessage.style.display = "block";
-        event.preventDefault(); // Previene l'invio del form
-    } else {
-        errorMessage.style.display = "none";
-    }
+    // Scrivo i messaggi di errore / FE VALIDATION
+    // nome
+    const nameMessage = document.getElementById('nameMessage');
+    nameMessage.innerHTML = '*campo obbligatorio';
+    // descrizione
+    const descriptionMessage = document.getElementById('descriptionMessage');
+    descriptionMessage.innerHTML = '*campo obbligatorio';
+    // prezzo
+    const priceMessage = document.getElementById('priceMessage');
+    //priceMessage.innerHTML = '*il valore deve essere positivo';
+    
+
+    submitBtn.addEventListener('click', function (event) {
+        if (
+            nameInput.value.trim() === '') {
+            event.preventDefault();
+            nameMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
+        }
+        if(
+            descriptionInput.value.trim() === '') {
+            event.preventDefault();
+            descriptionMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
+        }
+        if(
+            priceInput.value < 0) {
+            event.preventDefault();
+            priceMessage.innerHTML = 'Devi mettere un prezzo positivo';
+        }
+        if(
+            priceInput.value.trim() === '') {
+            event.preventDefault();
+            priceMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
+        }
+    });
 });
 
 
-// Questo evento 'input' viene attivato ogni volta che l'utente inserisce o modifica il valore nel campo di input
+/*document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const submitBtn = document.getElementById('submitBtn');
+    const inputs = form.querySelectorAll('[data-required], [data-positive]');
+    
+    submitBtn.addEventListener('click', function(event) {
+        inputs.forEach(function(input) {
+            const messageDiv = document.getElementById(input.id + 'Message');
+            let message = '';
+            
+            // Validazione campo obbligatorio
+            if (input.dataset.required === 'true' && input.value.trim() === '') {
+                message = input.dataset.messageRequired || '*campo obbligatorio';
+            }
+            
+            // Validazione campo positivo
+            if (input.dataset.positive === 'true' && parseFloat(input.value) < 0) {
+                message = input.dataset.messagePositive || 'Il valore deve essere positivo';
+            }
+            
+            if (message) {
+                event.preventDefault();
+                messageDiv.innerHTML = message;
+            } else {
+                messageDiv.innerHTML = '';
+            }
+        });
+    });
+});
+*/
 
-document.getElementById("price").addEventListener("input", function () {
-    const price = document.getElementById("price").value;
-    const errorMessage = document.getElementById("error-message");
+// Modale per eliminazione piatto
 
-    if (price < 0) {
-      errorMessage.style.display = "block";
-    } else {
-      errorMessage.style.display = "none";
-    }
-  });
+const deleteButtonModal = document.getElementById('deleteButtonModal');
 
-//   Script per ripristinare i campi del form a quelli di partenza
-
-    // document.addEventListener('DOMContentLoaded', function () {
-    //     // Definisce i valori originali dei campi
-    //     const originalName = "{{ old('name', $product->name) }}";
-    //     const originalImage = "{{ old('image', $product->image) }}";
-    //     const originalDescription = "{{ old('description', $product->description) }}";
-    //     const originalPrice = "{{ old('price', $product->price) }}";
-
-    //     // Funzione per ripristinare i campi del form
-    //     window.resetForm = function () {
-    //         document.getElementById('name').value = originalName;
-    //         document.getElementById('description').value = originalDescription;
-    //         document.getElementById('image').value = originalImage;
-    //         document.getElementById('price').value = originalPrice;
-
-    //     };
-    // })
-
-
-
+deleteButtonModal.addEventListener('click', (e) => {
+    console.log('addEventListener');
+    e.preventDefault();
+    const modale = document.getElementById('exampleModal');
+    const myModal = new bootstrap.Modal(modale);
+    myModal.show();
+    const btnSave = modale.querySelector(".btn.f-d-button-form-cancel-modal");
+    btnSave.addEventListener("click", () => {
+        deleteButtonModal.parentElement.submit();
+    });
+});

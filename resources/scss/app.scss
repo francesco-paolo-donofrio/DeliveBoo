@@ -103,7 +103,6 @@ $fa-font-path: "../fonts/webfonts" !default;
     padding-top: 80px;
     overflow-y: auto;
     color: white;
-    background-color: $fifth-color-frontend;
 
 }
 
@@ -350,7 +349,7 @@ td:first-child {
     padding: 10px;
     color: black;
     font-weight: normal;
-    border: 2px solid $fourth-color-frontend;
+    border: 2px solid $primary-color-frontend;
 }
 
 .f-d-card-register {
@@ -363,7 +362,20 @@ td:first-child {
     padding: 10px;
     color: black;
     font-weight: normal;
-    border: 2px solid $fourth-color-frontend;
+    border: 2px solid $primary-color-frontend;
+}
+
+.f-d-form-edit-create {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top left, $primary-color-backend, $third-color-backend);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 10px;
+    color: black;
+    font-weight: normal;
+    border: 2px solid $primary-color-frontend;
 }
 
 .f-d-button {
@@ -637,7 +649,7 @@ td:first-child {
     position: absolute;
     right: 30px;
     padding: 5px;
-    border: 2px solid $fourth-color-frontend;
+    border: 2px solid $primary-color-frontend;
     background-color: $primary-color-backend;
     color: $fourth-color-frontend;
     font-weight: bold;
@@ -648,7 +660,7 @@ td:first-child {
 
 .f-d-bg-form {
     padding: 5px;
-    border: 2px solid $fourth-color-frontend;
+    border: 2px solid $primary-color-frontend;
     background-color: $primary-color-backend;
     color: $green;
     font-weight: bold;
