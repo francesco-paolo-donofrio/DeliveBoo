@@ -84,10 +84,6 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-
-        
-       
-
         //controllo: accesso solo ai prodotti del mio ristorante
         $user = Auth::user();
         $user_restaurant_products = $user->restaurant->products->find($product->id);
@@ -103,10 +99,12 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product) 
     {
         $form_data = $request->validated();
-        $path = Storage::put('uploads', $form_data['image']);
         if ($request->hasFile('image')) {
+            $path = Storage::put('uploads', $form_data['image']);
             //gestisco qui la rinomina del file in caso di file con stesso nome, tramite trait 
             $form_data['image'] = $this->uploadFile($request->file('image'), 'product_images');
+        } else{
+            $form_data['image'] = $product->image;
         }
         $product->update($form_data);
         return redirect()->route('admin.products.show', $product->id)->with('message', $product->name . ' è stato aggiornato con successo');
