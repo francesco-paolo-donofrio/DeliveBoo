@@ -3,9 +3,14 @@ import "~resources/scss/app.scss";
 import * as bootstrap from "bootstrap";
 import.meta.glob(["../img/**", "../fonts/**"]);
 import ValidationFunction from "./validation";
+import ValidationLogin from "./validationLogin";
 
 if(window.location.href.includes('register') || window.location.href.includes('edit') || window.location.href.includes('create')) {
     ValidationFunction();
+}
+
+if(window.location.href.includes('login')){
+    ValidationLogin();
 }
 
 // Javascript dell'eventuale searchbar
