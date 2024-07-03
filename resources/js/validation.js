@@ -111,7 +111,7 @@ function ValidationFunction() {
                     imgMessage.innerHTML = 'Attenzione: il file selezionato eccede il limite di 5mb';
                 }
             }
-            if(!window.location.href.includes('register')){
+            if(window.location.href.includes('register') || window.location.href.includes('create')){
                 if (imageInput && imageInput.files.length === 0) {
                     event.preventDefault();
                     imgMessage.innerHTML = 'Campo obbligatorio';
