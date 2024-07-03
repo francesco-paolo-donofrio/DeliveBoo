@@ -50,12 +50,10 @@ class RestaurantController extends Controller
         
         $user = Auth::user();
         $user_restaurant = $user->restaurant;        
-        if (!$user_restaurant) {
-            return view('admin.restaurants.index', compact('user_restaurant'));
-        }
+        
         $user_products = $user->restaurant->products->all();
         $user_types = $user->restaurant->types->all();
-        
+      
         return view('admin.restaurants.index', compact('user_restaurant', 'user_products', 'restaurant', 'user_types'));
     }
     /**
