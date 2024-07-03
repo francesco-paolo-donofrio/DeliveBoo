@@ -74,6 +74,7 @@
     <h3>Tipologie:</h3>
     <ul>
       @foreach ($user_types as $type)
+      <img src="{{asset($type->image)}}" alt="">
       <li>{{$type->name}}</li>
       @endforeach
       
