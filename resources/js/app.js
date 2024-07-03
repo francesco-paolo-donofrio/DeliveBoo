@@ -155,16 +155,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Modale per eliminazione piatto
 
-const deleteButtonModal = document.getElementById('deleteButtonModal');
+const deleteButtonModal = document.querySelectorAll('.delete-button');
 
-deleteButtonModal.addEventListener('click', (e) => {
-    console.log('addEventListener');
-    e.preventDefault();
-    const modale = document.getElementById('exampleModal');
-    const myModal = new bootstrap.Modal(modale);
-    myModal.show();
-    const btnSave = modale.querySelector(".btn.f-d-button-form-cancel-modal");
-    btnSave.addEventListener("click", () => {
-        deleteButtonModal.parentElement.submit();
+deleteButtonModal.forEach(element => {
+    element.addEventListener('click', (e) => {
+        console.log('addEventListener');
+        e.preventDefault();
+        const modale = document.getElementById('exampleModal');
+        const myModal = new bootstrap.Modal(modale);
+        myModal.show();
+        const btnSave = modale.querySelector(".btn.f-d-button-form-cancel-modal");
+        console.log(btnSave);
+        btnSave.addEventListener("click", () => {
+            element.parentElement.submit();
+        });
     });
 });
+
