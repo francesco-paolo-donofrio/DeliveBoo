@@ -79,6 +79,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Prendo i campi input
     // nome
     const nameInput = document.getElementById('name');
+    // email
+    const emailInput = document.getElementById('email');
+    // password
+    const pswInput = document.getElementById('password');
+    // password-confirm
+    const pswConfInput = document.getElementById('password-confirm');
+    // nome ristorante
+    const rNameInput = document.getElementById('rName');
     // descrizione
     const descriptionInput = document.getElementById('description');
     // prezzo
@@ -86,72 +94,95 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     // Scrivo i messaggi di errore / FE VALIDATION
+
     // nome
+    // Registrazione - Create Piatto - Edit Piatto
     const nameMessage = document.getElementById('nameMessage');
-    nameMessage.innerHTML = '*campo obbligatorio';
+    //nameMessage.innerHTML = '*campo obbligatorio';
+
+    // email
+    // Registrazione
+    const emailMessage = document.getElementById('emailMessage');
+    //emailMessage.innerHTML = '*inserisci una email valida';
+
+    // password
+    // Registrazione
+    const pswMessage = document.getElementById('pswMessage');
+    //passwordMessage.innerHTML = '*inserisci una password valida';
+
+    // password-confirm
+    // Registrazione
+    const pswConfMessage = document.getElementById('pswConfMessage');
+    //pswConfMessage.innerHTML = '*inserisci una password valida';
+
+    // nome ristorante
+    // Registrazione
+    const rNameMessage = document.getElementById('rNameMessage');
+    //rNameMessage.innerHTML = '*inserisci un nome valido';
+
     // descrizione
+    // Create Piatto - Edit Piatto
     const descriptionMessage = document.getElementById('descriptionMessage');
-    descriptionMessage.innerHTML = '*campo obbligatorio';
+    // if(descriptionMessage){
+    //     descriptionMessage.innerHTML = '*campo obbligatorio';
+    // };
+
     // prezzo
+    // Create Piatto - Edit Piatto
     const priceMessage = document.getElementById('priceMessage');
-    //priceMessage.innerHTML = '*il valore deve essere positivo';
-    
+    //priceMessage.innerHTML = '*il valore deve essere positivo';  
 
     submitBtn.addEventListener('click', function (event) {
         if (
-            nameInput.value.trim() === '') {
+            nameInput && nameInput.value.trim() === '') {
             event.preventDefault();
             nameMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
         }
-        if(
-            descriptionInput.value.trim() === '') {
+        if (emailInput) {
+            if(emailInput.value.trim() === ''){
+                    event.preventDefault();
+                    emailMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
+            } else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value))) {
+                event.preventDefault();
+                emailMessage.innerHTML = 'Inserisci una email valida';
+            }
+        }
+        if (
+            pswInput && pswInput.value.trim() === '') {
+            event.preventDefault();
+            pswMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
+        }
+        if (
+            pswConfInput && pswConfInput.value.trim() === '') {
+            event.preventDefault();
+            pswConfMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
+        }
+        if(pswInput.value !== pswConfInput.value){
+            event.preventDefault();
+            pswConfMessage.innerHTML = 'Le password non corrispondono';
+        }
+        if (
+            rNameInput && rNameInput.value.trim() === '') {
+            event.preventDefault();
+            rNameMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
+        }
+        if (
+            descriptionInput && descriptionInput.value.trim() === '') {
             event.preventDefault();
             descriptionMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
         }
-        if(
-            priceInput.value < 0) {
+        if (
+            priceInput && priceInput.value < 0) {
             event.preventDefault();
             priceMessage.innerHTML = 'Devi mettere un prezzo positivo';
         }
-        if(
-            priceInput.value.trim() === '') {
+        if (
+            priceInput && priceInput.value.trim() === '') {
             event.preventDefault();
             priceMessage.innerHTML = 'MA LO VEDI O NO CHE DEVI COMPILARE QUESTO CAMPO';
         }
     });
 });
-
-
-/*document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
-    const submitBtn = document.getElementById('submitBtn');
-    const inputs = form.querySelectorAll('[data-required], [data-positive]');
-    
-    submitBtn.addEventListener('click', function(event) {
-        inputs.forEach(function(input) {
-            const messageDiv = document.getElementById(input.id + 'Message');
-            let message = '';
-            
-            // Validazione campo obbligatorio
-            if (input.dataset.required === 'true' && input.value.trim() === '') {
-                message = input.dataset.messageRequired || '*campo obbligatorio';
-            }
-            
-            // Validazione campo positivo
-            if (input.dataset.positive === 'true' && parseFloat(input.value) < 0) {
-                message = input.dataset.messagePositive || 'Il valore deve essere positivo';
-            }
-            
-            if (message) {
-                event.preventDefault();
-                messageDiv.innerHTML = message;
-            } else {
-                messageDiv.innerHTML = '';
-            }
-        });
-    });
-});
-*/
 
 // Modale per eliminazione piatto
 
