@@ -60,7 +60,7 @@
 
 @else
 
-<h1 class="text-center gradientColor p-2"><i class="fa-solid fa-utensils gradientColor p-4"></i>Il tuo Ristorante</h1>
+<h1 class="text-center f-d-color-primary p-2 fw-bold"><i class="fa-solid fa-utensils f-d-color-primary p-4 fw-bold"></i>Il tuo Ristorante</h1>
 
 {{-- Due sezioni: a sx img, a dx info ristorante --}}
 <div class="d-flex">
@@ -68,9 +68,11 @@
     <img src="{{asset('storage/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}">
   </div>
   <div class="f-d-main-second-container">
-    <h2 class="f-d-primary-color fw-bold p-2" >{{$user_restaurant->name }}</h2>
-    <p class="f-d-primary-color"><i class="fa-solid fa-location-dot p-2"></i>{{ $user_restaurant->address }}</p>
-    <p class="f-d-primary-color"><i class="fa-solid fa-envelope p-2"></i>{{ $user_restaurant->vat }}</p>
+    <div class="f-d-layer-dashboard">
+    <h2 class="f-d-primary-color fw-bold p-2" ><em class="gradientColor">{{$user_restaurant->name }}</em></h2>
+    <p class="f-d-primary-color fs-4"><i class="fa-solid fa-location-dot p-2"></i>{{ $user_restaurant->address }}</p>
+    <p class="f-d-primary-color fs-4"><i class="fa-solid fa-envelope p-2"></i>{{ $user_restaurant->vat }}</p>
+    </div>
     <h3>Tipologie:</h3>
     <ul>
       @foreach ($user_types as $type)
@@ -82,7 +84,7 @@
   </div>
 </div>
 
-<h1 class="text-center gradientColor p-2">Piatti</h1>
+<h1 class="text-center f-d-color-primary p-2 fw-bold">Piatti</h1>
 
 <table class="f-d-table">
   <thead>

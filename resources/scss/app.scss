@@ -189,7 +189,7 @@ $fa-font-path: "../fonts/webfonts" !default;
 .f-d-bg-login-register {
     width: 100%;
     height: calc(100vh - 80px);
-    background-image: url(../images/sfondo_login_register.jpg);
+    background-image: url(../../public/images/sfondo_dashboard.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -617,18 +617,26 @@ td:first-child {
 }
 
 .f-d-main-image img{
-    width: 50%;
+    width: 70%;
+    border-radius: 20px;
+    border: 2px solid $primary-color-frontend;
 }
 .f-d-main-first-container {
     width: calc(50% - 20px);
     margin: 10px;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .f-d-main-second-container {
-    width: calc(30% - 20px);
+    width: calc(50% - 20px);
     margin: 10px;
     padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .f-d-editform-container {
@@ -718,4 +726,23 @@ td:first-child {
 .showimage img{
     aspect-ratio: 1/1;
     width: 200px;
+}
+
+.f-d-color-primary {
+    color: $primary-color-frontend;
+}
+
+.f-d-layer-dashboard {
+    width: 50%;
+    height: 60%;
+    background-color: #1f2d3a33;
+    border: 2px solid $primary-color-frontend;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
