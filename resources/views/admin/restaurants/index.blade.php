@@ -65,7 +65,7 @@
 {{-- Due sezioni: a sx img, a dx info ristorante --}}
 <div class="d-flex">
   <div class="f-d-main-first-container f-d-main-image">
-    <img src="{{asset('assets/images/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}">
+    <img src="{{asset('storage/restaurant_images/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}">
   </div>
   <div class="f-d-main-second-container">
     <h2 class="f-d-primary-color fw-bold p-2" >{{$user_restaurant->name }}</h2>

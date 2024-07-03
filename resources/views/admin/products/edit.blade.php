@@ -3,20 +3,20 @@
 @section('title', 'Modifica prodotto: ' . $product->name)
 
 @section('content')
-<div class="f-d-transparent-layer">
-    <section class="container f-d-editform-container">
-        <h2 class="gradientColor">Modifica prodotto <em>{{$product->name}}</em></h2>
+<div class="f-d-bg-login-register">
+    <section class="container f-d-form-edit-create ">
+        <h2 class="text-black">Modifica prodotto <em>{{$product->name}}</em></h2>
         <form class="text-secondary" action="{{ route('admin.products.update', $product->id) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <!-- NOME -->
             <div class="mb-3">
-                <label for="name" class="form-label">Nome</label>
+                <label for="name" class="form-label text-black">Nome</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                     value="{{ old('name', $product->name) }}" maxlength="200">
                     {{-- FE VALIDATION: messaggio tramite JS --}}
-                    <div id="nameMessage"></div>
+                    <div id="nameMessage" class="text-black fw-bold"></div>
 
                 <!-- BE VALIDATION: qui va il messaggio di errore del nome -->
                 @error('name')
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="image" class="form-label">Immagine</label>
+                        <label for="image" class="form-label text-black">Immagine</label>
                         <input type="file" accept="image/*"
                             class="form-control @error('image') is-invalid @enderror" id="uploadImage" name="image"
                             value="{{ old('image', $product->image) }}" maxlength="255">
@@ -56,10 +56,10 @@
 
                     <!-- DESCRIZIONE -->
                     <div class="mb-3">
-                        <label for="description" class="form-label">Descrizione</label>
+                        <label for="description" class="form-label text-black">Descrizione</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" id="description"
                             name="description" required>{{old('description', $product->description)}}</textarea>
-                        <div id="descriptionMessage"></div>
+                        <div id="descriptionMessage" class="text-black fw-bold"></div>
 
                         @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -68,10 +68,10 @@
 
                     <!-- PREZZO -->
                     <div id="priceForm" class="mb-3">
-                        <label for="price" class="form-label">Prezzo</label>
+                        <label for="price" class="form-label text-black">Prezzo</label>
                         <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror"
                             id="price" name="price" value="{{ old('price', $product->price) }}" required>
-                        <div id="priceMessage"></div>
+                        <div id="priceMessage" class="text-black fw-bold"></div>
 
                         @error('price')
                             <div class="alert alert-danger">{{ $message }}</div>

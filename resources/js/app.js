@@ -38,6 +38,8 @@ if (image) {
     });
 }
 
+
+
 //** */ Questo evento 'submit' viene attivato quando l'utente preme il tasto 'invia' del form
     // document.getElementById("priceForm").addEventListener("submit", function (event) {
     //     const priceButton = document.getElementById("priceButton");
@@ -81,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const descriptionInput = document.getElementById('description');
     // prezzo
     const priceInput = document.getElementById('price');
+    
 
     // Scrivo i messaggi di errore / FE VALIDATION
     // nome
@@ -149,3 +152,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 */
+
+// Modale per eliminazione piatto
+
+const deleteButtonModal = document.getElementById('deleteButtonModal');
+
+deleteButtonModal.addEventListener('click', (e) => {
+    console.log('addEventListener');
+    e.preventDefault();
+    const modale = document.getElementById('exampleModal');
+    const myModal = new bootstrap.Modal(modale);
+    myModal.show();
+    const btnSave = modale.querySelector(".btn.f-d-button-form-cancel-modal");
+    btnSave.addEventListener("click", () => {
+        deleteButtonModal.parentElement.submit();
+    });
+});
