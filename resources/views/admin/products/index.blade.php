@@ -46,7 +46,7 @@
                 <form action="{{route('admin.products.destroy', $product->id)}}" method="POST" class="d-inline-block">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="delete-button border-0 bg-transparent"  data-item-title="{{ $product->name }}" data-item-id = "{{ $product->id }}">
+                    <button id="deleteButtonModal" type="submit" class="delete-button border-0 bg-transparent"  data-item-title="{{ $product->name }}" data-item-id = "{{ $product->id }}">
                     <i class="fa-solid fa-trash" style="color: #e70d18;"></i>
                     </button>
                 </form>
@@ -56,6 +56,7 @@
         @endforeach
     </tbody>
 </table>
+@include('partials.deleteModal')
 {{-- {{ $projects->links('vendor.pagination.bootstrap-5') }} --}}
 </section>
 @endsection
