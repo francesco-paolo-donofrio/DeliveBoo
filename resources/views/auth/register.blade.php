@@ -86,6 +86,8 @@
                                         id="restaurant_name" name="restaurant_name"
                                         placeholder="Inserisci il nome del ristorante"
                                         value="{{ old('restaurant_name') }}">
+                                        {{-- div per contenere msg di validazione FE tramite JS --}}
+                                        <div id="rNameMessage"></div>
                                         @error('restaurant_name')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -96,6 +98,8 @@
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="address" name="address"
                                         placeholder="Inserisci l'indirizzo" value="{{ old('address') }}">
+                                        {{-- div per contenere msg di validazione FE tramite JS --}}
+                                        <div id="addrMessage"></div>
                                         @error('address')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -107,6 +111,8 @@
                                     <input type="file" accept="image/*"
                                         class="form-control @error('image') is-invalid @enderror" id="uploadImage"
                                         name="image" value="{{ old('image') }}">
+                                        {{-- div per contenere msg di validazione FE tramite JS --}}
+                                        <div id="imgMessage"></div>
                                     @error('image')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -127,6 +133,8 @@
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="vat" name="vat"
                                         placeholder="Inserisci la Partita IVA" value="{{ old('vat') }}">
+                                        {{-- div per contenere msg di validazione FE tramite JS --}}
+                                        <div id="vatMessage"></div>
                                     @error('vat')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -139,6 +147,8 @@
                                             {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
                                     <label for="" class="form-check-label">{{ $type->name }}</label>
                                 @endforeach
+                                {{-- div per contenere msg di validazione FE tramite JS --}}
+                                <div id="typeMessage"></div>
                                 @error('types')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
