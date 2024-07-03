@@ -15,12 +15,14 @@
                             @csrf
 
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome*') }}</label>
+                                <label for="name"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Nome*') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" placeholder="Inserisci il tuo nome" required autocomplete="name" autofocus>
+                                        value="{{ old('name') }}" placeholder="Inserisci il tuo nome" required
+                                        autocomplete="name" autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -32,11 +34,12 @@
 
                             <div class="mb-4 row">
                                 <label for="email"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo e-mail*') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo e-mail*') }}</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" placeholder="Inserisci la tua e-mail" required autocomplete="email">
+                                        value="{{ old('email') }}" placeholder="Inserisci la tua e-mail" required
+                                        autocomplete="email">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -52,8 +55,8 @@
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password" placeholder="inserisci una password"
-                                        required autocomplete="new-password">
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        placeholder="inserisci una password" required autocomplete="new-password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -69,15 +72,20 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" placeholder="Inserisci nuovamente la password" required autocomplete="new-password">
+                                        name="password_confirmation" placeholder="Inserisci nuovamente la password"
+                                        required autocomplete="new-password">
                                 </div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">Nome Ristorante*</label>
+                                <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">Nome
+                                    Ristorante*</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control @error('restaurant_name') is-invalid @enderror" id="restaurant_name"
-                                    name="restaurant_name" placeholder="Inserisci il nome del ristorante" value="{{ old('restaurant_name') }}">
-                                </div>                               
+                                    <input type="text"
+                                        class="form-control @error('restaurant_name') is-invalid @enderror"
+                                        id="restaurant_name" name="restaurant_name"
+                                        placeholder="Inserisci il nome del ristorante"
+                                        value="{{ old('restaurant_name') }}">
+                                </div>
                             </div>
                             @error('restaurant_name')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -86,7 +94,7 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-right">Indirizzo*</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="address" name="address"
-                                    placeholder="Inserisci l'indirizzo" value="{{ old('address') }}">
+                                        placeholder="Inserisci l'indirizzo" value="{{ old('address') }}">
                                 </div>
                             </div>
                             @error('address')
@@ -96,18 +104,19 @@
                                 <label for="image" class="col-md-4 col-form-label text-md-right">Immagine</label>
                                 <div class="col-md-6">
                                     <input type="file" accept="image/*"
-                                    class="form-control @error('image') is-invalid @enderror" id="uploadImage"
-                                    name="image" value="{{ old('image') }}">
+                                        class="form-control @error('image') is-invalid @enderror" id="uploadImage"
+                                        name="image" value="{{ old('image') }}">
                                 </div>
                                 @error('image')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="mb-4 row">
-                                <label for="description" class="col-md-4 col-form-label text-md-right">Descrizione*</label>
+                                <label for="description"
+                                    class="col-md-4 col-form-label text-md-right">Descrizione*</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="description" name="description"
-                                    placeholder="Inserisci la descrizione">{{ old('description') }}
+                                        placeholder="Inserisci la descrizione">
                                 </div>
                             </div>
                             @error('description')
@@ -117,10 +126,20 @@
                                 <label for="vat" class="col-md-4 col-form-label text-md-right">Partita IVA*</label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" id="vat" name="vat"
-                                    placeholder="Inserisci la Partita IVA" value="{{ old('vat') }}">
+                                        placeholder="Inserisci la Partita IVA" value="{{ old('vat') }}">
                                 </div>
                             </div>
                             @error('vat')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            @foreach ($types as $type)
+                                <div>
+                                    <input type="checkbox" name="types[]" value="{{ $type->id }}" class="form-check-input"
+                                        {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
+                                    <label for="" class="form-check-label">{{ $type->name }}</label>
+                                </div>
+                            @endforeach
+                            @error('types')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                             <div class="mb-4 row">
