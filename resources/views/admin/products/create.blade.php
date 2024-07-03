@@ -10,7 +10,7 @@
             @csrf
             <!-- NOME -->
             <div class="mb-3 text-secondary">
-                <label for="name" class="form-label text-black">Nome</label>
+                <label for="name" class="form-label text-black">Nome*</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
                     value="{{ old('name') }}" minlength="3" maxlength="200" required>
                     <div id="nameMessage" class="text-black"></div>
@@ -30,7 +30,7 @@
 
             <div class="mb-3 text-secondary">
 
-                <label for="image" class="form-label text-black">Immagine</label>
+                <label for="image" class="form-label text-black">Immagine*</label>
                 <input type="file" accept="image/*" class="form-control @error('image') is-invalid @enderror"
                     id="uploadImage" name="image" value="{{ old('image') }}" maxlength="255" required>
                     <div id="imgMessage" class="text-black"></div>
@@ -42,7 +42,7 @@
 
             <!-- DESCRIZIONE -->
             <div class="mb-3">
-                <label class="text-black" for="description" class="form-label text-black">Descrizione</label>
+                <label class="text-black" for="description" class="form-label text-black">Descrizione*</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" id="description"
                     name="description" required>{{ old('description') }}</textarea>
                 <div id="descriptionMessage" class="text-black"></div>
@@ -54,7 +54,7 @@
 
             <!-- PREZZO -->
             <div id="priceForm" class="mb-3 text-secondary">
-                <label for="price" class="form-label text-black">Prezzo</label>
+                <label for="price" class="form-label text-black">Prezzo*</label>
                 <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" id="price"
                     name="price" value="{{ old('price') }}" required>
                 <div id="priceMessage" class="text-black"></div>
@@ -69,6 +69,7 @@
                 <button type="submit" id="submitBtn" class="f-d-button-form-edit">Crea</button>
                 <a class="f-d-button-form-reset" href="{{ route('admin.products.index') }}">Torna indietro</a>
             </div>
+            <div class="text-black"><span>* Campi obbligatori</span></div>
         </form>
     </section>
 </div>
