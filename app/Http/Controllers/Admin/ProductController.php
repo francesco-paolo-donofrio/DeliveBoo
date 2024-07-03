@@ -69,7 +69,14 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('admin.products.show', compact('product'));
+        //controllo: accesso solo ai prodotti del mio ristorante
+        $user = Auth::user();
+        $user_restaurant_products = $user->restaurant->products->find($product->id);
+        if ($user_restaurant_products === null) {
+            abort(404);
+        }
+        //dd($user_restaurant_products);
+        return view('admin.products.show', compact('user_restaurant_products'));
     }
 
     /**
@@ -77,8 +84,17 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+
         
-        return view('admin.products.edit', compact('product'));
+       
+
+        //controllo: accesso solo ai prodotti del mio ristorante
+        $user = Auth::user();
+        $user_restaurant_products = $user->restaurant->products->find($product->id);
+        if ($user_restaurant_products === null) {
+            abort(404);
+        }
+        return view('admin.products.edit', compact('user_restaurant_products'));
     }
 
     /**
@@ -101,11 +117,18 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        if ($product->image) {
-            Storage::delete($product->image);
+
+        //controllo: accesso solo ai prodotti del mio ristorante
+        $user = Auth::user();
+        $user_restaurant_products = $user->restaurant->products->find($product->id);
+        if ($user_restaurant_products === null) {
+            abort(404);
         }
-      
-        $product->delete();
-        return redirect()->route('admin.products.index')->with('deleted', $product->name . ' è stato eliminato');
+
+        if ($user_restaurant_products->image) {
+            Storage::delete($user_restaurant_products->image);
+        }
+        $user_restaurant_products->delete();
+        return redirect()->route('admin.products.index')->with('deleted', $user_restaurant_products->name . ' è stato eliminato');
     }
 }

@@ -54,7 +54,9 @@ class RestaurantController extends Controller
             return view('admin.restaurants.index', compact('user_restaurant'));
         }
         $user_products = $user->restaurant->products->all();
-        return view('admin.restaurants.index', compact('user_restaurant', 'user_products', 'restaurant'));
+        $user_types = $user->restaurant->types->all();
+        
+        return view('admin.restaurants.index', compact('user_restaurant', 'user_products', 'restaurant', 'user_types'));
     }
     /**
      * Remove the specified resource from storage.

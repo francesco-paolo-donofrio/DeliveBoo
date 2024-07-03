@@ -70,8 +70,15 @@
   <div class="f-d-main-second-container">
     <h2 class="f-d-primary-color fw-bold p-2" >{{$user_restaurant->name }}</h2>
     <p class="f-d-primary-color"><i class="fa-solid fa-location-dot p-2"></i>{{ $user_restaurant->address }}</p>
-    <p class="f-d-primary-color"><i class="fa-solid fa-phone p-2"></i>{{ $user_restaurant->phone }}</p>
     <p class="f-d-primary-color"><i class="fa-solid fa-envelope p-2"></i>{{ $user_restaurant->vat }}</p>
+    <h3>Tipologie:</h3>
+    <ul>
+      @foreach ($user_types as $type)
+      <img src="{{asset($type->image)}}" alt="">
+      <li>{{$type->name}}</li>
+      @endforeach
+      
+    </ul>
   </div>
 </div>
 

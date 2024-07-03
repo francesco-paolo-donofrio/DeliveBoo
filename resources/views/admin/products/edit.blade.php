@@ -1,12 +1,15 @@
 @extends('layouts.admin')
 
-@section('title', 'Modifica prodotto: ' . $product->name)
+@section('title', 'Modifica prodotto: ' . $user_restaurant_products->name)
 
 @section('content')
+
 <div class="f-d-bg-login-register">
-    <section class="container f-d-form-edit-create ">
-        <h2 class="text-black">Modifica prodotto <em>{{$product->name}}</em></h2>
-        <form class="text-secondary" action="{{ route('admin.products.update', $product->id) }}" method="POST"
+    
+    <section class="container f-d-editform-container">
+        <h2 class="gradientColor">Modifica prodotto <em>{{$user_restaurant_products->name}}</em></h2>
+        <form class="text-secondary" action="{{ route('admin.products.update', $user_restaurant_products->id) }}" method="POST"
+
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -14,36 +17,40 @@
             <div class="mb-3">
                 <label for="name" class="form-label text-black">Nome</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                    value="{{ old('name', $product->name) }}" maxlength="200">
+
+                    value="{{ old('name', $user_restaurant_products->name) }}" maxlength="200">
                     {{-- FE VALIDATION: messaggio tramite JS --}}
                     <div id="nameMessage" class="text-black fw-bold"></div>
 
                 <!-- BE VALIDATION: qui va il messaggio di errore del nome -->
+                   
+                <!-- qui va il messaggio di errore del nome -->
                 @error('name')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
                 <!-- IMMAGINE -->
-                    <div class="media my-3">
-                        @if($product->image)
-                            <img class="shadow" width="150" src="{{asset('storage/' . $product->image)}}"
-                                alt="{{$product->name}}" id="uploadPreview">
+
+                    <div class="media my-3">                                
+                        @if($user_restaurant_products->image)
+                            <img class="shadow" width="150" src="{{asset('storage/' . $user_restaurant_products->image)}}"
+                                alt="{{$user_restaurant_products->name}}" id="uploadPreview">
                         @else
-                            <img class="shadow" width="100" src="public/images/placeholder.png" alt="{{$product->name}}"
+                            <img class="shadow" width="100" src="public/images/placeholder.png" alt="{{$user_restaurant_products->name}}"
                                 id="uploadPreview">
                         @endif
-                    </div>
+                    </div>                   
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Immagine</label>
+                            <input type="file" accept="image/*"
+                                class="form-control @error('image') is-invalid @enderror" id="uploadImage" name="image"
+                                value="{{ old('image', $user_restaurant_products->image) }}" maxlength="255">
+                            <!-- qui va il messaggio di errore dell'immagine -->
+                            @error('image')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="image" class="form-label text-black">Immagine</label>
-                        <input type="file" accept="image/*"
-                            class="form-control @error('image') is-invalid @enderror" id="uploadImage" name="image"
-                            value="{{ old('image', $product->image) }}" maxlength="255">
-                        <!-- qui va il messaggio di errore dell'immagine -->
-                        @error('image')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
                         <!-- div dove prendere spunto per fixare immagine -->
                         <!-- <div class="w-50">
                         <label for="img" class="form-label">Immagine*</label>
@@ -54,29 +61,33 @@
                         @enderror
                             </div> -->
 
-                    <!-- DESCRIZIONE -->
-                    <div class="mb-3">
-                        <label for="description" class="form-label text-black">Descrizione</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" id="description"
-                            name="description" required>{{old('description', $product->description)}}</textarea>
-                        <div id="descriptionMessage" class="text-black fw-bold"></div>
 
-                        @error('description')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
+                    
 
-                    <!-- PREZZO -->
-                    <div id="priceForm" class="mb-3">
-                        <label for="price" class="form-label text-black">Prezzo</label>
-                        <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror"
-                            id="price" name="price" value="{{ old('price', $product->price) }}" required>
-                        <div id="priceMessage" class="text-black fw-bold"></div>
+                        <!-- DESCRIZIONE -->
+                        <div class="mb-3">
+                            <textarea class="form-control @error('description') is-invalid @enderror" id="description"
+                                name="description" required>{{old('description', $user_restaurant_products->description)}}</textarea>
+                                 <div id="descriptionMessage" class="text-black fw-bold"></div>
+                            @error('description')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-                        @error('price')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
+                        <!-- PREZZO -->
+                        <div id="priceForm" class="mb-3">
+                            <label for="price" class="form-label">Prezzo</label>
+                            <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror"
+                                id="price" name="price" value="{{ old('price', $user_restaurant_products->price) }}" required>
+                            <!-- qui va il messaggio di errore del prezzo -->
+                            
+                             <div id="priceMessage" class="text-black fw-bold"></div>
+                         
+                            @error('price')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+
 
                     <!-- BOTTONI -->
                     <div class="mb-3">
