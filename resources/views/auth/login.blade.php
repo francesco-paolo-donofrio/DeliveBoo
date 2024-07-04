@@ -20,6 +20,7 @@
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <div id="emailMessage"></div>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -37,6 +38,7 @@
                                     <input id="password" type="password"
                                         class="form-control  @error('password') is-invalid @enderror"
                                         name="password" required autocomplete="current-password">
+                                        <div id="pswMessage"></div>
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -61,7 +63,7 @@
 
                             <div class="mb-4 row">
                                 <div class="col-md-8 offset-md-4 d-flex">
-                                    <button type="submit" class="btn f-d-button">
+                                    <button type="submit" id="submitBtn" class="btn f-d-button">
                                         {{ __('Accedi') }}
                                     </button>
 

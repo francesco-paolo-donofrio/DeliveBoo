@@ -103,12 +103,13 @@ class ProductController extends Controller
             $path = Storage::put('uploads', $form_data['image']);
             //gestisco qui la rinomina del file in caso di file con stesso nome, tramite trait 
             $form_data['image'] = $this->uploadFile($request->file('image'), 'product_images');
-        } else{
+        } else {
             $form_data['image'] = $product->image;
         }
         $product->update($form_data);
         return redirect()->route('admin.products.show', $product->id)->with('message', $product->name . ' è stato aggiornato con successo');
     }
+
 
     /**
      * Remove the specified resource from storage.
