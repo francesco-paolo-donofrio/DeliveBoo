@@ -42,7 +42,8 @@
 
             <!-- DESCRIZIONE -->
             <div class="mb-3">
-                <label class="text-black" for="description" class="form-label text-black">Descrizione*</label>
+
+                <label for="description" class="form-label text-black">Descrizione</label>              
                 <textarea class="form-control @error('description') is-invalid @enderror" id="description"
                     name="description" required>{{ old('description') }}</textarea>
                 <div id="descriptionMessage" class="text-black"></div>
