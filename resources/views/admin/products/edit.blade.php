@@ -6,7 +6,7 @@
 
 <div class="f-d-bg-login-register">
     
-    <section class="container f-d-editform-container">
+    <section class="container f-d-form-edit-create">
         <h2 class="gradientColor">Modifica prodotto <em>{{$user_restaurant_products->name}}</em></h2>
         <form class="text-secondary" action="{{ route('admin.products.update', $user_restaurant_products->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -21,7 +21,7 @@
                     <div id="nameMessage" class="text-black fw-bold"></div>
 
                 <!-- BE VALIDATION: qui va il messaggio di errore del nome -->
-                   
+                
                 <!-- qui va il messaggio di errore del nome -->
                 @error('name')
                     <div class="alert alert-danger">{{ $message }}</div>
