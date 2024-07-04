@@ -110,6 +110,7 @@ class ProductController extends Controller
         return redirect()->route('admin.products.show', $product->id)->with('message', $product->name . ' è stato aggiornato con successo');
     }
 
+
     /**
      * Remove the specified resource from storage.
      */
