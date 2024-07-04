@@ -34,7 +34,7 @@ class RegisteredUserController extends Controller
     }
     public function store(Request $request): RedirectResponse
     {
-        //dd($request);
+        
         // Validazione dei dati, inclusa l'immagine
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -42,11 +42,12 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'restaurant_name' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
+            'description' => ['nullable','string'],
             'vat' => ['required', 'string', 'max:20'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:5120'], // Validazione dell'immagine
             'types'=>   ['required']
-        ], [
+        ]
+        , [
             'name.required' => 'Il campo nome è obbligatorio.',
             'name.string' => 'Il campo nome deve essere una stringa.',
             'name.max' => 'Il campo nome non può superare :max caratteri.',
@@ -73,10 +74,8 @@ class RegisteredUserController extends Controller
             'image.mimes' => 'Il file deve essere di uno dei seguenti tipi: jpeg, png, jpg, gif, webp.',
             'image.max' => 'Il file non può superare :max kilobytes.',
             'types.required'=>'Inserire almeno una tipologia'
-        ]);
-
-        
-
+        ]
+    );
         // Creazione dell'utente
         $user = User::create([
             'name' => $request->name,
@@ -85,14 +84,11 @@ class RegisteredUserController extends Controller
         ]);
 
         // Caricamento dell'immagine se presente
-        $imagePath = null;
+        $imagePath = 'restaurant_images/placeholder.png';
         if ($request->hasFile('image')) {
             $imagePath = $this->uploadFile($request->file('image'), 'restaurant_images');
-        } else {
-            $imagePath = 'restaurant_images/placeholder.png';
-        }
-        ;
-
+        } 
+        
         // Creazione del ristorante
         $restaurant = Restaurant::create([
             'name' => $request->restaurant_name,
@@ -102,8 +98,9 @@ class RegisteredUserController extends Controller
             'user_id' => $user->id,
             'image' => $imagePath,
         ]);
-        $restaurant->types()->sync($request->types);
-
+        if ($request->has('types')) {
+            $restaurant->types()->attach($request->types);
+        };
 
         // Evento Registered e login dell'utente
         event(new Registered($user));

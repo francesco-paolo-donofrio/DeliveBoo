@@ -97,9 +97,9 @@
                             <div class="mb-4 row">
                                 <label for="image" class="col-md-4 col-form-label text-md-right">Immagine</label>
                                 <div class="col-md-6">
-                                    <input type="file" accept="image/*"
+                                    <input name="image" type="file" accept="image/*"
                                         class="form-control @error('image') is-invalid @enderror" id="uploadImage"
-                                        name="image" value="{{ old('image') }}">
+                                        value="{{ old('image') }}">
                                         
                                         <div id="imgMessage"></div>
                                     @error('image')

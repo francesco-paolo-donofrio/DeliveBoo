@@ -131,7 +131,7 @@ function ValidationFunction() {
                 event.preventDefault();
                 vatMessage.innerHTML = 'Campo obbligatorio';
             }
-            if (checkboxes.lenght > 0) {
+            if (checkboxes.length > 0) {
                 let isChecked = false;
                 checkboxes.forEach(function (checkbox) {
                     if (checkbox.checked) {
