@@ -143,22 +143,28 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div> 
-                            </div>
+
+                           
                             <div class="mb-4 row col-md-6 offset-md-4 d-flex justify-content-center align-items-center">
                                     <div class="d-flex justify-content-center align-items-center mb-2">
+
                                     <button type="submit" id="submitBtn" class="f-d-button">
                                         {{ __('Registrati') }}
                                     </button>
 
+
+                            </div>
+
                                     </div>
 
-                                </div>
+                              
 
                             
                             <div class="text-white ">
                                         *Campi obbligatori
                                     </div>
                             
+
                         </form>
                     </div>
                     
