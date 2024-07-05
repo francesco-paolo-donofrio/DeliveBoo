@@ -11,26 +11,29 @@ class RestaurantController extends Controller
 {
     public function index(Request $request)
     {
-        // if ($request->query('category')) {
-        //     $posts = Post::with('category')->where('category_id', $request->query('category'))->paginate(4);
-        // } else {
-        //     $posts = Post::with('category')->paginate(4);
-        // }
-        // $category = $request->query('category');
-        //->when($category, function (Builder $query, string $category)
-        //$query->where('category_id', $category);
-
-        // $restaurants = Restaurant::where('type_id', $request->query('type_id'))->get();
-
-        // $restaurants = Restaurant::with('types', 'products')->get();
         if ($request->query('type_id')) {
-            $typeId = $request->query('type_id');
+            $typeIds = $request->query('type_id');
+            if (!is_array($typeIds)) {
+                $typeIds = [$typeIds];
+            }
 
-            $restaurants = Restaurant::whereHas('types', function ($query) use ($typeId) {
-                $query->where('type_id', $typeId);
-            })->with('products','types')->get();
-        }else{
-            $restaurants = Restaurant::with('products','types')->get();
+            // whereHas per filtrare i ristoranti in base a relazione (alle tipologie, contenute in typeIds che ho impostato sempre come array)
+            // whereHas accetta una callback come primo parametro e una condizione come secondo parametro.
+            // la condizione è costituita da tre elementi: colonna utilizzata (di default è quella principale della relazione, qui types), operatore (qui specifico '=') e il valore (qui count($typeIds))
+            $restaurants = Restaurant::whereHas('types',
+            // funzione di callback per definire ulteriori filtri sulla relazione
+            function ($query) use ($typeIds) {
+                // whereIn per cercare ristoranti che abbiano tipologie con type_id presenti in typeIds
+                $query->whereIn('type_id', $typeIds);},
+                // operatore di confronto: voglio assicurarmi che i risultati abbiano esattamente il numero di filtri/tipologie passati
+                '=',
+                // conto quanti elementi ci sono in typeIds
+                count($typeIds))
+
+                //RIASSUNTO: la callback (function ($query) use ($typeIds)) prima filtra i ristoranti in base agli id delle tipologie contenuti in typeIds. Poi applica anche una verifica: passa solo i risultati filtrati il cui numero di tipologie è uguale a count(typeIds)
+            ->with('products', 'types')->get();
+        } else {
+            $restaurants = Restaurant::with('products', 'types')->get();
         }
         return response()->json([
             'status' => 'success',
