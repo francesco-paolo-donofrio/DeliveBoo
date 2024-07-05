@@ -193,9 +193,9 @@ function ValidationFunction() {
                     valid = false;
                 }
             }
-            if (vatInput && vatInput.value.length > 20) {
+            if (vatInput && vatInput.value.length > 11) {
                 event.preventDefault();
-                vatMessage.innerHTML = 'La partita IVA deve avere massimo 20 caratteri';
+                vatMessage.innerHTML = 'La partita IVA deve essere di 11 caratteri';
                 vatMessage.classList.add('f-d-error-div');
                 vatMessage.style.display = 'block';
                 vatInput.classList.add('input-error');
