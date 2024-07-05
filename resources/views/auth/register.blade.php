@@ -147,9 +147,6 @@
                                     <button type="submit" id="submitBtn" class="f-d-button">
                                         {{ __('Registrati') }}
                                     </button>
-                                    <a href="{{ route('login') }}" class="f-d-button">
-                                        {{ __('Cancella') }}
-                                    </a>
                                 </div>
                             </div>
                         </form>
