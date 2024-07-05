@@ -272,7 +272,15 @@ $fa-font-path: "../fonts/webfonts" !default;
     font-size: 1em;
     font-family: Arial, sans-serif;
     background-color: $primary-color-frontend;
+
 }
+
+.product-image{
+    width: 100px; 
+    height: auto; 
+    object-fit: cover;
+}
+
 
 /* Stile per le celle della tabella */
 th,
@@ -296,6 +304,7 @@ tr:nth-child(even) {
 /* Stile per la prima colonna */
 td:first-child {
     font-weight: bold;
+    
 }
 
 .f-d-firstFavProject {

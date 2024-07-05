@@ -18,13 +18,13 @@
 <a href="{{route('admin.products.create')}}" title="Create" class="text-black px-2"><button class="f-d-button-form-edit">Aggiungi prodotto</button></a>
 </div>
 
-
+<p class="text-secondary fw-bold ps-3 pt-3">Prodotti disponibili: {{ $totalProductsCount }}</p>
 
 <table class="f-d-table">
     <thead>
         <tr>
+            <th scope="col">Immagine</th>
             <th scope="col">Nome</th>
-            <th scope="col">Descrizione</th>
             <th scope="col">Prezzo</th>
             <th scope="col">Visibilità</th>
             <th scope="col">Azioni</th>
@@ -33,8 +33,8 @@
     <tbody>
     @foreach ($user->restaurant->products as $product)
         <tr>
+            <td><img src="{{asset('storage/' . $product->image)}}" alt="{{$product->name}}" class="product-image ps-1"></td>
             <td class="product-name">{{$product->name}}</td>
-            <td>{{$product->description}}</td>
             <td>{{$product->price}}</td> 
             @if ($product->visible == 0)
             <td>No</td>
