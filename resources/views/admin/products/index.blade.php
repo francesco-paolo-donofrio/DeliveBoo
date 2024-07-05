@@ -33,7 +33,7 @@
     <tbody>
     @foreach ($user->restaurant->products as $product)
         <tr>
-            <td>{{$product->name}}</td>
+            <td class="product-name">{{$product->name}}</td>
             <td>{{$product->description}}</td>
             <td>{{$product->price}}</td> 
             @if ($product->visible == 0)
