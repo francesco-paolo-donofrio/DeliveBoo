@@ -73,10 +73,11 @@
     <p class="f-d-primary-color fs-4"><i class="fa-solid fa-location-dot p-2"></i>{{ $user_restaurant->address }}</p>
     <p class="f-d-primary-color fs-4"><i class="fa-solid fa-envelope p-2"></i>{{ $user_restaurant->vat }}</p>
     </div>
-    <h3>Tipologie:</h3>
-    <ul>
+    
+    <ul class="f-d-layer-dashboard" >
+    <h3 class="f-d-primary-color fw-bold p-2">Tipologie:</h3>
       @foreach ($user_types as $type)
-      <img src="{{asset($type->image)}}" alt="">
+      <img class="f-d-img-font" src="{{asset($type->image)}}" alt="">
       <li>{{$type->name}}</li>
       @endforeach
       
