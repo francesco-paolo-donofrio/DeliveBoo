@@ -27,6 +27,7 @@ class StoreProductRequest extends FormRequest
             'description' => 'required',
             'image' => 'required',
             'price' => 'required|numeric|min:0.01',
+            'visible' => 'required'
         ];
     }
     public function messages(){
@@ -36,6 +37,7 @@ class StoreProductRequest extends FormRequest
             'description.required' => 'Il campo descrizione è obbligatorio',
             'image.required' => 'Il campo immagine è obbligatorio',
             'price.required' => 'Il campo prezzo è obbligatorio',
+            'visible' => 'Vuoi che questo prodotto sia già visibile sul menù del tuo ristorante?'
         ];
     }
 }
