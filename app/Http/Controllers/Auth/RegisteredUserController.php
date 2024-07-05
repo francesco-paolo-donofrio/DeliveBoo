@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'restaurant_name' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'description' => ['nullable','string'],
-            'vat' => ['required', 'string', 'max:11'],
+            'vat' => ['required', 'string', 'max:11', 'unique:restaurants'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:5120'], // Validazione dell'immagine
             'types'=>   ['required']
         ]
@@ -70,6 +70,7 @@ class RegisteredUserController extends Controller
             'vat.required' => 'Il campo partita IVA è obbligatorio.',
             'vat.string' => 'Il campo partita IVA deve essere una stringa.',
             'vat.max' => 'La partita IVA non può superare :max caratteri.',
+            'vat.unique' => 'Questa partita IVA è stata registrata.',
             'image.image' => 'Il file deve essere un\'immagine.',
             'image.mimes' => 'Il file deve essere di uno dei seguenti tipi: jpeg, png, jpg, gif, webp.',
             'image.max' => 'Il file non può superare :max kilobytes.',

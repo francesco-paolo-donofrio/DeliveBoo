@@ -95,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="image" class="col-md-4 col-form-label text-md-right text-white fw-bold">Immagine</label>
+                                <label for="image" class="col-md-4 col-form-label text-md-right text-white fw-bold">Immagine*</label>
                                 <div class="col-md-6">
                                     <input name="image" type="file" accept="image/*"
                                         class="form-control @error('image') is-invalid @enderror" id="uploadImage"
