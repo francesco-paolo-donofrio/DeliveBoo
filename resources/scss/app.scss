@@ -195,6 +195,7 @@ $fa-font-path: "../fonts/webfonts" !default;
     background-repeat: no-repeat;
 }
 
+
 .f-d-bg-dashboard {
     width: 100%;
     height: calc(100vh - 80px);
@@ -354,12 +355,12 @@ td:first-child {
 
 .f-d-card-register {
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 120px);
     background: linear-gradient(to left, $primary-color-backend, $third-color-backend);
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    padding: 10px;
+    overflow: auto;
+    padding: 20px;
     color: black;
     font-weight: normal;
     border: 2px solid $primary-color-frontend;
@@ -752,6 +753,12 @@ td:first-child {
     height: 40px;
 }
 
-.f-d-error-div {
-    color: #F28B0C; 
+.error-message {
+    color: #F28B0C;
+    display: none; /* Nasconde il messaggio di errore inizialmente */
+}
+
+.input-error {
+    border-color: #F28B0C;
+    background-color: #FFF3CD;
 }
