@@ -131,7 +131,7 @@
                     {{-- TIPOLOGIE --}}
                     <div class="d-flex justify-content-start align-items-center gap-5">
                             <div class="mb-2 text-white fw-bold">Tipologie per il tuo Ristorante:*</div>
-                            <div class="my-3 align-self-center">
+                            <div class="my-3">
                                 @foreach ($types as $type)
                                     <input type="checkbox" name="types[]" value="{{ $type->id }}" class="form-check-input mx-2 tipologieClassJS "
                                             {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
@@ -143,28 +143,19 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div> 
+                    </div>
 
                            
                             <div class="mb-4 row col-md-6 offset-md-4 d-flex justify-content-center align-items-center">
                                     <div class="d-flex justify-content-center align-items-center mb-2">
-
                                     <button type="submit" id="submitBtn" class="f-d-button">
                                         {{ __('Registrati') }}
                                     </button>
-
-
-                            </div>
-
                                     </div>
-
-                              
-
-                            
+                            </div>
                             <div class="text-white ">
                                         *Campi obbligatori
-                                    </div>
-                            
-
+                                </div>
                         </form>
                     </div>
                     
