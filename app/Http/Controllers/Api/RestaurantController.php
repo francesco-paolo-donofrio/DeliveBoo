@@ -29,12 +29,31 @@ class RestaurantController extends Controller
             $restaurants = Restaurant::whereHas('types', function ($query) use ($typeId) {
                 $query->where('type_id', $typeId);
             })->with('products')->get();
-
+        }else{
+            $restaurants = Restaurant::all();
+        }
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Ok',
+            'results' => $restaurants
+        ], 200);
+    }
+    public function show($id)
+    {
+        $restaurant = Restaurant::where('id', $id)
+        ->with(['products','types'])
+        ->first();
+        if($restaurant){
             return response()->json([
-                'status' => 'success',
-                'message' => 'Ok',
-                'results' => $restaurants
-            ], 200);
+               'status' => 'success',
+                'message' => 'OK',
+                'results' => $restaurant
+            ],200);
+        } else {
+            return response()->json([
+                'status' => 'error',	
+                'message' => 'Error'
+            ],404);
         }
     }
 }
