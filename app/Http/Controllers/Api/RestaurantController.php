@@ -28,9 +28,9 @@ class RestaurantController extends Controller
 
             $restaurants = Restaurant::whereHas('types', function ($query) use ($typeId) {
                 $query->where('type_id', $typeId);
-            })->with('products')->get();
+            })->with('products','types')->get();
         }else{
-            $restaurants = Restaurant::all();
+            $restaurants = Restaurant::with('products','types')->get();
         }
         return response()->json([
             'status' => 'success',
@@ -45,7 +45,7 @@ class RestaurantController extends Controller
         ->first();
         if($restaurant){
             return response()->json([
-               'status' => 'success',
+                'status' => 'success',
                 'message' => 'OK',
                 'results' => $restaurant
             ],200);
