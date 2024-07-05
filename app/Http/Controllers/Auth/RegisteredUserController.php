@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
             'restaurant_name' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'description' => ['nullable','string'],
-            'vat' => ['required', 'string', 'max:20'],
+            'vat' => ['required', 'string', 'max:11'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,webp', 'max:5120'], // Validazione dell'immagine
             'types'=>   ['required']
         ]
