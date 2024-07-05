@@ -25,15 +25,19 @@ class ProductController extends Controller
     {
         $user = Auth::user();
         //dd($user);
+       
         if($user->restaurant->products){
             $products=Product::all();
+            $restaurant = $user->restaurant; //dichiaro la variabile $restaurant in cui salvo il ristorante dell'utente
+            $totalProductsCount = $restaurant->products()->count(); //conto il numero di prodotti nel ristorante del singolo utente
             //Nel caso in cui vogliamo eliminare un prodotto con il soft delete
             // $products = Product::find($id);
             // $products->delete();
             // Esempio di ripristino di un piatto eliminato
             // $products->restore();
+           
             $restaurants=Restaurant::all()->first();
-            return view('admin.products.index', compact('user'));
+            return view('admin.products.index', compact('user', 'totalProductsCount'));
         }
 
     }
