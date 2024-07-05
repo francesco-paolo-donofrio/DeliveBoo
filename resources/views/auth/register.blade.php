@@ -149,8 +149,12 @@
                                     <button type="submit" id="submitBtn" class="f-d-button">
                                         {{ __('Registrati') }}
                                     </button>
+
                                     </div>
-                            </div>
+
+                                </div>
+
+                            
                             <div class="text-white ">
                                         *Campi obbligatori
                                     </div>
