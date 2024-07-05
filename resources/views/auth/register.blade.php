@@ -142,12 +142,11 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div> 
-                            <div class="mb-4 row">
-                                <div class="col-md-6 offset-md-4 d-flex justify-content-between">
+                            <div id="submitDiv" class="mb-4 d-flex justify-content-end">
                                     <button type="submit" id="submitBtn" class="f-d-button">
                                         {{ __('Registrati') }}
                                     </button>
-                                </div>
+
                             </div>
                         </form>
                     </div>

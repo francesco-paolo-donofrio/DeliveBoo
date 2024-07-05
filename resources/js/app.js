@@ -80,14 +80,17 @@ if (image && document.getElementById('uploadPreview')) {
 
 // Modale per eliminazione piatto
 
-const deleteButtonModal = document.querySelectorAll('.delete-button');
+/* const deleteButtonModal = document.querySelectorAll('.delete-button');
 
 deleteButtonModal.forEach(element => {
     element.addEventListener('click', (e) => {
         console.log('addEventListener');
         e.preventDefault();
         const modale = document.getElementById('exampleModal');
+        const modalBody = document.querySelector('.modal-body #productName');
+        modalBody.textContent = productName;
         const myModal = new bootstrap.Modal(modale);
+
         myModal.show();
         const btnSave = modale.querySelector(".btn.f-d-button-form-cancel-modal");
         console.log(btnSave);
@@ -96,8 +99,25 @@ deleteButtonModal.forEach(element => {
         });
     });
 });
-
-
+ */
+const deleteButtonModal = document.querySelectorAll('.delete-button');
+deleteButtonModal.forEach(element => {
+    element.addEventListener('click', (e) => {
+        console.log('addEventListener');
+        e.preventDefault();
+        const productName = element.getAttribute('data-item-title'); // Ottieni il nome del prodotto
+        const modale = document.getElementById('exampleModal');
+        const myModal = new bootstrap.Modal(modale);
+        myModal.show();
+        // Imposta il nome del prodotto nella modale
+        const productNameModal = modale.querySelector('.product-name-modal');
+        productNameModal.innerText = 'Confermi di voler eliminare ' + productName + '?';
+        const btnSave = modale.querySelector(".btn.f-d-button-form-cancel-modal");
+        btnSave.addEventListener("click", () => {
+            element.parentElement.submit();
+        });
+    });
+});
 
 
 
