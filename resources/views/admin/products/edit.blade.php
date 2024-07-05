@@ -71,7 +71,7 @@
                             <label for="description" class="form-label text-black">Descrizione*</label>
                             <textarea class="form-control @error('description') is-invalid @enderror" id="description"
                                 name="description" required>{{old('description', $user_restaurant_products->description)}}</textarea>
-                                 <div id="descriptionMessage" class="f-d-error-div"></div>
+                                <div id="descriptionMessage" class="f-d-error-div"></div>
                             @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -91,7 +91,7 @@
 
                         <!-- VISIBILITA' -->
             <div id="visible" class="mb-3 text-secondary">
-                <div for="visible" class="text-black">Vuoi mostrare il prodotto sul menù?*</div>
+                <div for="visible" class="text-black mb-2">Vuoi mostrare il prodotto sul menù?*</div>
                 <div class="">
                     <div>
                         <input id="visible-1" name="visible" class="form-check-input me-1" type="radio" value="1" aria-label="Radio button for following text input" @if ($user_restaurant_products->visible == 1) : checked @endif>

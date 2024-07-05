@@ -67,7 +67,7 @@
 
             <!-- VISIBILITA' -->
             <div id="visible" class="mb-3 text-secondary">
-                <div for="visible" class="text-black">Vuoi mostrare il prodotto sul menù?*</div>
+                <div for="visible" class="text-black mb-2">Vuoi mostrare il prodotto sul menù?*</div>
                 <div class="">
                     <div>
                         <input id="visible-1" name="visible" class="form-check-input me-1" type="radio" value="1" aria-label="Radio button for following text input">

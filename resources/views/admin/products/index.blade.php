@@ -5,8 +5,10 @@
 
 @if(session()->has('deleted'))
     <div class="alert alert-danger">{{session()->get('deleted')}}</div>
-    @endif
-
+@endif
+@if(session()->has('message'))
+    <div class="alert alert-success">{{session()->get('message')}}</div>
+@endif
 
 
 <h1 class="gradientColor text-center"><em>Menù </em><strong>{{$user->restaurant->name}}</strong></h1>
