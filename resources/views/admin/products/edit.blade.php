@@ -82,15 +82,32 @@
                             <label for="price" class="form-label text-white fw-bold">Prezzo*</label>
                             <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror"
                                 id="price" name="price" value="{{ old('price', $user_restaurant_products->price) }}" required>
-                            <!-- qui va il messaggio di errore del prezzo -->
-                            
+                            <!-- qui va il messaggio di errore del prezzo -->              
                              <div id="priceMessage" class="error-message"></div>
-                         
                             @error('price')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
 
+                        <!-- VISIBILITA' -->
+            <div id="visible" class="mb-3 text-secondary">
+                <div for="visible" class="text-black mb-2">Vuoi mostrare il prodotto sul menù?*</div>
+                <div class="">
+                    <div>
+                        <input id="visible-1" name="visible" class="form-check-input me-1" type="radio" value="1" aria-label="Radio button for following text input" @if ($user_restaurant_products->visible == 1) : checked @endif>
+                        <label for="visible-1" class="form-label text-black">Sì, mostra il prodotto sul menù</label>
+                    </div>
+                    <div>
+                        <input id="visible-0" name="visible" class="form-check-input me-1" type="radio" value="0" aria-label="Radio button for following text input" @if ($user_restaurant_products->visible == 0) : checked @endif>
+                        <label for="visible-0" class="form-label text-black">No, non mostrare il prodotto sul menù</label>
+                    </div>
+                </div>
+                <div id="visibleMessage" class="text-black"></div>
+                <!-- qui va il messaggio di errore del prezzo -->
+                @error('price')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
 
                     <!-- BOTTONI -->
                     <div class="mb-3">
