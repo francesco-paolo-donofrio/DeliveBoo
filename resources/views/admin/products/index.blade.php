@@ -5,8 +5,10 @@
 
 @if(session()->has('deleted'))
     <div class="alert alert-danger">{{session()->get('deleted')}}</div>
-    @endif
-
+@endif
+@if(session()->has('message'))
+    <div class="alert alert-success">{{session()->get('message')}}</div>
+@endif
 
 
 <h1 class="gradientColor text-center"><em>Menù </em><strong>{{$user->restaurant->name}}</strong></h1>
@@ -31,7 +33,7 @@
     <tbody>
     @foreach ($user->restaurant->products as $product)
         <tr>
-            <td>{{$product->name}}</td>
+            <td class="product-name">{{$product->name}}</td>
             <td>{{$product->description}}</td>
             <td>{{$product->price}}</td> 
             @if ($product->visible == 0)

@@ -195,6 +195,7 @@ $fa-font-path: "../fonts/webfonts" !default;
     background-repeat: no-repeat;
 }
 
+
 .f-d-bg-dashboard {
     width: 100%;
     height: calc(100vh - 80px);
@@ -354,12 +355,12 @@ td:first-child {
 
 .f-d-card-register {
     width: 100%;
-    height: 100%;
+    height: calc(100vh - 120px);
     background: linear-gradient(to left, $primary-color-backend, $third-color-backend);
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    padding: 10px;
+    overflow: auto;
+    padding: 20px;
     color: black;
     font-weight: normal;
     border: 2px solid $primary-color-frontend;
@@ -367,7 +368,7 @@ td:first-child {
 
 .f-d-form-edit-create {
     width: 100%;
-    height: 100%;
+    //height: 100%;
     background: linear-gradient(to top left, $primary-color-backend, $third-color-backend);
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -745,4 +746,25 @@ td:first-child {
     justify-content: center;
     align-items: center;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.f-d-img-font {
+    width: 40px;
+    height: 40px;
+}
+
+.error-message {
+    color: #F28B0C;
+    display: none; /* Nasconde il messaggio di errore inizialmente */
+}
+
+.input-error {
+    border-color: #F28B0C;
+    background-color: #FFF3CD;
+    border: 3px solid #F28B0C;
+}
+
+/* Form di registrazione (Register.blade) */
+#submitDiv {
+    margin-right: 140px;
 }

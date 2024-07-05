@@ -27,6 +27,7 @@ class UpdateProductRequest extends FormRequest
             'description' => 'required',
             'image' => 'mimes:jpeg,png,jpg,gif,webp|max:5000',
             'price' => 'required|numeric|min:0.01',
+            'visible' => 'required'
     
         ];
     }
@@ -38,6 +39,7 @@ class UpdateProductRequest extends FormRequest
             'description.required' => 'Il campo descrizione è obbligatorio',
             'image.required' => 'Il campo immagine è obbligatorio',
             'price.required' => 'Il campo prezzo è obbligatorio',
+            'visible' => 'Vuoi che questo prodotto sia già visibile sul menù del tuo ristorante?'
         ];
     }
 }

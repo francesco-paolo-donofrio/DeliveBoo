@@ -61,7 +61,7 @@ class ProductController extends Controller
 
         $form_data['restaurant_id'] = $user->restaurant->id;
         $newProduct = Product::create($form_data);
-        return redirect()->route('admin.products.show', $newProduct->id)->with('message', 'Prodotto inserito correttamente');
+        return redirect()->route('admin.products.index',)->with('message', $form_data['name'] . ' inserito correttamente');
     }
 
     /**
@@ -107,7 +107,7 @@ class ProductController extends Controller
             $form_data['image'] = $product->image;
         }
         $product->update($form_data);
-        return redirect()->route('admin.products.show', $product->id)->with('message', $product->name . ' è stato aggiornato con successo');
+        return redirect()->route('admin.products.index')->with('message', $product->name . ' è stato aggiornato con successo');
     }
 
 
