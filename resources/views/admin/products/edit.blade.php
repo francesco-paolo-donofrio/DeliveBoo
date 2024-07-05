@@ -14,11 +14,13 @@
             <!-- NOME -->
             <div class="mb-3">
                 <label for="name" class="form-label text-black">Nome*</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
+                <input type="text" class="form-control invalid @error('name') is-invalid @enderror" id="name" name="name"
 
                     value="{{ old('name', $user_restaurant_products->name) }}" maxlength="200">
                     {{-- FE VALIDATION: messaggio tramite JS --}}
-                    <div id="nameMessage" class="text-black fw-bold"></div>
+                    
+                        <div id="nameMessage" class="f-d-error-div fw-bold"></div>
+                    
 
                 <!-- BE VALIDATION: qui va il messaggio di errore del nome -->
                 
@@ -44,7 +46,7 @@
                                 class="form-control @error('image') is-invalid @enderror" id="uploadImage" name="image"
                                 value="{{ old('image', $user_restaurant_products->image) }}" maxlength="255">
                                 {{-- FE VALIDATION: messaggio tramite JS --}}
-                            <div id="imgMessage" class="text-black fw-bold"></div>
+                            <div id="imgMessage" class="f-d-error-div"></div>
                             <!-- qui va il messaggio di errore dell'immagine -->
                             @error('image')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -69,7 +71,7 @@
                             <label for="description" class="form-label text-black">Descrizione*</label>
                             <textarea class="form-control @error('description') is-invalid @enderror" id="description"
                                 name="description" required>{{old('description', $user_restaurant_products->description)}}</textarea>
-                                 <div id="descriptionMessage" class="text-black fw-bold"></div>
+                                 <div id="descriptionMessage" class="f-d-error-div"></div>
                             @error('description')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -93,7 +95,6 @@
                     <!-- BOTTONI -->
                     <div class="mb-3">
                         <button id="submitBtn" type="submit" class="f-d-button-form-edit">Modifica</button>
-                        <a class="f-d-button-form-reset" href="{{ route('admin.products.index') }}">Torna indietro</a>
                     </div>
                     <div class="text-black"><span>* Campi obbligatori</span></div>
             </div>

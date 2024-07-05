@@ -68,7 +68,7 @@
             <!-- BOTTONI -->
             <div class="mb-3">
                 <button type="submit" id="submitBtn" class="f-d-button-form-edit">Crea</button>
-                <a class="f-d-button-form-reset" href="{{ route('admin.products.index') }}">Torna indietro</a>
+
             </div>
             <div class="text-black"><span>* Campi obbligatori</span></div>
         </form>

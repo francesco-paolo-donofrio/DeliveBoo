@@ -16,10 +16,6 @@
                     <i class="fs-4 fa-solid fa-utensils"></i>
                     Piatti/Menù
                 </a>
-                <a href="{{ route('admin.products.create') }}" class="d-flex justify-content-start align-items-center">
-                    <i class="fs-4 fa-solid fa-plus"></i>
-                    Aggiungi Piatto
-                </a>
                 <a href="#" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-clipboard-check"></i>
                     Ordini
