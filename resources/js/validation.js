@@ -1,10 +1,10 @@
 //** funz per validazione prima di submit di un form */
 function ValidationFunction() {
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
 
         // Prendo il bottone di invio form
         const submitBtn = document.getElementById('submitBtn');
-    
+
         // Prendo i campi input
         const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
@@ -12,13 +12,14 @@ function ValidationFunction() {
         const pswConfInput = document.getElementById('password-confirm');
         const rNameInput = document.getElementById('restaurant_name');
         const addrInput = document.getElementById('address');
-        const imageInput  = document.getElementById('uploadImage');
+        const imageInput = document.getElementById('uploadImage');
         const descriptionInput = document.getElementById('description');
         const vatInput = document.getElementById('vat');
         const checkboxes = document.querySelectorAll('.tipologieClassJS');
         const priceInput = document.getElementById('price');
-        
-    
+        const radioButtons = document.querySelectorAll('.typeClassJS');
+
+
         // Scrivo i messaggi di errore / FE VALIDATION
         const nameMessage = document.getElementById('nameMessage');
         const emailMessage = document.getElementById('emailMessage');
@@ -31,54 +32,58 @@ function ValidationFunction() {
         const vatMessage = document.getElementById('vatMessage');
         const typeMessage = document.getElementById('typeMessage');
         const priceMessage = document.getElementById('priceMessage');
-    
+        const visibleMessage = document.getElementById('visibleMessage');
+
         submitBtn.addEventListener('click', function (event) {
             let valid = true;
 
-            if(nameMessage){
+            if (nameMessage) {
                 nameMessage.innerHTML = '';
             }
-            if(emailMessage){
+            if (emailMessage) {
                 emailMessage.innerHTML = '';
             }
-            if(pswMessage){
+            if (pswMessage) {
                 pswMessage.innerHTML = '';
             }
-            if(pswConfMessage){
+            if (pswConfMessage) {
                 pswConfMessage.innerHTML = '';
             }
-            if(rNameMessage){
+            if (rNameMessage) {
                 rNameMessage.innerHTML = '';
             }
-            if(addrMessage){
+            if (addrMessage) {
                 addrMessage.innerHTML = '';
             }
-            if(imgMessage){
+            if (imgMessage) {
                 imgMessage.innerHTML = '';
             }
-            if(descriptionMessage){
+            if (descriptionMessage) {
                 descriptionMessage.innerHTML = '';
             }
-            if(vatMessage){
+            if (vatMessage) {
                 vatMessage.innerHTML = '';
             }
-            if(typeMessage){
+            if (typeMessage) {
                 typeMessage.innerHTML = '';
             }
-            if(priceMessage){
+            if (priceMessage) {
                 priceMessage.innerHTML = '';
+            }
+            if (visibleMessage) {
+                visibleMessage.innerHTML = '';
             }
 
             const errorMessages = [
                 nameMessage, emailMessage, pswMessage, pswConfMessage,
                 rNameMessage, addrMessage, imgMessage, descriptionMessage,
-                vatMessage, typeMessage, priceMessage
+                vatMessage, typeMessage, priceMessage, visibleMessage
             ];
 
             const inputs = [
                 nameInput, emailInput, pswInput, pswConfInput,
                 rNameInput, addrInput, imageInput, descriptionInput,
-                vatInput, priceInput
+                vatInput, priceInput,
             ];
 
             errorMessages.forEach(message => {
@@ -163,7 +168,7 @@ function ValidationFunction() {
             if (imageInput && imageInput.files.length > 0) {
                 const file = imageInput.files[0];
                 const maxFileSize = 5 * 1024 * 1024; // 5 MB in byte
-        
+
                 if (file.size > maxFileSize) {
                     event.preventDefault();
                     imgMessage.innerHTML = 'Attenzione: il file selezionato eccede il limite di 5mb';
@@ -221,6 +226,21 @@ function ValidationFunction() {
                     typeMessage.innerHTML = 'Seleziona almeno una tipologia di cucina per il tuo ristorante';
                     typeMessage.classList.add('f-d-error-div');
                     typeMessage.style.display = 'block';
+                    valid = false;
+                }
+            }
+            if (radioButtons.length > 0) {
+                let isChecked = false;
+                radioButtons.forEach(function (radiobutton) {
+                    if (radiobutton.checked) {
+                        isChecked = true;
+                    }
+                });
+                if (!isChecked) {
+                    event.preventDefault();
+                    visibleMessage.innerHTML = 'Seleziona il tipo di visibilità per questo prodotto';
+                    visibleMessage.classList.add('f-d-error-div');
+                    visibleMessage.style.display = 'block';
                     valid = false;
                 }
             }

@@ -294,11 +294,14 @@ td {
 th {
     background-color: $secondary-color-backend;
     color: $fifth-color-backend;
+    font-weight: bold;
+    text-transform: uppercase;
+
 }
 
 /* Stile per le righe della tabella */
 tr:nth-child(even) {
-    background-color: $primary-color-backend;
+    background-color: $secondary-color-backend;
 }
 
 /* Stile per la prima colonna */
@@ -628,6 +631,7 @@ td:first-child {
 
 .f-d-main-image img{
     width: 70%;
+    height: 90%;
     border-radius: 20px;
     border: 2px solid $primary-color-frontend;
 }
@@ -743,9 +747,9 @@ td:first-child {
 }
 
 .f-d-layer-dashboard {
-    width: 50%;
-    height: 60%;
-    background-color: #1f2d3a33;
+    width: 70%;
+    height: 90%;
+    background: linear-gradient(to left, $secondary-color-backend, $third-color-backend);
     border: 2px solid $primary-color-frontend;
     border-radius: 10px;
     padding: 10px;
