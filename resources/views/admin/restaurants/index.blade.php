@@ -58,8 +58,14 @@
     </div>
   </section>
 
-
-
+@elseif ($user_products->isEmpty())
+  <section>
+    <div class="container d-flex flex-column justify-content-between align-items-center">
+    <h1 class="text-center gradientColor">Nessun prodotto disponibile</h1>
+    <p class="text-center gradientColor">Per favore, aggiungi il primo prodotto.</p>
+    <a href="{{ route('admin.products.create') }}" class="f-d-button-form-edit">Aggiungi prodotto</a>
+    </div>
+  </section>
 
 @else
 
@@ -82,7 +88,7 @@
       @foreach ($user_types as $type)
       <img class="f-d-img-font" src="{{asset($type->image)}}" alt="{{$type->name}}">
     @endforeach
-    </div>
+      </div>
     </div>
     </div>
   </div>
