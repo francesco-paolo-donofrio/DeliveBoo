@@ -69,7 +69,7 @@
 
 @else
 
-  <h1 class="text-center f-d-color-primary p-2 fw-bold"><i
+  <h1 class="text-center f-d-color-primary mt-1 p-2 fw-bold"><i
     class="fa-solid fa-utensils f-d-color-primary p-4 fw-bold"></i>Il tuo Ristorante</h1>
 
   {{-- Due sezioni: a sx img, a dx info ristorante --}}
