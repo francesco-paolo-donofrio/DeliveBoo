@@ -628,6 +628,7 @@ td:first-child {
 
 .f-d-main-image img{
     width: 70%;
+    height: 90%;
     border-radius: 20px;
     border: 2px solid $primary-color-frontend;
 }
@@ -743,8 +744,8 @@ td:first-child {
 }
 
 .f-d-layer-dashboard {
-    width: 50%;
-    height: 60%;
+    width: 70%;
+    height: 90%;
     background-color: #1f2d3a33;
     border: 2px solid $primary-color-frontend;
     border-radius: 10px;
