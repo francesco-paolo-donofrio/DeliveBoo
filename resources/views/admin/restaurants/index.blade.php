@@ -79,7 +79,7 @@
     </div>
     <div class="f-d-main-second-container">
     <div class="f-d-layer-dashboard">
-      <h2 class="f-d-primary-color fw-bold p-2"><em class="gradientColor">{{$user_restaurant->name }}</em></h2>
+      <h2 class="f-d-primary-color fw-bold p-2"><em class="f-d-primary-color">{{$user_restaurant->name }}</em></h2>
       <p class="f-d-primary-color fs-4"><i class="fa-solid fa-location-dot p-2"></i>{{ $user_restaurant->address }}
       </p>
       <p class="f-d-primary-color fs-4"><i class="fa-solid fa-envelope p-2"></i>{{ $user_restaurant->vat }}</p>
