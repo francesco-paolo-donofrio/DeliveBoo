@@ -67,18 +67,18 @@
 
             <!-- VISIBILITA' -->
             <div id="visible" class="mb-3 text-secondary">
-                <div for="visible" class="text-black mb-2">Vuoi mostrare il prodotto sul menù?*</div>
+                <div for="visible" class="text-white fw-bold mb-2">Vuoi mostrare il prodotto sul menù?*</div>
                 <div class="">
                     <div>
-                        <input id="visible-1" name="visible" class="form-check-input me-1" type="radio" value="1" aria-label="Radio button for following text input">
-                        <label for="visible-1" class="form-label text-black">Sì, mostra il prodotto sul menù</label>
+                        <input id="visible-1" name="visible" class="form-check-input me-1 typeClassJS" type="radio" value="1" aria-label="Radio button for following text input">
+                        <label for="visible-1" class="form-label text-white">Sì, mostra il prodotto sul menù</label>
                     </div>
                     <div>
-                        <input id="visible-0" name="visible" class="form-check-input me-1" type="radio" value="0" aria-label="Radio button for following text input">
-                        <label for="visible-0" class="form-label text-black">No, non mostrare il prodotto sul menù</label>
+                        <input id="visible-0" name="visible" class="form-check-input me-1 typeClassJS" type="radio" value="0" aria-label="Radio button for following text input">
+                        <label for="visible-0" class="form-label text-white">No, non mostrare il prodotto sul menù</label>
                     </div>
                 </div>
-                <div id="visibleMessage" class="text-black"></div>
+                <div id="visibleMessage" class="error-message"></div>
                 <!-- qui va il messaggio di errore del prezzo -->
                 @error('price')
                     <div class="alert alert-danger">{{ $message }}</div>
