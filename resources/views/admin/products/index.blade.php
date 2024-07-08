@@ -18,9 +18,10 @@
 <a href="{{route('admin.products.create')}}" title="Create" class="text-black px-2"><button class="f-d-button-form-edit">Aggiungi prodotto</button></a>
 </div>
 
-<p class="text-secondary fw-bold ps-3 pt-3">Piatti disponibili: {{ $totalProductsCount }}</p>
-@if ($totalProductsCount < 1)
-    <p class="text-secondary ps-3 pt-3">Nessun piatto disponibile</p>
+@if ($totalProductsCount)
+    <p class="text-secondary fw-bold ps-3 pt-4">Piatti disponibili: {{ $totalProductsCount }}</p>
+@else ($totalProductsCount < 1)
+    <p class="text-secondary ps-3 fw-bold">Nessun piatto disponibile</p>
 @endif
 
 <table class="f-d-table">
