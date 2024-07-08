@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\TypeController;
+use App\Http\Controllers\Api\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,8 @@ use App\Http\Controllers\Api\TypeController;
 Route::get('restaurants', [RestaurantController::class, 'index']);
 Route::get('restaurants/{id}', [RestaurantController::class, 'show']);
 Route::get('types', [TypeController::class, 'index']);
+Route::get('products', [ProductController::class, 'index']);
+Route::post('/update-quantity', [ProductController::class, 'updateQuantity']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

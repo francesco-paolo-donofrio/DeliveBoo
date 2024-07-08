@@ -30,7 +30,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(
     Route::get('/', [RestaurantController::class, 'index'])->name('dashboard')->middleware('auth');
 });
 
-Route::post('/update-quantity', [ProductController::class, 'updateQuantity']);
+
 
 
 Route::middleware('auth')->group(function () {
