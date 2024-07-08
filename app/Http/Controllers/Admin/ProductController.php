@@ -134,4 +134,15 @@ class ProductController extends Controller
         $user_restaurant_products->delete();
         return redirect()->route('admin.products.index')->with('deleted', $user_restaurant_products->name . ' è stato eliminato');
     }
+    public function updateQuantity(Request $request)
+    {
+        $product = Product::find($request->id);
+        if ($product) {
+            $product->quantity = $request->quantity;
+            $product->save();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['success' => false], 404);
+    }
+
 }
