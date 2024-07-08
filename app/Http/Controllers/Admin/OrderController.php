@@ -13,7 +13,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+         // Ordina gli ordini in ordine decrescente per visualizzare l'ultimo ricevuto per primo (LIFO)
+         $orders = Order::with('user')->orderBy('created_at', 'desc')->paginate(10);
+         return view('admin.order.index', compact('orders'));
     }
 
     /**
@@ -35,9 +37,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Order $order)
+    public function show($id)
     {
-        //
+        $order = Order::with('user')->findOrFail($id);
+        return view('admin.orders.show', compact('order'));
     }
 
     /**
