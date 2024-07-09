@@ -24,7 +24,11 @@ class BraintreePaymentController extends Controller
         
         $clientToken = $this->gateway->clientToken()->generate();
         dd($clientToken);
-        return response()->json($clientToken);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Ok',
+            'results' => $clientToken
+        ], 200);
     }
     
     public function processPayment(Request $request)
