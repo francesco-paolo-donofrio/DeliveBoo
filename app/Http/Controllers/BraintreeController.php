@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
@@ -42,6 +43,17 @@ class BraintreeController extends Controller
         ]);
 
         if ($result->success) {
+            // Salva i dati dell'ordine nel database
+            $order = new Order();
+            $order->total_price = $amount;
+            $order->customer_name = $request->customer['name'];
+            $order->customer_surname = $request->customer['surname'];
+            $order->customer_phone = $request->customer['phone'];
+            $order->customer_email = $request->customer['email'];
+            $order->customer_address = $request->customer['address'];
+            $order->status = 'confirmed';
+            $order->save();
+
             return response()->json(['success' => true, 'transaction' => $result->transaction]);
         } else {
             return response()->json(['success' => false, 'message' => $result->message]);
