@@ -86,7 +86,7 @@
       <h3 class="f-d-primary-color fw-bold p-2">Tipologie:</h3>
       <div class="">
       @foreach ($user_types as $type)
-      <img class="f-d-img-font" src="{{asset($type->image)}}" alt="{{$type->name}}">
+      <img class="f-d-img-font" src="{{asset('storage/' . $type->image)}}" alt="{{$type->name}}">
     @endforeach
       </div>
     </div>
