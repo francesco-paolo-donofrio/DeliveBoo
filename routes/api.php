@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\TypeController;
+use App\Http\Controllers\BraintreeController;
+use Braintree\Gateway;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,21 @@ use App\Http\Controllers\Api\TypeController;
 Route::get('restaurants', [RestaurantController::class, 'index']);
 Route::get('restaurants/{id}', [RestaurantController::class, 'show']);
 Route::get('types', [TypeController::class, 'index']);
+
+Route::get('/braintree/token', function () {
+    $gateway = new Gateway([
+        'environment' => config('services.braintree.environment'),
+        'merchantId' => config('services.braintree.merchant_id'),
+        'publicKey' => config('services.braintree.public_key'),
+        'privateKey' => config('services.braintree.private_key'),
+    ]);
+
+    $clientToken = $gateway->clientToken()->generate();
+
+    return response()->json(['token' => $clientToken]);
+});
+
+Route::post('/braintree/checkout', [BraintreeController::class, 'checkout']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
