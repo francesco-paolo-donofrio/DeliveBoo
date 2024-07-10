@@ -80,18 +80,17 @@ class BraintreeController extends Controller
             // Invia una mail di conferma al ristorante
             $user_restaurant = Restaurant::find($user_id); // Trova il ristorante associato all'utente
 
-            if ($user_restaurant) {
+            
                 Mail::to($user_restaurant->email)->send(new OrderConfirmation($lead));
-            }else{
+                Mail::to('elisamavilia1@gmail.com')->send(new OrderConfirmation($lead));
+
+           
                 return response()->json(['success' => false, 'message' => 'Ristorante non trovato']);
-            }
+            
 
             // Invia una mail di conferma a un indirizzo fisso
-            Mail::to('elisamavilia1@gmail.com')->send(new OrderConfirmation($lead));
 
-            return response()->json(['success' => true, 'transaction' => $result->transaction]);
-        } else {
-            return response()->json(['success' => false, 'message' => $result->message]);
+            // return response()->json(['success' => true, 'transaction' => $result->transaction]);
         }
     }
 }
