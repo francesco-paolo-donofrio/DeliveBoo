@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\BraintreeController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/checkout', [BraintreeController::class, 'checkout'])->name('checkout');
 
 
 Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')->group(function () {
