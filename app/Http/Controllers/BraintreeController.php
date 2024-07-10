@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Lead;
 use App\Models\Product;
+use App\Models\OrderProduct;
 use App\Models\Restaurant;
 use App\Models\User;
 use App\Mail\OrderConfirmation;
@@ -35,6 +36,7 @@ class BraintreeController extends Controller
 
     public function checkout(Request $request , Order $order, Restaurant $restaurant, User $user)
     {
+        
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
 
@@ -58,15 +60,15 @@ class BraintreeController extends Controller
             $order->status = 'confirmed';
             $order->save();
 
-          // Aggiungi i prodotti alla tabella pivot order_product
-         /*  foreach ($request->products as $productData) {
-            $order->products()->attach($productData['id'], [
-                'order_id' => $order->id,  // Aggiungi l'order_id
-                'quantity' => $productData['quantity'],
-                'unit_price' => $productData['unit_price'],
-                'product_name' => $productData['name']
-            ]);
-        } */
+          //Aggiungi i prodotti alla tabella pivot order_product
+           foreach ($request->products as $productData) {
+            $orderProduct= new OrderProduct();
+            $orderProduct->order_id = $order->id;  // Aggiungi l'order_id
+            $orderProduct->quantity = $productData['quantity'];
+            $orderProduct->unit_price = $productData['price'];
+            $orderProduct->product_name = $productData['name'];
+            $orderProduct->save();
+        }
             // Salva il lead nel database
             $lead = new Lead();
             $lead->order_id = $order->id;
@@ -81,16 +83,16 @@ class BraintreeController extends Controller
             $user_restaurant = Restaurant::find($user_id); // Trova il ristorante associato all'utente
 
             
-                Mail::to($user_restaurant->email)->send(new OrderConfirmation($lead));
-                Mail::to('elisamavilia1@gmail.com')->send(new OrderConfirmation($lead));
+                // Mail::to($user_restaurant->email)->send(new OrderConfirmation($lead));
+            Mail::to('elisamavilia1@gmail.com')->send(new OrderConfirmation($lead));
 
            
-                return response()->json(['success' => false, 'message' => 'Ristorante non trovato']);
+            // return response()->json(['success' => false, 'message' => 'Ristorante non trovato']);
             
 
             // Invia una mail di conferma a un indirizzo fisso
 
-            // return response()->json(['success' => true, 'transaction' => $result->transaction]);
+            return response()->json(['success' => true, 'transaction' => $result->transaction]);
         }
     }
 }
