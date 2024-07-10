@@ -134,4 +134,10 @@ class ProductController extends Controller
         $user_restaurant_products->delete();
         return redirect()->route('admin.products.index')->with('deleted', $user_restaurant_products->name . ' è stato eliminato');
     }
+
+    public function getProductWithRestaurant($id)
+    {
+        $product = Product::with('restaurant')->findOrFail($id);
+        return response()->json($product);
+    }
 }
