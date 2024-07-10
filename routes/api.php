@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\TypeController;
-// use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\BraintreeController;
 use Braintree\Gateway;
 
@@ -37,7 +37,7 @@ Route::get('/braintree/token', function () {
 
 Route::post('/braintree/checkout', [BraintreeController::class, 'checkout']);
 
-// Route::get('/products/{id}/restaurant', [ProductController::class, 'getProductWithRestaurant']);
+Route::get('/products/{id}/restaurant', [ProductController::class, 'getProductWithRestaurant']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
