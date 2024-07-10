@@ -17,30 +17,25 @@ class LeadController extends Controller
     {
         $data = $request->all();
       //validazione per la gestione della request
-        $validator = Validator::make($data, [
-            'name' => 'required',
-            'surname' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'address' => 'required|email',
-        ]);
+      $validatedData = $request->validate([
+        'order_id' => 'required|exists:orders,id',
+        'message_content' => 'required|string|max:255',
+    ]);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => 'error',
-                'errors' => $validator->errors()
-            ], 401);
-        }
+         // Creare un nuovo Lead
+         $lead = new Lead();
+         $lead->order_id = $validatedData['order_id'];
+         $lead->message_content = $validatedData['message_content'];
+         $lead->save();
+ 
+         
 
-        $lead = new Lead();
-        $lead->fill($data);
-        $lead->save();
-
-        Mail::to($restaurant->email, $order->customer_email)->send(new OrderConfirmation($lead));
+       /*  Mail::to($restaurant->email, $order->customer_email)->send(new OrderConfirmation($lead)); */
 
         return response()->json([
             'status' => 'success',
             'message' => 'Ok',
         ], 200);
+       
     }
 }
