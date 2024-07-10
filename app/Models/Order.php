@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Product;
+use App\Models\Lead;
 
 class Order extends Model
 {
@@ -16,4 +17,10 @@ class Order extends Model
     {
         return $this->belongsToMany(Product::class)->using(OrderProduct::class)->withPivot('quantity', 'unit_price', 'product_name');
     }
+
+    public function lead() //relazione con tabella lead dei messaggi
+    {
+        return $this->hasOne(Lead::class);
+    }
+
 }
