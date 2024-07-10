@@ -32,33 +32,33 @@ class BraintreeController extends Controller
     public function checkout(Request $request)
     {
         //Validazione di tutti i campi del form, anche quelli di braintree
-        //$errors = [];
-        // if (empty($request->amount) || !is_numeric($request->amount) || $request->amount <= 0) {
-        //     $errors['amount'] = 'Qualcosa dev\'essere andato storto: l\'importo del tuo ordine risulta zero.';
-        // }
-        // if (empty($request->payment_method_nonce)) {
-        //     $errors['payment_method_nonce'] = 'Selezionare un metodo di pagamento.';
-        // }
-        // if (empty($request->customer['name']) || strlen($request->customer['name']) < 3 || strlen($request->customer['name']) > 50) {
-        //     $errors['customer.name'] = 'Il nome è obbligatorio e deve avere tra 3 e 50 caratteri.';
-        // }
-        // if (empty($request->customer['surname']) || strlen($request->customer['surname']) < 3 || strlen($request->customer['surname']) > 50) {
-        //     $errors['customer.surname'] = 'Il cognome è obbligatorio e deve avere tra 3 e 50 caratteri.';
-        // }
-        // if (empty($request->customer['phone'])) {
-        //     $errors['customer.phone'] = 'Il numero di telefono è obbligatorio';
-        // }
-        // if (empty($request->customer['email']) || !filter_var($request->customer['email'], FILTER_VALIDATE_EMAIL)) {
-        //     $errors['customer.email'] = 'L\'email è obbligatoria e deve essere valida.';
-        // }
-        // if (empty($request->customer['address']) || strlen($request->customer['address']) < 3 || strlen($request->customer['address']) > 200) {
-        //     $errors['customer.address'] = 'L\'indirizzo è obbligatorio.';
-        // }
+        $errors = [];
+        if (empty($request->amount) || !is_numeric($request->amount) || $request->amount <= 0) {
+            $errors['amount'] = 'Qualcosa dev\'essere andato storto: l\'importo del tuo ordine risulta zero.';
+        }
+        if (empty($request->payment_method_nonce)) {
+            $errors['payment_method_nonce'] = 'Selezionare un metodo di pagamento.';
+        }
+        if (empty($request->customer['name']) || strlen($request->customer['name']) < 3 || strlen($request->customer['name']) > 50) {
+            $errors['customer.name'] = 'Il nome è obbligatorio e deve avere tra 3 e 50 caratteri.';
+        }
+        if (empty($request->customer['surname']) || strlen($request->customer['surname']) < 3 || strlen($request->customer['surname']) > 50) {
+            $errors['customer.surname'] = 'Il cognome è obbligatorio e deve avere tra 3 e 50 caratteri.';
+        }
+        if (empty($request->customer['phone'])) {
+            $errors['customer.phone'] = 'Il numero di telefono è obbligatorio';
+        }
+        if (empty($request->customer['email']) || !filter_var($request->customer['email'], FILTER_VALIDATE_EMAIL)) {
+            $errors['customer.email'] = 'L\'email è obbligatoria e deve essere valida.';
+        }
+        if (empty($request->customer['address']) || strlen($request->customer['address']) < 3 || strlen($request->customer['address']) > 200) {
+            $errors['customer.address'] = 'L\'indirizzo è obbligatorio.';
+        }
 
-        // Se ci sono errori, restituisci la risposta JSON con gli errori e uno status HTTP 422
-        // if (!empty($errors)) {
-        //     return response()->json(['success' => false, 'errors' => $errors], 422);
-        // }
+        //Se ci sono errori, restituisci la risposta JSON con gli errori e uno status HTTP 422
+        if (!empty($errors)) {
+            return response()->json(['success' => false, 'errors' => $errors], 422);
+        }
 
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
