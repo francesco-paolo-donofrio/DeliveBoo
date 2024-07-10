@@ -37,7 +37,9 @@ Route::get('/braintree/token', function () {
 });
 
 Route::post('/braintree/checkout', [BraintreeController::class, 'checkout']);
+
 Route::post('/leads', [LeadController::class, 'store']);
+
 // Route::get('/products/{id}/restaurant', [ProductController::class, 'getProductWithRestaurant']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
