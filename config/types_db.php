@@ -5,24 +5,45 @@ return [
         "types" => [
     [
         "name" => "Italiano",
-        "image" => "/images/type/spaguetti.png"
+        "image" => "type/spaguetti.png"
     ],
     [
         "name" => "Cinese",
-        "image" => "/images/type/ramen.png"
+        "image" => "type/china.png"
     ],
     [
         "name" => "Messicano",
-        "image" => "/images/type/taco.png"
+        "image" => "type/taco.png"
     ],
     [
         "name" => "Sushi",
-        "image" => "/images/type/sushi.png"
+        "image" => "type/sushi.png"
     ],
     [
         "name" => "Pizza",
-        "image" => "/images/type/pizza.png"
+        "image" => "type/pizza.png"
+    ],
+    [
+        "name" => "Vegano",
+        "image" => "type/vegan.png"
+    ],
+    [
+        "name" => "Giapponese",
+        "image" => "type/japan.png"
+    ],
+    [
+        "name" => "Coreano",
+        "image" => "type/korean.png"
+    ],
+    [
+        "name" => "Hamburger",
+        "image" => "type/hamburger.png"
+    ],
+    [
+        "name" => "BBQ",
+        "image" => "type/bbq.png"
     ]
+
 ]
 ];
 
