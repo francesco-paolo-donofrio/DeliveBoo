@@ -89,15 +89,15 @@ class BraintreeController extends Controller
             $order->status = 'confirmed';
             $order->save();
 
-          //Aggiungi i prodotti alla tabella pivot order_product
-           foreach ($request->products as $productData) {
-            $orderProduct= new OrderProduct();
-            $orderProduct->order_id = $order->id;  // Aggiungi l'order_id
-            $orderProduct->quantity = $productData['quantity'];
-            $orderProduct->unit_price = $productData['price'];
-            $orderProduct->product_name = $productData['name'];
-            $orderProduct->save();
-        }
+            //Aggiungi i prodotti alla tabella pivot order_product
+            foreach ($request->products as $productData) {
+                $orderProduct= new OrderProduct();
+                $orderProduct->order_id = $order->id;  // Aggiungi l'order_id
+                $orderProduct->quantity = $productData['quantity'];
+                $orderProduct->unit_price = $productData['price'];
+                $orderProduct->product_name = $productData['name'];
+                $orderProduct->save();
+            }
             // Salva il lead nel database
             $lead = new Lead();
             $lead->order_id = $order->id;
@@ -115,13 +115,14 @@ class BraintreeController extends Controller
                 // Mail::to($user_restaurant->email)->send(new OrderConfirmation($lead));
             Mail::to('elisamavilia1@gmail.com')->send(new OrderConfirmation($lead));
 
-           
             // return response()->json(['success' => false, 'message' => 'Ristorante non trovato']);
             
 
             // Invia una mail di conferma a un indirizzo fisso
 
             return response()->json(['success' => true, 'transaction' => $result->transaction]);
+        } else {
+            return response()->json(['success' => false, 'message' => $result->message]);
         }
     }
 }
