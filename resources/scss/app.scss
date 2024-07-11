@@ -276,8 +276,8 @@ $fa-font-path: "../fonts/webfonts" !default;
 }
 
 .product-image{
-    width: 100px; 
-    height: auto; 
+    width: 60px; 
+    height: 60px; 
     object-fit: cover;
 }
 
@@ -292,7 +292,7 @@ td {
 
 /* Stile per l'intestazione della tabella */
 th {
-    background-color: $secondary-color-backend;
+    background: linear-gradient(90deg, $third-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
     color: $fifth-color-backend;
     font-weight: bold;
     text-transform: uppercase;

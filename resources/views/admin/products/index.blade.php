@@ -11,7 +11,7 @@
 @endif
 
 
-<h1 class="gradientColor text-center"><em>Menù </em><strong>{{$user->restaurant->name}}</strong></h1>
+<h1 class="f-d-primary-color text-center"><em>Menù </em><strong>{{$user->restaurant->name}}</strong></h1>
 
 <div class="d-flex align-content-center align-items-center justify-content-between ms-2 mt-3">
 
@@ -21,7 +21,7 @@
 @if ($totalProductsCount)
     <p class="text-secondary fw-bold ps-3 pt-4">Piatti disponibili: {{ $totalProductsCount }}</p>
 @else ($totalProductsCount < 1)
-    <p class="text-secondary ps-3 fw-bold">Nessun piatto disponibile</p>
+    <p class="text-warning ps-3 pt-4 fw-bold">Nessun piatto disponibile</p>
 @endif
 
 <table class="f-d-table">
