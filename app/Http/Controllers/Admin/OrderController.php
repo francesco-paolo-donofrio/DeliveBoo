@@ -16,10 +16,21 @@ class OrderController extends Controller
      */
     public function index()
     {
-         // Ordina gli ordini in ordine decrescente per visualizzare l'ultimo ricevuto per primo 
-         $orders = Order::with('products')->orderBy('created_at', 'desc')->paginate(10);
-       
-         return view('admin.orders.index', compact('orders'));
+        $user = Auth::user();
+    
+    // Assicurati che l'utente abbia un ristorante associato
+    if ($user && $user->restaurant) {
+        $restaurant = $user->restaurant;
+        
+        // Recupera gli ordini associati ai prodotti del ristorante
+        $orders = Order::whereIn('id', function ($query) use ($restaurant) {
+            $query->select('order_id')
+                  ->from('order_product')
+                  ->whereIn('product_id', $restaurant->products->pluck('id'));
+        })->with('products')->orderBy('created_at', 'desc')->get();
+
+        return view('admin.orders.index', compact('orders'));
+    }
     }
 
     /**
@@ -43,8 +54,20 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = Order::with('products')->findOrFail($id);
+        $user = Auth::user();
+    
+    if ($user && $user->restaurant) {
+        $restaurant = $user->restaurant;
+        
+        $order = Order::where('id', $id)
+            ->whereHas('products', function ($query) use ($restaurant) {
+                $query->whereIn('product_id', $restaurant->products->pluck('id'));
+            })
+            ->with('products')
+            ->firstOrFail();
+
         return view('admin.orders.show', compact('order'));
+    }
     }
     
 
