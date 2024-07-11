@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\OrderProduct;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -13,8 +16,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-         // Ordina gli ordini in ordine decrescente per visualizzare l'ultimo ricevuto per primo (LIFO)
+         // Ordina gli ordini in ordine decrescente per visualizzare l'ultimo ricevuto per primo 
          $orders = Order::with('products')->orderBy('created_at', 'desc')->paginate(10);
+       
          return view('admin.orders.index', compact('orders'));
     }
 
@@ -42,6 +46,8 @@ class OrderController extends Controller
         $order = Order::with('products')->findOrFail($id);
         return view('admin.orders.show', compact('order'));
     }
+    
+
 
     /**
      * Show the form for editing the specified resource.

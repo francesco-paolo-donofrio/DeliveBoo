@@ -89,9 +89,11 @@ class BraintreeController extends Controller
             $order->status = 'confirmed';
             $order->save();
 
+           
             //Aggiungi i prodotti alla tabella pivot order_product
             foreach ($request->products as $productData) {
                 $orderProduct= new OrderProduct();
+                $orderProduct->product_id = $productData['id'];
                 $orderProduct->order_id = $order->id;  // Aggiungi l'order_id
                 $orderProduct->quantity = $productData['quantity'];
                 $orderProduct->unit_price = $productData['price'];
