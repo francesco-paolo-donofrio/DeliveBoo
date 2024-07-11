@@ -23,4 +23,8 @@ class Order extends Model
         return $this->hasOne(Lead::class);
     }
 
+    public function orderProducts()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
 }
