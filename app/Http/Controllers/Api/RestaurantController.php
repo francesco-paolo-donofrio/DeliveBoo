@@ -44,7 +44,9 @@ class RestaurantController extends Controller
     public function show($id)
     {
         $restaurant = Restaurant::where('id', $id)
-        ->with(['products','types'])
+        ->with(['products' => function ($query) {
+            $query->where('visible', 1);
+        },'types'])
         ->first();
         if($restaurant){
             return response()->json([
