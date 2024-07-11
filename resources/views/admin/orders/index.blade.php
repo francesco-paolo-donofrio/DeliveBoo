@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Ordini</h1>
-    <table class="table">
+    <table class="f-d-table">
         <thead>
             <tr>
                 <th>Nome cliente</th>
@@ -22,8 +22,8 @@
                     <td>{{ $order->customer_address }}</td>
                     <td>{{ $order->total_price }}</td>
                     <td>{{ $order->created_at }}</td>
-                    <td>
-                        <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-info">Visualizza</a>
+                    <td class="d-flex align-items-center justify-content-center">
+                        <a href="{{ route('admin.orders.show', $order->id) }}" class="f-d-button f-d-primary-color fw-bold">Visualizza</a>
                     </td>
                 </tr>
             @endforeach

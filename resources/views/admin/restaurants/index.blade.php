@@ -78,12 +78,12 @@
     <img src="{{asset('storage/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}">
     </div>
     <div class="f-d-main-second-container">
-    <div class="f-d-layer-dashboard">
-      <h2 class="f-d-primary-color fw-bold p-2"><em class="f-d-primary-color">{{$user_restaurant->name }}</em></h2>
-      <p class="f-d-primary-color fs-4"><i class="fa-solid fa-location-dot p-2"></i>{{ $user_restaurant->address }}
+    <div class="f-d-layer-dashboard ">
+      <h2 class="text-white fw-bold p-2"><em class="text-white">{{$user_restaurant->name }}</em></h2>
+      <p class="text-white fs-4"><i class="fa-solid fa-location-dot p-2 text-white"></i>{{ $user_restaurant->address }}
       </p>
-      <p class="f-d-primary-color fs-4"><i class="fa-solid fa-envelope p-2"></i>{{ $user_restaurant->vat }}</p>
-      <h3 class="f-d-primary-color fw-bold p-2">Tipologie:</h3>
+      <p class="text-white fs-4"><i class="fa-solid fa-envelope p-2 text-white"></i>{{ $user_restaurant->vat }}</p>
+      <h3 class="fw-bold p-2 text-white">Tipologie:</h3>
       <div class="">
       @foreach ($user_types as $type)
       <img class="f-d-img-font" src="{{asset('storage/' . $type->image)}}" alt="{{$type->name}}">
