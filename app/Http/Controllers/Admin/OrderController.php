@@ -15,7 +15,7 @@ class OrderController extends Controller
     {
          // Ordina gli ordini in ordine decrescente per visualizzare l'ultimo ricevuto per primo (LIFO)
          $orders = Order::with('products')->orderBy('created_at', 'desc')->paginate(10);
-         return view('admin.order.index', compact('orders'));
+         return view('admin.orders.index', compact('orders'));
     }
 
     /**

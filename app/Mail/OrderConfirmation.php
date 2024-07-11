@@ -41,7 +41,7 @@ class OrderConfirmation extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mails.order_confirmation', /* percorso della vista */
+            view: 'admin.emails.order-confirmation', /* percorso della vista */
         );
     }
 

@@ -23,7 +23,7 @@
                     <td>{{ $order->total_price }}</td>
                     <td>{{ $order->created_at }}</td>
                     <td>
-                        <a href="{{ route('admin.restaurants.store', $order->id) }}" class="btn btn-info">Visualizza</a>
+                        <a href="{{ route('admin.restaurants.show', $order->id) }}" class="btn btn-info">Visualizza</a>
                     </td>
                 </tr>
             @endforeach
