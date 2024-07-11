@@ -47,7 +47,7 @@
             @endif
 
             <td>
-                <a href="{{route('admin.products.show', $product->id)}}" title="Show" class="text-black px-2"><i class="fa-solid fa-eye" style="color: #758C20;"></i></a>
+                {{-- <a href="{{route('admin.products.show', $product->id)}}" title="Show" class="text-black px-2"><i class="fa-solid fa-eye" style="color: #758C20;"></i></a> --}}
                 <a href="{{route('admin.products.edit', $product->id)}}" title="Edit" class="text-black px-2"><i class="fa-solid fa-pen" style="color: white;"></i></a>
                 <form action="{{route('admin.products.destroy', $product->id)}}" method="POST" class="d-inline-block">
                     @csrf
