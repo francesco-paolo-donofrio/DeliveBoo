@@ -1,13 +1,16 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container">
 
-    <h1>Ordini</h1>
+<div class="container">
+<h1 class="gradientColor text-center py-4">Ordini</h1>
+    @if ($totalOrdersCount)
+    <p class="text-secondary fw-bold ps-3 pt-4">Ordini disponibili: {{ $totalOrdersCount }}</p>
+@else ($totalOrdersCount < 1)
+    <p class="text-warning ps-3 pt-4 fw-bold">Ancora nessun ordine disponibile</p>
+@endif
     <table class="f-d-table">
         <thead>
-
-    <h1 class="gradientColor text-center py-4">Ordini</h1>
     <table class="f-d-table">
         <thead class="f-d-table-header">
 

@@ -29,7 +29,8 @@ class OrderController extends Controller
                   ->whereIn('product_id', $restaurant->products->pluck('id'));
         })->with('products')->orderBy('created_at', 'desc')->get();
 
-        return view('admin.orders.index', compact('orders'));
+        $totalOrdersCount = $orders->count();
+        return view('admin.orders.index', compact('orders', 'totalOrdersCount'));
     }
     }
 
@@ -65,7 +66,7 @@ class OrderController extends Controller
             })
             ->with('products')
             ->firstOrFail();
-
+            
         return view('admin.orders.show', compact('order'));
     }
     }

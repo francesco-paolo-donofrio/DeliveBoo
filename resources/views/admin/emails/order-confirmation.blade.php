@@ -1,10 +1,6 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="d-flex align-items-center align-content-center">
-   <img src="{{asset('images/logo_deliveboo.png')}}" alt="Logo Deliveboo"> 
-   <h1 class="gradientColor text-center py-4">Deliveboo</h1>
-</div>
 <h1>Ordine effettuato, ecco un riepilogo</h1>
 <!-- Se hai bisogno di visualizzare i dettagli dei prodotti -->
 @if($lead->order->orderProducts)
