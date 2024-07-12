@@ -12,7 +12,7 @@
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn f-d-button-form-cancel text-white" data-bs-dismiss="modal">Chiudi</button>
+        <button type="button" class="btn f-d-button-form-edit text-white" data-bs-dismiss="modal">Chiudi</button>
         <button type="button" class="btn f-d-button-form-cancel-modal bg-danger text-white">Elimina</button>
       </div>
     </div>

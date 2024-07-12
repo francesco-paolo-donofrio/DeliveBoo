@@ -282,32 +282,97 @@ $fa-font-path: "../fonts/webfonts" !default;
 }
 
 
-/* Stile per le celle della tabella */
+// Variabili per l'animazione
+$transition-duration: 0.3s;
+
+// Stile per la tabella
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid $fourth-color-frontend;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+// Stile per le celle della tabella
 th,
 td {
-    padding: 5px 5px;
-    border: 1px solid $fourth-color-frontend;
-    text-align: left;
+  padding: 12px 15px;
+  text-align: left;
 }
 
-/* Stile per l'intestazione della tabella */
+// Stile per l'intestazione della tabella
 th {
-    background: linear-gradient(90deg, $third-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
-    color: $fifth-color-backend;
-    font-weight: bold;
-    text-transform: uppercase;
+    background: linear-gradient(
+        90deg,
+        $primary-color-backend 0%,
+        adjust-hue($secondary-color-backend, 30deg) 20%,
+        adjust-hue($secondary-color-backend, 15deg) 40%,
+        $secondary-color-backend 60%,
+        adjust-hue($primary-color-backend, -15deg) 80%,
+        $secondary-color-backend 100%
+      );
+background-size: 100% 100%, 50px 100%;
+background-repeat: no-repeat, repeat;
+  color: $fifth-color-backend;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
 
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $fifth-color-backend;
+    transform: scaleX(0);
+    transition: transform $transition-duration ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
 }
 
-/* Stile per le righe della tabella */
-tr:nth-child(even) {
-    background-color: $secondary-color-backend;
+// Stile per le righe della tabella
+tr {
+  transition: background-color $transition-duration ease;
+
+  &:nth-child(even) {
+    background-color: rgba($third-color-backend, 0.1);
+  }
+
+  &:hover {
+    background-color: rgba($third-color-backend, 0.3);
+  }
 }
 
-/* Stile per la prima colonna */
+// Stile per la prima colonna
 td:first-child {
-    font-weight: bold;
-    
+  font-weight: bold;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: $primary-color-backend;
+    transform: scaleY(0);
+    transition: transform $transition-duration ease-in-out;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+  }
 }
 
 .f-d-firstFavProject {
