@@ -2,9 +2,15 @@
 
 @section('content')
 <div class="container">
+
+    <h1>Ordini</h1>
+    <table class="f-d-table">
+        <thead>
+
     <h1 class="gradientColor text-center py-4">Ordini</h1>
     <table class="f-d-table">
         <thead class="f-d-table-header">
+
             <tr>
                 <th>Nome cliente</th>
                 <th>Email cliente</th>
@@ -25,8 +31,13 @@
                     <td>{{ $order->total_price }}</td>
                     <td>{{ $order->status }}</td>
                     <td>{{ $order->created_at }}</td>
-                    <td>
-                        <a href="{{ route('admin.orders.show', $order->id) }}" id="order-detail-btn" class="ms-2 btn btn-info">Visualizza</a>
+
+                    <td class="d-flex align-items-center justify-content-center">
+                        <a href="{{ route('admin.orders.show', $order->id) }}" class="f-d-button f-d-primary-color fw-bold">Visualizza</a>
+
+                   
+                        
+
                     </td>
                 </tr>
             @endforeach

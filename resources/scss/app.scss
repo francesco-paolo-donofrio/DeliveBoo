@@ -276,8 +276,8 @@ $fa-font-path: "../fonts/webfonts" !default;
 }
 
 .product-image{
-    width: 100px; 
-    height: auto; 
+    width: 60px; 
+    height: 60px; 
     object-fit: cover;
 }
 
@@ -292,7 +292,7 @@ td {
 
 /* Stile per l'intestazione della tabella */
 th {
-    background-color: $secondary-color-backend;
+    background: linear-gradient(90deg, $third-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
     color: $fifth-color-backend;
     font-weight: bold;
     text-transform: uppercase;
@@ -378,6 +378,18 @@ td:first-child {
     border: 2px solid $primary-color-frontend;
 }
 
+.f-d-card-register-modal {
+    width: 100%;
+    background: linear-gradient(to left, $primary-color-backend, $third-color-backend);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    padding: 20px;
+    color: black;
+    font-weight: normal;
+    border: 2px solid $primary-color-frontend;
+}
+
 .f-d-form-edit-create {
     width: 100%;
     //height: 100%;
@@ -414,6 +426,12 @@ td:first-child {
     }
 }
 
+.f-d-modal-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .f-d-back-button {
     background-color: $primary-color-backend;
     width: 40px;
