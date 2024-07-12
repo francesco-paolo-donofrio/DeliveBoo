@@ -17,7 +17,6 @@
                 <th>Indirizzo cliente</th>
                 <th>Totale</th>
                 <th>Data ordine</th>
-                <th>Status</th>
                 <th>Dettaglio Ordine</th>
             </tr>
         </thead>
@@ -29,7 +28,6 @@
                     <td>{{ $order->customer_email }}</td>  
                     <td>{{ $order->customer_address }}</td>
                     <td>{{ $order->total_price }}</td>
-                    <td>{{ $order->status }}</td>
                     <td>{{ $order->created_at }}</td>
 
                     <td class="d-flex align-items-center justify-content-center">
@@ -44,7 +42,7 @@
         </tbody>
     </table>
 
-    {{ $orders->links() }} <!-- serve eventualmente per la paginazione -->
+   <!-- serve eventualmente per la paginazione -->
 </div>
 @endsection
 @section('sidebarContent')
