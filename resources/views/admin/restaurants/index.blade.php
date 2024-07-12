@@ -61,8 +61,8 @@
 @elseif ($user_products->isEmpty())
   <section>
     <div class="container d-flex flex-column justify-content-between align-items-center">
-    <h1 class="text-center gradientColor">Nessun prodotto disponibile</h1>
-    <p class="text-center gradientColor">Per favore, aggiungi il primo prodotto.</p>
+    <h1 class="text-center f-d-color-primary">Nessun prodotto disponibile</h1>
+    <p class="text-center f-d-color-primary">Per favore, aggiungi il primo prodotto.</p>
     <a href="{{ route('admin.products.create') }}" class="f-d-button-form-edit">Aggiungi prodotto</a>
     </div>
   </section>

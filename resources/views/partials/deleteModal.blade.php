@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content f-d-card-register-modal">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 fw-bold text-center text-white" id="exampleModalLabel">Cancella piatto</h1>
+        <h1 class="modal-title fs-5 fw-bold text-center text-white" id="exampleModalLabel">Elimina piatto</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       
@@ -13,7 +13,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn f-d-button-form-cancel text-white" data-bs-dismiss="modal">Chiudi</button>
-        <button type="button" class="btn f-d-button-form-cancel-modal bg-danger text-white">Cancella</button>
+        <button type="button" class="btn f-d-button-form-cancel-modal bg-danger text-white">Elimina</button>
       </div>
     </div>
   </div>

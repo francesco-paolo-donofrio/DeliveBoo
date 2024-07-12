@@ -87,7 +87,7 @@
 
             <!-- BOTTONI -->
             <div class="mb-3">
-                <button type="submit" id="submitBtn" class="f-d-button-form-edit">Crea</button>
+                <button type="submit" id="submitBtn" class="f-d-button-form-edit">Salva</button>
 
             </div>
             <div class="text-white fw-bold"><span>* Campi obbligatori</span></div>

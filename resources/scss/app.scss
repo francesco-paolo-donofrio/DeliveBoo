@@ -785,14 +785,15 @@ td:first-child {
 }
 
 .error-message {
-    color: #F28B0C;
+    font-weight: bold;
+    color: red;
     display: none; /* Nasconde il messaggio di errore inizialmente */
 }
 
 .input-error {
-    border-color: #F28B0C;
+    border-color: red;
     background-color: #FFF3CD;
-    border: 3px solid #F28B0C;
+    border: 3px solid red;
 }
 
 /* Form di registrazione (Register.blade) */
