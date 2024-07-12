@@ -799,3 +799,26 @@ td:first-child {
 #submitDiv {
     margin-right: 140px;
 }
+
+/* Riepilogo ordine */
+#order-detail-btn {
+   background-color: $fourth-color-frontend;
+   border: $fourth-color-frontend;
+}
+
+.order-details {
+    width: 550px;
+    background-color: $primary-color-backend;
+    border: 1px solid $fourth-color-frontend;
+    color: white;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+/* Layout email */
+#header-email {
+    img{
+        width: 100px;
+        aspect-ratio: 1/1;
+    }
+}

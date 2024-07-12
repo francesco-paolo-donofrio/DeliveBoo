@@ -17,6 +17,7 @@ class OrderConfirmation extends Mailable
     /**
      * Create a new message instance.
      */
+   
     public function __construct($_lead) //_lead è un oggetto che contiene tutte le informazioni relative all'ordine.All'interno del costruttore, il valore di $_lead viene assegnato a una proprietà pubblica della classe ($lead).
 
     {
