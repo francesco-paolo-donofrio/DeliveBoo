@@ -73,7 +73,7 @@
     class="fa-solid fa-utensils f-d-color-primary p-4 fw-bold"></i>Il tuo Ristorante</h1>
 
   {{-- Due sezioni: a sx img, a dx info ristorante --}}
-  <div class="d-flex">
+  <div class="f-d-flex-mq d-flex">
     <div class="f-d-main-first-container f-d-main-image">
     <img src="{{asset('storage/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}">
     </div>
