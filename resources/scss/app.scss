@@ -193,7 +193,7 @@ $fa-font-path: "../fonts/webfonts" !default;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 30px;
+    padding: 10px;
 }
 
 
@@ -852,14 +852,14 @@ td:first-child {
 
 .error-message {
     font-weight: bold;
-    color: red;
+    color: $fourth-color-frontend;
     display: none; /* Nasconde il messaggio di errore inizialmente */
 }
 
 .input-error {
-    border-color: red;
+    border-color: $fourth-color-frontend;
     background-color: #FFF3CD;
-    border: 3px solid red;
+    border: 3px solid $fourth-color-frontend;
 }
 
 /* Form di registrazione (Register.blade) */
