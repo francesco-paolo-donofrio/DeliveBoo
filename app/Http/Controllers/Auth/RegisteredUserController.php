@@ -93,6 +93,7 @@ class RegisteredUserController extends Controller
         // Creazione del ristorante
         $restaurant = Restaurant::create([
             'name' => $request->restaurant_name,
+            'slug' => Restaurant::generateSlug($request->restaurant_name),
             'address' => $request->address,
             'description' => $request->description,
             'vat' => $request->vat,
