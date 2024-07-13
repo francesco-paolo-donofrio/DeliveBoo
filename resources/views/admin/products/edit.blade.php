@@ -7,7 +7,7 @@
 <div class="f-d-bg-login-register">
     
     <section class="container f-d-form-edit-create">
-        <h2 class="text-white fw-bold">Modifica prodotto <em>{{$user_restaurant_products->name}}</em></h2>
+        <h2 class="text-white fw-bold">Modifica piatto <em>{{$user_restaurant_products->name}}</em></h2>
         <form class="text-secondary" action="{{ route('admin.products.update', $user_restaurant_products->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -91,15 +91,15 @@
 
                         <!-- VISIBILITA' -->
             <div id="visible" class="mb-3 text-secondary">
-                <div for="visible" class="text-white fw-bold mb-2">Vuoi mostrare il prodotto sul menù?*</div>
+                <div for="visible" class="text-white fw-bold mb-2">Vuoi mostrare il piatto sul menù?*</div>
                 <div class="">
                     <div>
                         <input id="visible-1" name="visible" class="form-check-input me-1" type="radio" value="1" aria-label="Radio button for following text input" @if ($user_restaurant_products->visible == 1) : checked @endif>
-                        <label for="visible-1" class="form-label text-white">Sì, mostra il prodotto sul menù</label>
+                        <label for="visible-1" class="form-label text-white">Sì, mostra il piatto sul menù</label>
                     </div>
                     <div>
                         <input id="visible-0" name="visible" class="form-check-input me-1" type="radio" value="0" aria-label="Radio button for following text input" @if ($user_restaurant_products->visible == 0) : checked @endif>
-                        <label for="visible-0" class="form-label text-white">No, non mostrare il prodotto sul menù</label>
+                        <label for="visible-0" class="form-label text-white">No, non mostrare il piatto sul menù</label>
                     </div>
                 </div>
                 <div id="visibleMessage" class="text-black"></div>

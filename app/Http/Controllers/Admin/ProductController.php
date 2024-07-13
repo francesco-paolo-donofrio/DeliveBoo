@@ -65,7 +65,7 @@ class ProductController extends Controller
 
         $form_data['restaurant_id'] = $user->restaurant->id;
         $newProduct = Product::create($form_data);
-        return redirect()->route('admin.products.index',)->with('message', $form_data['name'] . ' inserito correttamente');
+        return redirect()->route('admin.products.index',)->with('message', 'Il piatto <strong>"' . $form_data['name'] . '"</strong>'. ' è stato inserito con successo');
     }
 
     /**
@@ -111,7 +111,7 @@ class ProductController extends Controller
             $form_data['image'] = $product->image;
         }
         $product->update($form_data);
-        return redirect()->route('admin.products.index')->with('message', $product->name . ' è stato aggiornato con successo');
+        return redirect()->route('admin.products.index')->with('message', 'Il piatto <strong>"' . $form_data['name'] . '"</strong>'. ' è stato aggiornato con successo');
     }
 
 
@@ -132,7 +132,7 @@ class ProductController extends Controller
             Storage::delete($user_restaurant_products->image);
         }
         $user_restaurant_products->delete();
-        return redirect()->route('admin.products.index')->with('deleted', $user_restaurant_products->name . ' è stato eliminato');
+        return redirect()->route('admin.products.index')->with('deleted', 'Il piatto <strong>"' . $user_restaurant_products->name . '"</strong>'. ' è stato eliminato');
     }
 
     public function getProductWithRestaurant($id)

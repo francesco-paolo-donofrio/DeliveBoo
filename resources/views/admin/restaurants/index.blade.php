@@ -61,9 +61,9 @@
 @elseif ($user_products->isEmpty())
   <section>
     <div class="container d-flex flex-column justify-content-between align-items-center">
-    <h1 class="text-center gradientColor">Nessun prodotto disponibile</h1>
+    <h1 class="text-center gradientColor pt-5">Nessun piatto disponibile per: {{$user_restaurant->name}}</h1>
     <p class="text-center gradientColor">Per favore, aggiungi il primo prodotto.</p>
-    <a href="{{ route('admin.products.create') }}" class="f-d-button-form-edit">Aggiungi prodotto</a>
+    <a href="{{ route('admin.products.create') }}" class="f-d-button-form-edit">Aggiungi piatto</a>
     </div>
   </section>
 

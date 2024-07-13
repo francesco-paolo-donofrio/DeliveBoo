@@ -3,14 +3,13 @@
 @section('content')
 <section>
 <h2 class="gradientColor text-center fw-bold py-4">Riepilogo Ordine<em></em></h2>
-<div class="d-flex align-items-center align-content-center justify-content-between">
-        <p class="ps-3 fs-5 fw-bold text-secondary">Ordine numero: {{ $order->id }} </p>
-        <p class="fs-5 pt-3 pe-4 fw-bold text-secondary">Data dell'ordine: {{ $order->created_at }}</p>
+<div>
+        <p class="fs-5 pt-3 ps-3 fw-bold text-secondary">Ordine ricevuto giorno: {{ $order->formatted_date }}</p>
     </div>
 <table class="f-d-table">
         <thead>
             <tr class="f-d-table-header">
-                <th>Nome Prodotto</th>
+                <th>Nome Piatto</th>
                 <th>Quantità</th>
                 <th>Prezzo Unitario</th>
             </tr>
