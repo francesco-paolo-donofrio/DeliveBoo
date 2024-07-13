@@ -822,3 +822,15 @@ td:first-child {
         aspect-ratio: 1/1;
     }
 }
+#no-orders-warning{
+    border: 2px solid  $secondary-color-backend;
+    background-color: $third-color-backend;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}

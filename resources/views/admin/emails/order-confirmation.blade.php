@@ -4,7 +4,7 @@
 <h1>Ordine effettuato, ecco un riepilogo</h1>
 <!-- Se hai bisogno di visualizzare i dettagli dei prodotti -->
 @if($lead->order->orderProducts)
-    <h2>Dettagli del prodotto</h2>
+    <h2>Dettagli di acquisto</h2>
     @foreach($lead->order->orderProducts as $product)
         <p>Prodotto: {{ $product->product_name }}</p>
         <p>Quantità: {{ $product->quantity }}</p>
