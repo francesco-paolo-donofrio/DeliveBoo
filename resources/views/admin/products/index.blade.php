@@ -15,7 +15,7 @@
 
 <div class="d-flex align-content-center align-items-center justify-content-between ms-2 mt-3">
 
-<a href="{{route('admin.products.create')}}" title="Create" class="text-black px-2"><button class="f-d-button-form-edit">Aggiungi prodotto</button></a>
+<a href="{{route('admin.products.create')}}" title="Create" class="text-black px-2"><button class="f-d-button-form-edit">Aggiungi piatto</button></a>
 </div>
 
 @if ($totalProductsCount)

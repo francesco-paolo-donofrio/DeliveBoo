@@ -61,7 +61,7 @@
 @elseif ($user_products->isEmpty())
   <section>
     <div class="container d-flex flex-column justify-content-between align-items-center">
-    <h1 class="text-center f-d-color-primary">Nessun piatto disponibile</h1>
+    <h1 class="text-center f-d-color-primary pt-4">Nessun piatto disponibile per: {{$user_restaurant->name}}</h1>
     <p class="text-center f-d-color-primary">Per favore, aggiungi il primo piatto.</p>
 
    

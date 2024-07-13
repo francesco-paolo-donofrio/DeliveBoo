@@ -1784,6 +1784,8 @@ td:first-child {
     td:nth-of-type(2):before { content: "Visibilità"; }
     td:nth-of-type(3):before { content: "Prezzo"; }
 
+
+}
 #no-orders-warning{
     border: 2px solid  $secondary-color-backend;
     background-color: $third-color-backend;
@@ -1795,5 +1797,4 @@ td:first-child {
     justify-content: center;
     align-items: center;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
 }
