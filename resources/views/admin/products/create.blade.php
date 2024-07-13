@@ -5,7 +5,7 @@
 @section('content')
 <div class="f-d-bg-login-register">
     <section class="container f-d-form-edit-create">
-        <h2 class="text-white fw-bold">Aggiungi un nuovo prodotto</h2>
+        <h2 class="text-white fw-bold">Aggiungi un nuovo piatto</h2>
         <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data" novalidate>
             @csrf
             <!-- NOME -->
@@ -67,15 +67,15 @@
 
             <!-- VISIBILITA' -->
             <div id="visible" class="mb-3 text-secondary">
-                <div for="visible" class="text-white fw-bold mb-2">Vuoi mostrare il prodotto sul menù?*</div>
+                <div for="visible" class="text-white fw-bold mb-2">Vuoi mostrare il piatto nel menù?*</div>
                 <div class="">
                     <div>
                         <input id="visible-1" name="visible" class="form-check-input me-1 typeClassJS" type="radio" value="1" aria-label="Radio button for following text input">
-                        <label for="visible-1" class="form-label text-white">Sì, mostra il prodotto sul menù</label>
+                        <label for="visible-1" class="form-label text-white">Sì, mostra il piatto nel menù</label>
                     </div>
                     <div>
                         <input id="visible-0" name="visible" class="form-check-input me-1 typeClassJS" type="radio" value="0" aria-label="Radio button for following text input">
-                        <label for="visible-0" class="form-label text-white">No, non mostrare il prodotto sul menù</label>
+                        <label for="visible-0" class="form-label text-white">No, non mostrare il piatto nel menù</label>
                     </div>
                 </div>
                 <div id="visibleMessage" class="error-message"></div>

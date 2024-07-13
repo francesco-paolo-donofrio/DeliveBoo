@@ -41,9 +41,9 @@ class RestaurantController extends Controller
             'results' => $restaurants
         ], 200);
     }
-    public function show($id)
+    public function show($slug)
     {
-        $restaurant = Restaurant::where('id', $id)
+        $restaurant = Restaurant::where('slug', $slug)
         ->with(['products' => function ($query) {
             $query->where('visible', 1);
         },'types'])

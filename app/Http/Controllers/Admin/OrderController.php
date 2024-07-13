@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Carbon\Carbon;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderProduct;
@@ -28,6 +28,12 @@ class OrderController extends Controller
                   ->from('order_product')
                   ->whereIn('product_id', $restaurant->products->pluck('id'));
         })->with('products')->orderBy('created_at', 'desc')->get();
+
+          // Formatta la data di ogni ordine
+          foreach ($orders as $order) {
+            $order->formatted_date = Carbon::parse($order->created_at)->format('d/m/Y\,\ H:i');
+        }
+
 
         $totalOrdersCount = $orders->count();
         return view('admin.orders.index', compact('orders', 'totalOrdersCount'));
@@ -66,6 +72,9 @@ class OrderController extends Controller
             })
             ->with('products')
             ->firstOrFail();
+
+          
+            $order->formatted_date = Carbon::parse($order->created_at)->format('d/m/Y \a\l\l\e\ H:i');
             
         return view('admin.orders.show', compact('order'));
     }

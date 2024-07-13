@@ -63,6 +63,9 @@
     <div class="container d-flex flex-column justify-content-between align-items-center">
     <h1 class="text-center f-d-color-primary">Nessun piatto disponibile</h1>
     <p class="text-center f-d-color-primary">Per favore, aggiungi il primo piatto.</p>
+
+   
+
     <a href="{{ route('admin.products.create') }}" class="f-d-button-form-edit">Aggiungi piatto</a>
     </div>
   </section>

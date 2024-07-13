@@ -20,7 +20,7 @@ use Braintree\Gateway;
 |
 */
 Route::get('restaurants', [RestaurantController::class, 'index']);
-Route::get('restaurants/{id}', [RestaurantController::class, 'show']);
+Route::get('restaurants/{slug}', [RestaurantController::class, 'show']);
 Route::get('types', [TypeController::class, 'index']);
 
 Route::get('/braintree/token', function () {

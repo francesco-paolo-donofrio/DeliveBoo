@@ -38,6 +38,7 @@ class RestaurantController extends Controller
         }
         $user = Auth::user();
         $form_data['user_id']= $user->id;
+        $form_data['slug']= Restaurant::generateSlug($form_data['name']);
         $new_restaurant = Restaurant::create($form_data);
         return redirect()->route('admin.restaurants.index')->with('created', $new_restaurant->name . ' è stato aggiunto');
     }
