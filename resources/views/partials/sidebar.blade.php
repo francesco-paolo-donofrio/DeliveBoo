@@ -10,19 +10,19 @@
                 @else
                 <a href="{{ route('admin.dashboard') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-table-columns"></i>
-                    Dashboard
+                    <em class="f-d-display-none">Dashboard</em>
                 </a>
                 <a href="{{ route('admin.products.index') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-utensils"></i>
-                    Piatti/Menù
+                    <em class="f-d-display-none">Piatti/Menù</em>
                 </a>
                 <a href="{{ route('admin.orders.index') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-clipboard-check"></i>
-                    Ordini
+                    <em class="f-d-display-none">Ordini</em>
                 </a>
                 <a href="#" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-chart-line"></i>
-                    Dati e grafici
+                    <em class="f-d-display-none">Dati e grafici</em>
                 </a>
                 @endguest
             </div>

@@ -35,7 +35,7 @@
                     <td>{{ $order->formatted_date }}</td>
 
                     <td class="d-flex align-items-center justify-content-center">
-                        <a href="{{ route('admin.orders.show', $order->id) }}" class="f-d-button f-d-primary-color fw-bold">Visualizza</a>
+                        <a href="{{ route('admin.orders.show', $order->id) }}" class="f-d-button-form-edit f-d-primary-color fw-bold">Visualizza</a>
 
                    
                         

@@ -282,32 +282,97 @@ $fa-font-path: "../fonts/webfonts" !default;
 }
 
 
-/* Stile per le celle della tabella */
+// Variabili per l'animazione
+$transition-duration: 0.3s;
+
+// Stile per la tabella
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid $fourth-color-frontend;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+// Stile per le celle della tabella
 th,
 td {
-    padding: 5px 5px;
-    border: 1px solid $fourth-color-frontend;
-    text-align: left;
+  padding: 12px 15px;
+  text-align: left;
 }
 
-/* Stile per l'intestazione della tabella */
+// Stile per l'intestazione della tabella
 th {
-    background: linear-gradient(90deg, $third-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
-    color: $fifth-color-backend;
-    font-weight: bold;
-    text-transform: uppercase;
+    background: linear-gradient(
+        90deg,
+        $primary-color-backend 0%,
+        adjust-hue($secondary-color-backend, 30deg) 20%,
+        adjust-hue($secondary-color-backend, 15deg) 40%,
+        $secondary-color-backend 60%,
+        adjust-hue($primary-color-backend, -15deg) 80%,
+        $secondary-color-backend 100%
+      );
+background-size: 100% 100%, 50px 100%;
+background-repeat: no-repeat, repeat;
+  color: $fifth-color-backend;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
 
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $fifth-color-backend;
+    transform: scaleX(0);
+    transition: transform $transition-duration ease-in-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
 }
 
-/* Stile per le righe della tabella */
-tr:nth-child(even) {
-    background-color: $secondary-color-backend;
+// Stile per le righe della tabella
+tr {
+  transition: background-color $transition-duration ease;
+
+  &:nth-child(even) {
+    background-color: rgba($third-color-backend, 0.1);
+  }
+
+  &:hover {
+    background-color: rgba($third-color-backend, 0.3);
+  }
 }
 
-/* Stile per la prima colonna */
+// Stile per la prima colonna
 td:first-child {
-    font-weight: bold;
-    
+  font-weight: bold;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: $primary-color-backend;
+    transform: scaleY(0);
+    transition: transform $transition-duration ease-in-out;
+  }
+
+  &:hover::before {
+    transform: scaleY(1);
+  }
 }
 
 .f-d-firstFavProject {
@@ -785,14 +850,15 @@ td:first-child {
 }
 
 .error-message {
-    color: #F28B0C;
+    font-weight: bold;
+    color: red;
     display: none; /* Nasconde il messaggio di errore inizialmente */
 }
 
 .input-error {
-    border-color: #F28B0C;
+    border-color: red;
     background-color: #FFF3CD;
-    border: 3px solid #F28B0C;
+    border: 3px solid red;
 }
 
 /* Form di registrazione (Register.blade) */
@@ -815,6 +881,10 @@ td:first-child {
     border-radius: 20px;
 }
 
+#exampleModal{
+    padding-top: 40px;
+}
+
 /* Layout email */
 #header-email {
     img{
@@ -822,6 +892,898 @@ td:first-child {
         aspect-ratio: 1/1;
     }
 }
+
+// mediaqueries
+
+@media screen and (max-width: 1024px) {
+    #exampleModal{
+        padding-top: 40px;
+    }
+}
+@media screen and (max-width: 768px) {
+    #exampleModal{
+        padding-top: 40px;
+    }
+    .f-d-flex-mq {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+    .f-d-main-first-container {
+        width: 100%;
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
+    
+    .f-d-main-second-container {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .f-d-header {
+        background: linear-gradient(to right, $primary-color-backend, $third-color-backend);
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 60px;
+        width: calc(100% - 60px);
+        z-index: 3000;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+            -webkit-background-clip: text;
+            /* Safari/Chrome */
+            -moz-background-clip: text;
+            /* Firefox */
+            -o-background-clip: text;
+            /* Opera */
+            background-clip: text;
+            /* Standard */
+            color: transparent;
+            padding: 10px;
+    
+            &:hover {
+                color: $primary-color-backend;
+            }
+        }
+    
+        i {
+            background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+            -webkit-background-clip: text;
+            /* Safari/Chrome */
+            -moz-background-clip: text;
+            /* Firefox */
+            -o-background-clip: text;
+            /* Opera */
+            background-clip: text;
+            /* Standard */
+            color: transparent;
+            cursor: pointer;
+            padding-right: 10px;
+    
+            &:hover {
+                color: $primary-color-backend;
+            }
+        }
+    }
+
+    .f-d-display-none {
+        display: none;
+    }
+
+    .f-d-image-logo {
+        display: none;
+    }
+
+    .f-d-logo-container {
+        display: none;
+    }
+
+    .f-d-nav-vertical {
+    width: 60px;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
+    color: transparent;
+
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        color: transparent;
+        &:hover {
+            color: $fourth-color-frontend;
+        }
+    }
+
+    i {
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        /* Opera */
+        color: transparent;
+        cursor: pointer;
+        padding-right: 10px;
+
+        &:hover {
+            color: $fourth-color-frontend;
+        }
+    }
+    }
+
+    .f-d-sidebar {
+        width: 60px;
+        height: 100vh;
+        background: linear-gradient(to bottom, $primary-color-backend, $third-color-backend);
+        overflow: hidden;
+        /* flex-shrink: 0; soluzione2: collegata al flex grow del main */
+    }
+
+    .f-d-main {
+        /* flex-grow: 1; soluzione2: collegata al flex-schrink di #sidebar */
+        width: calc(100% - 60px);
+        height: 100vh;
+        padding-top: 80px;
+        overflow-y: auto;
+        color: white;
+    }
+}
+@media screen and (max-width: 425px) {
+    #exampleModal{
+        padding-top: 40px;
+    }
+    .f-d-flex-mq {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+    .f-d-main-first-container {
+        width: 100%;
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
+    
+    .f-d-main-second-container {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .f-d-header {
+        background: linear-gradient(to right, $primary-color-backend, $third-color-backend);
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 60px;
+        width: calc(100% - 60px);
+        z-index: 3000;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+            -webkit-background-clip: text;
+            /* Safari/Chrome */
+            -moz-background-clip: text;
+            /* Firefox */
+            -o-background-clip: text;
+            /* Opera */
+            background-clip: text;
+            /* Standard */
+            color: transparent;
+            padding: 10px;
+    
+            &:hover {
+                color: $primary-color-backend;
+            }
+        }
+    
+        i {
+            background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+            -webkit-background-clip: text;
+            /* Safari/Chrome */
+            -moz-background-clip: text;
+            /* Firefox */
+            -o-background-clip: text;
+            /* Opera */
+            background-clip: text;
+            /* Standard */
+            color: transparent;
+            cursor: pointer;
+            padding-right: 10px;
+    
+            &:hover {
+                color: $primary-color-backend;
+            }
+        }
+    }
+
+    .f-d-display-none {
+        display: none;
+    }
+
+    .f-d-image-logo {
+        display: none;
+    }
+
+    .f-d-logo-container {
+        display: none;
+    }
+
+    .f-d-nav-vertical {
+    width: 60px;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
+    color: transparent;
+
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        color: transparent;
+        &:hover {
+            color: $fourth-color-frontend;
+        }
+    }
+
+    i {
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        /* Opera */
+        color: transparent;
+        cursor: pointer;
+        padding-right: 10px;
+
+        &:hover {
+            color: $fourth-color-frontend;
+        }
+    }
+    }
+
+    .f-d-sidebar {
+        width: 60px;
+        height: 100vh;
+        background: linear-gradient(to bottom, $primary-color-backend, $third-color-backend);
+        overflow: hidden;
+        /* flex-shrink: 0; soluzione2: collegata al flex grow del main */
+    }
+
+    .f-d-main {
+        /* flex-grow: 1; soluzione2: collegata al flex-schrink di #sidebar */
+        width: calc(100% - 60px);
+        height: 100vh;
+        padding-top: 80px;
+        overflow-y: auto;
+        color: white;
+    }
+
+    // mediaqueries tab
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: center;
+    }
+
+    td:before {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        transform: translateY(-50%);
+        text-align: left;
+        font-weight: bold;
+    }
+
+    /* Content of the "labels" */
+    td:nth-of-type(1):before { content: "Nome"; }
+    td:nth-of-type(2):before { content: "Visibilità"; }
+    td:nth-of-type(3):before { content: "Prezzo"; }
+}
+@media screen and (max-width: 375px) {
+    #exampleModal{
+        padding-top: 40px;
+
+        .f-d-button-form-cancel-modal {
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: red;
+            padding: 5px 10px;
+            text-align: center;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 13px;
+            margin: 2px 1px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        
+            &:hover {
+                background: linear-gradient(90deg, $fifth-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
+            }
+        }
+    }
+    .f-d-button-form-edit {
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, $third-color-backend, $secondary-color-backend);
+        padding: 5px 10px;
+        text-align: center;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 13px;
+        margin: 2px 1px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    
+        &:hover {
+            background: linear-gradient(90deg, $fifth-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
+        }
+    }
+    .f-d-flex-mq {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+    .f-d-main-first-container {
+        width: 100%;
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
+    
+    .f-d-main-second-container {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .f-d-header {
+        background: linear-gradient(to right, $primary-color-backend, $third-color-backend);
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 60px;
+        width: calc(100% - 60px);
+        z-index: 3000;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+            -webkit-background-clip: text;
+            /* Safari/Chrome */
+            -moz-background-clip: text;
+            /* Firefox */
+            -o-background-clip: text;
+            /* Opera */
+            background-clip: text;
+            /* Standard */
+            color: transparent;
+            padding: 10px;
+    
+            &:hover {
+                color: $primary-color-backend;
+            }
+        }
+    
+        i {
+            background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+            -webkit-background-clip: text;
+            /* Safari/Chrome */
+            -moz-background-clip: text;
+            /* Firefox */
+            -o-background-clip: text;
+            /* Opera */
+            background-clip: text;
+            /* Standard */
+            color: transparent;
+            cursor: pointer;
+            padding-right: 10px;
+    
+            &:hover {
+                color: $primary-color-backend;
+            }
+        }
+    }
+
+    .f-d-display-none {
+        display: none;
+    }
+
+    .f-d-image-logo {
+        display: none;
+    }
+
+    .f-d-logo-container {
+        display: none;
+    }
+
+    .f-d-nav-vertical {
+    width: 60px;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
+    color: transparent;
+
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        color: transparent;
+        &:hover {
+            color: $fourth-color-frontend;
+        }
+    }
+
+    i {
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        /* Opera */
+        color: transparent;
+        cursor: pointer;
+        padding-right: 10px;
+
+        &:hover {
+            color: $fourth-color-frontend;
+        }
+    }
+    }
+
+    .f-d-sidebar {
+        width: 60px;
+        height: 100vh;
+        background: linear-gradient(to bottom, $primary-color-backend, $third-color-backend);
+        overflow: hidden;
+        /* flex-shrink: 0; soluzione2: collegata al flex grow del main */
+    }
+
+    .f-d-main {
+        /* flex-grow: 1; soluzione2: collegata al flex-schrink di #sidebar */
+        width: calc(100% - 60px);
+        height: 100vh;
+        padding-top: 80px;
+        overflow-y: auto;
+        color: white;
+    }
+
+    // mediaqueries tab
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: center;
+    }
+
+    td:before {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        transform: translateY(-50%);
+        text-align: left;
+        font-weight: bold;
+    }
+
+    /* Content of the "labels" */
+    td:nth-of-type(1):before { content: "Nome"; }
+    td:nth-of-type(2):before { content: "Visibilità"; }
+    td:nth-of-type(3):before { content: "Prezzo"; }
+}
+@media screen and (max-width: 320px) {
+    #exampleModal{
+        padding-top: 40px;
+
+        .f-d-button-form-cancel-modal {
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: red;
+            padding: 5px 10px;
+            text-align: center;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 2px 1px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        
+            &:hover {
+                background: linear-gradient(90deg, $fifth-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
+            }
+        }
+    }
+    .f-d-button-form-edit {
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, $third-color-backend, $secondary-color-backend);
+        padding: 5px 10px;
+        text-align: center;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 2px 1px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    
+        &:hover {
+            background: linear-gradient(90deg, $fifth-color-backend, $secondary-color-backend, $primary-color-backend, $fourth-color-backend);
+        }
+    }
+    .f-d-flex-mq {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+    }
+    .f-d-main-first-container {
+        width: 100%;
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
+    
+    .f-d-main-second-container {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .f-d-header {
+        background: linear-gradient(to right, $primary-color-backend, $third-color-backend);
+        height: 80px;
+        position: fixed;
+        top: 0;
+        left: 60px;
+        width: calc(100% - 60px);
+        z-index: 3000;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    
+        a {
+            text-decoration: none;
+            font-weight: bold;
+            background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+            -webkit-background-clip: text;
+            /* Safari/Chrome */
+            -moz-background-clip: text;
+            /* Firefox */
+            -o-background-clip: text;
+            /* Opera */
+            background-clip: text;
+            /* Standard */
+            color: transparent;
+            padding: 10px;
+    
+            &:hover {
+                color: $primary-color-backend;
+            }
+        }
+    
+        i {
+            background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+            -webkit-background-clip: text;
+            /* Safari/Chrome */
+            -moz-background-clip: text;
+            /* Firefox */
+            -o-background-clip: text;
+            /* Opera */
+            background-clip: text;
+            /* Standard */
+            color: transparent;
+            cursor: pointer;
+            padding-right: 10px;
+    
+            &:hover {
+                color: $primary-color-backend;
+            }
+        }
+    }
+
+    .f-d-display-none {
+        display: none;
+    }
+
+    .f-d-image-logo {
+        display: none;
+    }
+
+    .f-d-logo-container {
+        display: none;
+    }
+
+    .f-d-nav-vertical {
+    width: 60px;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    -webkit-background-clip: text;
+    /* Safari/Chrome */
+    -moz-background-clip: text;
+    /* Firefox */
+    -o-background-clip: text;
+    /* Opera */
+    background-clip: text;
+    /* Standard */
+    color: transparent;
+
+
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        color: transparent;
+        &:hover {
+            color: $fourth-color-frontend;
+        }
+    }
+
+    i {
+        background: linear-gradient(90deg, $fifth-color-frontend, $fourth-color-frontend);
+        -webkit-background-clip: text;
+        /* Safari/Chrome */
+        -moz-background-clip: text;
+        /* Firefox */
+        -o-background-clip: text;
+        /* Opera */
+        background-clip: text;
+        /* Standard */
+        /* Opera */
+        color: transparent;
+        cursor: pointer;
+        padding-right: 10px;
+
+        &:hover {
+            color: $fourth-color-frontend;
+        }
+    }
+    }
+
+    .f-d-sidebar {
+        width: 60px;
+        height: 100vh;
+        background: linear-gradient(to bottom, $primary-color-backend, $third-color-backend);
+        overflow: hidden;
+        /* flex-shrink: 0; soluzione2: collegata al flex grow del main */
+    }
+
+    .f-d-main {
+        /* flex-grow: 1; soluzione2: collegata al flex-schrink di #sidebar */
+        width: calc(100% - 60px);
+        height: 100vh;
+        padding-top: 80px;
+        overflow-y: auto;
+        color: white;
+    }
+
+    // mediaqueries tab
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: center;
+    }
+
+    td:before {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        transform: translateY(-50%);
+        text-align: left;
+        font-weight: bold;
+    }
+
+    /* Content of the "labels" */
+    td:nth-of-type(1):before { content: "Nome"; }
+    td:nth-of-type(2):before { content: "Visibilità"; }
+    td:nth-of-type(3):before { content: "Prezzo"; }
+
 #no-orders-warning{
     border: 2px solid  $secondary-color-backend;
     background-color: $third-color-backend;

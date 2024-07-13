@@ -5,7 +5,6 @@
 @section('content')
 
 <div class="f-d-bg-login-register">
-    
     <section class="container f-d-form-edit-create">
         <h2 class="text-white fw-bold">Modifica piatto <em>{{$user_restaurant_products->name}}</em></h2>
         <form class="text-secondary" action="{{ route('admin.products.update', $user_restaurant_products->id) }}" method="POST" enctype="multipart/form-data">

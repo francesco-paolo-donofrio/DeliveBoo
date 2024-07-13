@@ -61,8 +61,11 @@
 @elseif ($user_products->isEmpty())
   <section>
     <div class="container d-flex flex-column justify-content-between align-items-center">
-    <h1 class="text-center gradientColor pt-5">Nessun piatto disponibile per: {{$user_restaurant->name}}</h1>
-    <p class="text-center gradientColor">Per favore, aggiungi il primo prodotto.</p>
+    <h1 class="text-center f-d-color-primary">Nessun piatto disponibile</h1>
+    <p class="text-center f-d-color-primary">Per favore, aggiungi il primo piatto.</p>
+
+   
+
     <a href="{{ route('admin.products.create') }}" class="f-d-button-form-edit">Aggiungi piatto</a>
     </div>
   </section>
@@ -73,7 +76,7 @@
     class="fa-solid fa-utensils f-d-color-primary p-4 fw-bold"></i>Il tuo Ristorante</h1>
 
   {{-- Due sezioni: a sx img, a dx info ristorante --}}
-  <div class="d-flex">
+  <div class="f-d-flex-mq d-flex">
     <div class="f-d-main-first-container f-d-main-image">
     <img src="{{asset('storage/' . $user_restaurant->image)}}" alt="{{$user_restaurant->name}}">
     </div>
