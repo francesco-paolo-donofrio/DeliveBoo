@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <section class="home">
-    <div class="container text-center">
-        <img src="{{asset('images/logo_deliveboo.png')}}" alt="deliveboo-logo">
+    <div class="container f-d-color-text-2 text-center">
+        <img src="{{asset('images/logo_deliveboo.png')}}" class="f-d-remove" alt="deliveboo-logo">
         <h1>Pannello amministratore</h1>
         <h3>Effettua la registrazione per creare il tuo ristorante e gestire i tuoi ordini</h3>
         <div class="nav-item text-center bounce-title">

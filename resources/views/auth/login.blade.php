@@ -20,7 +20,7 @@
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                        <div id="emailMessage" class="error-message"></div>
+                                    <div id="emailMessage" class="error-message"></div>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -36,9 +36,9 @@
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror"
-                                        name="password" required autocomplete="current-password">
-                                        <div id="pswMessage" class="error-message"></div>
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="current-password">
+                                    <div id="pswMessage" class="error-message"></div>
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -62,8 +62,8 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <div class="col-md-8 offset-md-4 d-flex">
-                                    <button type="submit" id="submitBtn" class="btn f-d-button">
+                                <div class="col-md-8 offset-md-4 d-flex flex-column ">
+                                    <button type="submit" id="submitBtn" class="btn f-d-button p-2 align-self-center">
                                         {{ __('Accedi') }}
                                     </button>
 
@@ -74,8 +74,8 @@
                                     @endif
                                 </div>
                                 <a class="btn btn-link text-white fw-bold" href="{{ route('register') }}">
-                                            {{ __('Non hai un account? Registrati') }}
-                                        </a>
+                                    {{ __('Non hai un account? Registrati') }}
+                                </a>
                             </div>
                         </form>
                     </div>
