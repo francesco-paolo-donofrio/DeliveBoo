@@ -73,6 +73,9 @@
                                         </a>
                                     @endif
                                 </div>
+                                <a class="btn btn-link text-white fw-bold" href="{{ route('register') }}">
+                                            {{ __('Non hai un account? Registrati') }}
+                                        </a>
                             </div>
                         </form>
                     </div>
