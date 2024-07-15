@@ -2,7 +2,7 @@
 
 @section('content')
 <section>
-<h2 class="gradientColor text-center fw-bold py-4">Riepilogo Ordine<em></em></h2>
+<h2 class="f-d-color-primary p-4 fw-bold text-center">Riepilogo Ordine<em></em></h2>
 <div>
         <p class="fs-5 pt-3 ps-3 fw-bold text-secondary">Ordine ricevuto giorno: {{ $order->formatted_date }}</p>
     </div>

@@ -4,7 +4,7 @@
 
 <div class="container">
 @if($orders->isNotEmpty())
-<h1 class="gradientColor text-center py-4">Ordini</h1>
+<h1 class="f-d-color-primary p-4 fw-bold text-center">Ordini</h1>
     @if ($totalOrdersCount)
     <p class="text-secondary fw-bold ps-3 pt-4">Ordini disponibili: {{ $totalOrdersCount }}</p>
 @else ($totalOrdersCount < 1)
