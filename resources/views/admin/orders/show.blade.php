@@ -18,7 +18,7 @@
             @foreach($order->products as $product)
                 <tr>
                     <td>{{ $product->pivot->product_name }}</td>
-                    <td>{{ $product->pivot->quantity }}</td>
+                    <td class="text-end">{{ $product->pivot->quantity }}</td>
                     <td class="text-end">{{ $product->pivot->unit_price }} &euro;</td>
                 </tr>
             @endforeach
