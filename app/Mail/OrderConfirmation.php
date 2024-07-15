@@ -31,7 +31,7 @@ class OrderConfirmation extends Mailable
     public function envelope(): Envelope //crea l'oggetto envelope per la mail della conferma dell'ordine
     {
         return new Envelope(
-            subject: 'Order Confirmation',
+            subject: 'Conferma ordine',
             replyTo: $this->lead->address
         );
     }
