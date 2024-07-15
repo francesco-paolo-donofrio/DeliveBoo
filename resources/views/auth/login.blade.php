@@ -48,7 +48,7 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4 row">
+                            <div class="mb-4 row d-flex justify-content-center align-items-center flex-column">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="form-check">
                                         <input class="form-check-input bg-gray" type="checkbox" name="remember"
@@ -61,9 +61,9 @@
                                 </div>
                             </div>
 
-                            <div class="mb-4 row">
-                                <div class="col-md-8 offset-md-4 d-flex flex-column ">
-                                    <button type="submit" id="submitBtn" class="btn f-d-button p-2 align-self-center">
+                            <div class=" row d-flex flex-column justify-content-center align-items-center f-d-margin">
+                                <div class="col-md-8 offset-md-4 d-flex justify-content-center flex-column align-items-center ">
+                                    <button type="submit" id="submitBtn" class="btn f-d-button p-2">
                                         {{ __('Accedi') }}
                                     </button>
 
@@ -72,11 +72,12 @@
                                             {{ __('Password dimenticata?') }}
                                         </a>
                                     @endif
+                                    <a class="btn btn-link text-white fw-bold" href="{{ route('register') }}">
+                                {{ __('Non hai un account? Registrati') }}
+                            </a>
                                 </div>
-                                <a class="btn btn-link text-white fw-bold" href="{{ route('register') }}">
-                                    {{ __('Non hai un account? Registrati') }}
-                                </a>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
