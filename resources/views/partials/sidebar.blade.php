@@ -11,6 +11,10 @@
                     <em class="f-d-display-none">Vai a Deliveboo</em>
                 </a>
                 @else
+                <a href="http://localhost:5174" class="d-flex justify-content-start align-items-center">
+                    <i class="fs-4 fa-solid fa-home"></i>
+                    <em class="f-d-display-none">Vai a Deliveboo</em>
+                </a>
                 <a href="{{ route('admin.dashboard') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-table-columns"></i>
                     <em class="f-d-display-none">Dashboard</em>

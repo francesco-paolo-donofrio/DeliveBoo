@@ -25,13 +25,10 @@
 
         <div class="f-d-content">
             <div class="f-d-header">
-                <!-- Left Side Of Navbar -->
-                <div class="d-flex align-items-center justify-content-start">
-                    <button class="f-d-back-button" onclick="goBack()"><i class="fa-solid fa-arrow-left fs-4"
-                            style="color: #edd6b6;"></i></button>
-                    <button class="f-d-back-button" onclick="goForward()"><i
-                            class="fa-solid fa-arrow-left fa-rotate-180 fs-4" style="color: #edd6b6;"></i></button>
-                </div>
+            <div class="d-flex align-items-center justify-content-start">
+                    
+                    </div>
+                
                 <!-- Right Side Of Navbar -->
 
                 <ul class="navbar-nav d-flex flex-row gap-3">
@@ -93,12 +90,5 @@
 
 <!-- Script per tornare indietro alla pagina precedentemente visualizzata -->
 <script>
-    function goBack() {
-        window.history.back();
-    }
-
-    function goForward() {
-        window.history.forward();
-    }
 
 </script>
