@@ -31,7 +31,7 @@
                     <td>{{ $order->customer_name }}</td>
                     <td>{{ $order->customer_email }}</td>  
                     <td>{{ $order->customer_address }}</td>
-                    <td>{{ $order->total_price }}</td>
+                    <td>{{ $order->total_price }} &euro;</td>
                     <td>{{ $order->formatted_date }}</td>
 
                     <td class="d-flex align-items-center justify-content-center">
