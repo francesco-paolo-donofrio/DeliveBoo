@@ -112,11 +112,11 @@
       <td><a class="text-white text-decoration-none"
       href="{{route('admin.products.show', $item->id)}}">{{$item->name}}</a></td>
       @if ($item->visible == 0)
-      <td>No</td>
+      <td class="text-center pe-3"><i class="fs-3 fa-regular fa-circle-xmark" style="color: #ff2600;"></i></td>
     @else ($product->visible == 1)
-      <td>Si</td>
+    <td class="text-center pe-3"><i class="fs-3 fa-regular fa-circle-check" style="color: #ffffff;"></i></i></td>
     @endif
-      <td>{{$item->price}}</td>
+      <td class="text-end">{{$item->price}} &euro;</td>
     </tr>
   @endforeach
     </tbody>

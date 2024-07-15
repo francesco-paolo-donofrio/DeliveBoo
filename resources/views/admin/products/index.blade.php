@@ -41,9 +41,9 @@
             <td class="product-name ps-2">{{$product->name}}</td>
             <td class="text-end pe-3">{{$product->price}} &euro;</td> 
             @if ($product->visible == 0)
-            <td class="text-end pe-3"><i class="fs-3 fa-regular fa-circle-xmark" style="color: #ff2600;"></i></td>
+            <td class="text-center pe-3"><i class="fs-3 fa-regular fa-circle-xmark" style="color: #ff2600;"></i></td>
             @else ($product->visible == 1)
-            <td class="text-end pe-3"><i class="fs-3 fa-regular fa-circle-check" style="color: #ffffff;"></i></i></td>
+            <td class="text-center pe-3"><i class="fs-3 fa-regular fa-circle-check" style="color: #ffffff;"></i></i></td>
             @endif
 
             <td class="text-end pe-3">
