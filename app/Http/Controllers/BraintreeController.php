@@ -115,8 +115,6 @@ class BraintreeController extends Controller
 
             
                 // Mail::to($user_restaurant->email)->send(new OrderConfirmation($lead));
-            Mail::to('elisamavilia1@gmail.com')->send(new OrderConfirmation($lead));
-
             // return response()->json(['success' => false, 'message' => 'Ristorante non trovato']);
             
 
