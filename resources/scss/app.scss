@@ -1281,6 +1281,12 @@ td:first-child {
     td:nth-of-type(2):before { content: "Visibilità"; }
     td:nth-of-type(3):before { content: "Prezzo"; }
 }
+
+@media screen and (max-width: 390px) {
+    .f-d-remove {
+        display: none;
+    }
+}
 @media screen and (max-width: 375px) {
     #exampleModal{
         padding-top: 40px;
