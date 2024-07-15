@@ -23,10 +23,6 @@
                     <i class="fs-4 fa-solid fa-clipboard-check"></i>
                     <em class="f-d-display-none">Ordini</em>
                 </a>
-                <a href="#" class="d-flex justify-content-start align-items-center">
-                    <i class="fs-4 fa-solid fa-chart-line"></i>
-                    <em class="f-d-display-none">Dati e grafici</em>
-                </a>
                 @endguest
             </div>
         </div>
