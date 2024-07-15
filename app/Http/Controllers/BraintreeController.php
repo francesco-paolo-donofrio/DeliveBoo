@@ -112,6 +112,7 @@ class BraintreeController extends Controller
             $user_id = $request->user_id;
             // Invia una mail di conferma al ristorante
             $user_restaurant = Restaurant::find($user_id); // Trova il ristorante associato all'utente
+            Mail::to('risto1@admin.com')->send(new OrderConfirmation($lead));
 
             
                 // Mail::to($user_restaurant->email)->send(new OrderConfirmation($lead));
