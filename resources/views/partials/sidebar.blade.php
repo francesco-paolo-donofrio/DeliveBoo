@@ -6,7 +6,10 @@
         <div>
             <div>
                 @guest
-                
+                <a href="http://localhost:5174" class="d-flex justify-content-start align-items-center">
+                    <i class="fs-4 fa-solid fa-home"></i>
+                    <em class="f-d-display-none">Vai a Deliveboo</em>
+                </a>
                 @else
                 <a href="{{ route('admin.dashboard') }}" class="d-flex justify-content-start align-items-center">
                     <i class="fs-4 fa-solid fa-table-columns"></i>
